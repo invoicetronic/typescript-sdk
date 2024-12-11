@@ -25,6 +25,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
+import type { ProblemHttpResult } from '../../src/models';
+// @ts-ignore
 import type { WebHook } from '../../src/models';
 // @ts-ignore
 import type { WebHookHistory } from '../../src/models';

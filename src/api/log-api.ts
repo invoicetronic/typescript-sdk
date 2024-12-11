@@ -26,6 +26,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
 import type { Event } from '../../src/models';
+// @ts-ignore
+import type { ProblemHttpResult } from '../../src/models';
 /**
  * LogApi - axios parameter creator
  * @export

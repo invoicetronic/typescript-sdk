@@ -43,6 +43,7 @@ export * from './indirizzo-resa';
 export * from './iscrizione-rea';
 export * from './model-error';
 export * from './problem-details';
+export * from './problem-http-result';
 export * from './rappresentante-fiscale';
 export * from './rappresentante-fiscale-cessionario-committente';
 export * from './receive';

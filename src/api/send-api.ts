@@ -27,7 +27,7 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { FatturaOrdinaria } from '../../src/models';
 // @ts-ignore
-import type { ProblemDetails } from '../../src/models';
+import type { ProblemHttpResult } from '../../src/models';
 // @ts-ignore
 import type { Send } from '../../src/models';
 /**
@@ -38,7 +38,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
     return {
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by file
+         * @summary Add an invoice by file
          * @param {Array<File>} files 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -90,7 +90,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * test **markdown**.
-         * @summary List send invoices
+         * @summary List invoices
          * @param {number} [companyId] Company id.
          * @param {string} [identifier] SDI identifier.
          * @param {string} [committente] VAT number or fiscal code.
@@ -206,7 +206,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Get a send invoice by id
+         * @summary Get a invoice by id
          * @param {number} id Item id.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -244,7 +244,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by json
+         * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -289,7 +289,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice
+         * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -334,7 +334,168 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by xml
+         * @summary Validate an invoice by file
+         * @param {Array<File>} files 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidateFilesPost: async (files: Array<File>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'files' is not null or undefined
+            assertParamExists('invoiceV1SendValidateFilesPost', 'files', files)
+            const localVarPath = `/invoice/v1/send/validate/files`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            if (files) {
+                files.forEach((element) => {
+                    localVarFormParams.append('files', element as any);
+                })
+            }
+
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice by json
+         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidateJsonPost: async (fatturaOrdinaria: FatturaOrdinaria, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'fatturaOrdinaria' is not null or undefined
+            assertParamExists('invoiceV1SendValidateJsonPost', 'fatturaOrdinaria', fatturaOrdinaria)
+            const localVarPath = `/invoice/v1/send/validate/json`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(fatturaOrdinaria, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice
+         * @param {Send} send 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidatePost: async (send: Send, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'send' is not null or undefined
+            assertParamExists('invoiceV1SendValidatePost', 'send', send)
+            const localVarPath = `/invoice/v1/send/validate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(send, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice by xml
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidateXmlPost: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/invoice/v1/send/validate/xml`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -389,7 +550,7 @@ export const SendApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by file
+         * @summary Add an invoice by file
          * @param {Array<File>} files 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -403,7 +564,7 @@ export const SendApiFp = function(configuration?: Configuration) {
         },
         /**
          * test **markdown**.
-         * @summary List send invoices
+         * @summary List invoices
          * @param {number} [companyId] Company id.
          * @param {string} [identifier] SDI identifier.
          * @param {string} [committente] VAT number or fiscal code.
@@ -429,7 +590,7 @@ export const SendApiFp = function(configuration?: Configuration) {
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Get a send invoice by id
+         * @summary Get a invoice by id
          * @param {number} id Item id.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -442,7 +603,7 @@ export const SendApiFp = function(configuration?: Configuration) {
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by json
+         * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -456,7 +617,7 @@ export const SendApiFp = function(configuration?: Configuration) {
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice
+         * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -470,7 +631,58 @@ export const SendApiFp = function(configuration?: Configuration) {
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by xml
+         * @summary Validate an invoice by file
+         * @param {Array<File>} files 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async invoiceV1SendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendValidateFilesPost(files, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendValidateFilesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice by json
+         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async invoiceV1SendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendValidateJsonPost(fatturaOrdinaria, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendValidateJsonPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice
+         * @param {Send} send 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async invoiceV1SendValidatePost(send: Send, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendValidatePost(send, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendValidatePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice by xml
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async invoiceV1SendValidateXmlPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendValidateXmlPost(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendValidateXmlPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -494,7 +706,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
     return {
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by file
+         * @summary Add an invoice by file
          * @param {Array<File>} files 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -505,7 +717,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * test **markdown**.
-         * @summary List send invoices
+         * @summary List invoices
          * @param {number} [companyId] Company id.
          * @param {string} [identifier] SDI identifier.
          * @param {string} [committente] VAT number or fiscal code.
@@ -528,7 +740,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Get a send invoice by id
+         * @summary Get a invoice by id
          * @param {number} id Item id.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -538,7 +750,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by json
+         * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -549,7 +761,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice
+         * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -560,7 +772,46 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
-         * @summary Add a send invoice by xml
+         * @summary Validate an invoice by file
+         * @param {Array<File>} files 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.invoiceV1SendValidateFilesPost(files, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice by json
+         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.invoiceV1SendValidateJsonPost(fatturaOrdinaria, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice
+         * @param {Send} send 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidatePost(send: Send, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.invoiceV1SendValidatePost(send, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Validate an invoice by xml
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        invoiceV1SendValidateXmlPost(options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.invoiceV1SendValidateXmlPost(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Send invoices are the invoices that are sent to the SDI.
+         * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {*} [options] Override http request option.
@@ -580,7 +831,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
 export interface SendApiInterface {
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice by file
+     * @summary Add an invoice by file
      * @param {Array<File>} files 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -591,7 +842,7 @@ export interface SendApiInterface {
 
     /**
      * test **markdown**.
-     * @summary List send invoices
+     * @summary List invoices
      * @param {number} [companyId] Company id.
      * @param {string} [identifier] SDI identifier.
      * @param {string} [committente] VAT number or fiscal code.
@@ -614,7 +865,7 @@ export interface SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Get a send invoice by id
+     * @summary Get a invoice by id
      * @param {number} id Item id.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -624,7 +875,7 @@ export interface SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice by json
+     * @summary Add an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -635,7 +886,7 @@ export interface SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice
+     * @summary Add an invoice
      * @param {Send} send 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -646,7 +897,46 @@ export interface SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice by xml
+     * @summary Validate an invoice by file
+     * @param {Array<File>} files 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApiInterface
+     */
+    invoiceV1SendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Validate an invoice by json
+     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApiInterface
+     */
+    invoiceV1SendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Validate an invoice
+     * @param {Send} send 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApiInterface
+     */
+    invoiceV1SendValidatePost(send: Send, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Validate an invoice by xml
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApiInterface
+     */
+    invoiceV1SendValidateXmlPost(options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Add an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -666,7 +956,7 @@ export interface SendApiInterface {
 export class SendApi extends BaseAPI implements SendApiInterface {
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice by file
+     * @summary Add an invoice by file
      * @param {Array<File>} files 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -679,7 +969,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
 
     /**
      * test **markdown**.
-     * @summary List send invoices
+     * @summary List invoices
      * @param {number} [companyId] Company id.
      * @param {string} [identifier] SDI identifier.
      * @param {string} [committente] VAT number or fiscal code.
@@ -704,7 +994,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Get a send invoice by id
+     * @summary Get a invoice by id
      * @param {number} id Item id.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -716,7 +1006,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice by json
+     * @summary Add an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -729,7 +1019,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice
+     * @summary Add an invoice
      * @param {Send} send 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
@@ -742,7 +1032,54 @@ export class SendApi extends BaseAPI implements SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
-     * @summary Add a send invoice by xml
+     * @summary Validate an invoice by file
+     * @param {Array<File>} files 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApi
+     */
+    public invoiceV1SendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendValidateFilesPost(files, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Validate an invoice by json
+     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApi
+     */
+    public invoiceV1SendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendValidateJsonPost(fatturaOrdinaria, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Validate an invoice
+     * @param {Send} send 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApi
+     */
+    public invoiceV1SendValidatePost(send: Send, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendValidatePost(send, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Validate an invoice by xml
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SendApi
+     */
+    public invoiceV1SendValidateXmlPost(options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendValidateXmlPost(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Send invoices are the invoices that are sent to the SDI.
+     * @summary Add an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {*} [options] Override http request option.
