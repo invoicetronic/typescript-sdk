@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Italian eInvoice API
- * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while still providing complete control over the invoice send/receive process. The API also provides advanced features and a rich toolchain, such as invoice validation, multiple upload methods, webhooks, event logs, CORS support, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
+ * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. The API also provides advanced features as encryption at rest, invoice validation, multiple upload formats, webhooks, event logging, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@invoicetronic.com
@@ -37,17 +37,17 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Updates are notifications that are sent by the SDI about the status of sent invoices.
          * @summary List updates
-         * @param {number} [companyId] Company id.
+         * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
-         * @param {boolean} [unread] Only unread items.
+         * @param {boolean} [unread] Unread items only.
          * @param {number} [sendId] Send item\&#39;s id.
          * @param {InvoiceV1UpdateGetStateEnum} [state] SDI state
          * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {string} [dateSentTo] UTC ISO 8601 format (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -134,7 +134,7 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Updates are notifications that are sent by the SDI about the status of sent invoices.
          * @summary Get an update by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -182,17 +182,17 @@ export const UpdateApiFp = function(configuration?: Configuration) {
         /**
          * Updates are notifications that are sent by the SDI about the status of sent invoices.
          * @summary List updates
-         * @param {number} [companyId] Company id.
+         * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
-         * @param {boolean} [unread] Only unread items.
+         * @param {boolean} [unread] Unread items only.
          * @param {number} [sendId] Send item\&#39;s id.
          * @param {InvoiceV1UpdateGetStateEnum} [state] SDI state
          * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {string} [dateSentTo] UTC ISO 8601 format (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -205,7 +205,7 @@ export const UpdateApiFp = function(configuration?: Configuration) {
         /**
          * Updates are notifications that are sent by the SDI about the status of sent invoices.
          * @summary Get an update by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -228,17 +228,17 @@ export const UpdateApiFactory = function (configuration?: Configuration, basePat
         /**
          * Updates are notifications that are sent by the SDI about the status of sent invoices.
          * @summary List updates
-         * @param {number} [companyId] Company id.
+         * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
-         * @param {boolean} [unread] Only unread items.
+         * @param {boolean} [unread] Unread items only.
          * @param {number} [sendId] Send item\&#39;s id.
          * @param {InvoiceV1UpdateGetStateEnum} [state] SDI state
          * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {string} [dateSentTo] UTC ISO 8601 format (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -248,7 +248,7 @@ export const UpdateApiFactory = function (configuration?: Configuration, basePat
         /**
          * Updates are notifications that are sent by the SDI about the status of sent invoices.
          * @summary Get an update by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -267,17 +267,17 @@ export interface UpdateApiInterface {
     /**
      * Updates are notifications that are sent by the SDI about the status of sent invoices.
      * @summary List updates
-     * @param {number} [companyId] Company id.
+     * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
-     * @param {boolean} [unread] Only unread items.
+     * @param {boolean} [unread] Unread items only.
      * @param {number} [sendId] Send item\&#39;s id.
      * @param {InvoiceV1UpdateGetStateEnum} [state] SDI state
      * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
-     * @param {string} [dateSentTo] UTC ISO 8601 format (2024-11-29T12:34:56Z)
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UpdateApiInterface
@@ -287,7 +287,7 @@ export interface UpdateApiInterface {
     /**
      * Updates are notifications that are sent by the SDI about the status of sent invoices.
      * @summary Get an update by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UpdateApiInterface
@@ -306,17 +306,17 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
     /**
      * Updates are notifications that are sent by the SDI about the status of sent invoices.
      * @summary List updates
-     * @param {number} [companyId] Company id.
+     * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
-     * @param {boolean} [unread] Only unread items.
+     * @param {boolean} [unread] Unread items only.
      * @param {number} [sendId] Send item\&#39;s id.
      * @param {InvoiceV1UpdateGetStateEnum} [state] SDI state
      * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
-     * @param {string} [dateSentTo] UTC ISO 8601 format (2024-11-29T12:34:56Z)
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UpdateApi
@@ -328,7 +328,7 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
     /**
      * Updates are notifications that are sent by the SDI about the status of sent invoices.
      * @summary Get an update by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UpdateApi

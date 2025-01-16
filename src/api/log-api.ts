@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Italian eInvoice API
- * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while still providing complete control over the invoice send/receive process. The API also provides advanced features and a rich toolchain, such as invoice validation, multiple upload methods, webhooks, event logs, CORS support, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
+ * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. The API also provides advanced features as encryption at rest, invoice validation, multiple upload formats, webhooks, event logging, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@invoicetronic.com
@@ -37,12 +37,19 @@ export const LogApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * Every API operation is logged and can be retrieved here.
          * @summary List events
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [companyId] Company id
+         * @param {string} [endpoint] 
+         * @param {string} [method] 
+         * @param {number} [apiVerion] Api version
+         * @param {number} [statusCode] Response status code
+         * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1LogGet: async (page?: number, pageSize?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        invoiceV1LogGet: async (companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/invoice/v1/log`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -58,6 +65,38 @@ export const LogApiAxiosParamCreator = function (configuration?: Configuration) 
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            if (companyId !== undefined) {
+                localVarQueryParameter['company_id'] = companyId;
+            }
+
+            if (endpoint !== undefined) {
+                localVarQueryParameter['endpoint'] = endpoint;
+            }
+
+            if (method !== undefined) {
+                localVarQueryParameter['method'] = method;
+            }
+
+            if (apiVerion !== undefined) {
+                localVarQueryParameter['api_verion'] = apiVerion;
+            }
+
+            if (statusCode !== undefined) {
+                localVarQueryParameter['status_code'] = statusCode;
+            }
+
+            if (dateCreatedFrom !== undefined) {
+                localVarQueryParameter['date_created_from'] = (dateCreatedFrom as any instanceof Date) ?
+                    (dateCreatedFrom as any).toISOString() :
+                    dateCreatedFrom;
+            }
+
+            if (dateCreatedTo !== undefined) {
+                localVarQueryParameter['date_created_to'] = (dateCreatedTo as any instanceof Date) ?
+                    (dateCreatedTo as any).toISOString() :
+                    dateCreatedTo;
+            }
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -81,7 +120,7 @@ export const LogApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * Every API operation is logged and can be retrieved here.
          * @summary Get an event by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -129,13 +168,20 @@ export const LogApiFp = function(configuration?: Configuration) {
         /**
          * Every API operation is logged and can be retrieved here.
          * @summary List events
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [companyId] Company id
+         * @param {string} [endpoint] 
+         * @param {string} [method] 
+         * @param {number} [apiVerion] Api version
+         * @param {number} [statusCode] Response status code
+         * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async invoiceV1LogGet(page?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Event>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1LogGet(page, pageSize, options);
+        async invoiceV1LogGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Event>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1LogGet(companyId, endpoint, method, apiVerion, statusCode, dateCreatedFrom, dateCreatedTo, page, pageSize, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LogApi.invoiceV1LogGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -143,7 +189,7 @@ export const LogApiFp = function(configuration?: Configuration) {
         /**
          * Every API operation is logged and can be retrieved here.
          * @summary Get an event by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -166,18 +212,25 @@ export const LogApiFactory = function (configuration?: Configuration, basePath?:
         /**
          * Every API operation is logged and can be retrieved here.
          * @summary List events
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [companyId] Company id
+         * @param {string} [endpoint] 
+         * @param {string} [method] 
+         * @param {number} [apiVerion] Api version
+         * @param {number} [statusCode] Response status code
+         * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1LogGet(page?: number, pageSize?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Event>> {
-            return localVarFp.invoiceV1LogGet(page, pageSize, options).then((request) => request(axios, basePath));
+        invoiceV1LogGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Event>> {
+            return localVarFp.invoiceV1LogGet(companyId, endpoint, method, apiVerion, statusCode, dateCreatedFrom, dateCreatedTo, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Every API operation is logged and can be retrieved here.
          * @summary Get an event by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -196,18 +249,25 @@ export interface LogApiInterface {
     /**
      * Every API operation is logged and can be retrieved here.
      * @summary List events
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [companyId] Company id
+     * @param {string} [endpoint] 
+     * @param {string} [method] 
+     * @param {number} [apiVerion] Api version
+     * @param {number} [statusCode] Response status code
+     * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
+     * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof LogApiInterface
      */
-    invoiceV1LogGet(page?: number, pageSize?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Event>>;
+    invoiceV1LogGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Event>>;
 
     /**
      * Every API operation is logged and can be retrieved here.
      * @summary Get an event by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof LogApiInterface
@@ -226,20 +286,27 @@ export class LogApi extends BaseAPI implements LogApiInterface {
     /**
      * Every API operation is logged and can be retrieved here.
      * @summary List events
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [companyId] Company id
+     * @param {string} [endpoint] 
+     * @param {string} [method] 
+     * @param {number} [apiVerion] Api version
+     * @param {number} [statusCode] Response status code
+     * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
+     * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof LogApi
      */
-    public invoiceV1LogGet(page?: number, pageSize?: number, options?: RawAxiosRequestConfig) {
-        return LogApiFp(this.configuration).invoiceV1LogGet(page, pageSize, options).then((request) => request(this.axios, this.basePath));
+    public invoiceV1LogGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, options?: RawAxiosRequestConfig) {
+        return LogApiFp(this.configuration).invoiceV1LogGet(companyId, endpoint, method, apiVerion, statusCode, dateCreatedFrom, dateCreatedTo, page, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Every API operation is logged and can be retrieved here.
      * @summary Get an event by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof LogApi

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Italian eInvoice API
- * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while still providing complete control over the invoice send/receive process. The API also provides advanced features and a rich toolchain, such as invoice validation, multiple upload methods, webhooks, event logs, CORS support, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
+ * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. The API also provides advanced features as encryption at rest, invoice validation, multiple upload formats, webhooks, event logging, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@invoicetronic.com
@@ -41,10 +41,11 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Add an invoice by file
          * @param {Array<File>} files 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendFilesPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendFilesPost: async (files: Array<File>, validate?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        invoiceV1SendFilesPost: async (files: Array<File>, validate?: boolean, signature?: InvoiceV1SendFilesPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'files' is not null or undefined
             assertParamExists('invoiceV1SendFilesPost', 'files', files)
             const localVarPath = `/invoice/v1/send/files`;
@@ -66,6 +67,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (validate !== undefined) {
                 localVarQueryParameter['validate'] = validate;
+            }
+
+            if (signature !== undefined) {
+                localVarQueryParameter['signature'] = signature;
             }
 
             if (files) {
@@ -91,10 +96,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * test **markdown**.
          * @summary List invoices
-         * @param {number} [companyId] Company id.
+         * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
-         * @param {string} [committente] VAT number or fiscal code.
-         * @param {string} [prestatore] VAT number or fiscal code.
+         * @param {string} [committente] Vat number or fiscal code.
+         * @param {string} [prestatore] Vat number or fiscal code.
          * @param {string} [fileName] File name.
          * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
@@ -103,8 +108,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -207,7 +212,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Send invoices are the invoices that are sent to the SDI.
          * @summary Get a invoice by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -247,10 +252,11 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendJsonPost: async (fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        invoiceV1SendJsonPost: async (fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendJsonPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'fatturaOrdinaria' is not null or undefined
             assertParamExists('invoiceV1SendJsonPost', 'fatturaOrdinaria', fatturaOrdinaria)
             const localVarPath = `/invoice/v1/send/json`;
@@ -273,6 +279,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['validate'] = validate;
             }
 
+            if (signature !== undefined) {
+                localVarQueryParameter['signature'] = signature;
+            }
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -292,10 +302,11 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendPost: async (send: Send, validate?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        invoiceV1SendPost: async (send: Send, validate?: boolean, signature?: InvoiceV1SendPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'send' is not null or undefined
             assertParamExists('invoiceV1SendPost', 'send', send)
             const localVarPath = `/invoice/v1/send`;
@@ -316,6 +327,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (validate !== undefined) {
                 localVarQueryParameter['validate'] = validate;
+            }
+
+            if (signature !== undefined) {
+                localVarQueryParameter['signature'] = signature;
             }
 
 
@@ -504,10 +519,11 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendXmlPost: async (fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        invoiceV1SendXmlPost: async (fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendXmlPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'fatturaOrdinaria' is not null or undefined
             assertParamExists('invoiceV1SendXmlPost', 'fatturaOrdinaria', fatturaOrdinaria)
             const localVarPath = `/invoice/v1/send/xml`;
@@ -528,6 +544,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (validate !== undefined) {
                 localVarQueryParameter['validate'] = validate;
+            }
+
+            if (signature !== undefined) {
+                localVarQueryParameter['signature'] = signature;
             }
 
 
@@ -559,11 +579,12 @@ export const SendApiFp = function(configuration?: Configuration) {
          * @summary Add an invoice by file
          * @param {Array<File>} files 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendFilesPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendFilesPost(files, validate, options);
+        async invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, signature?: InvoiceV1SendFilesPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendFilesPost(files, validate, signature, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendFilesPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -571,10 +592,10 @@ export const SendApiFp = function(configuration?: Configuration) {
         /**
          * test **markdown**.
          * @summary List invoices
-         * @param {number} [companyId] Company id.
+         * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
-         * @param {string} [committente] VAT number or fiscal code.
-         * @param {string} [prestatore] VAT number or fiscal code.
+         * @param {string} [committente] Vat number or fiscal code.
+         * @param {string} [prestatore] Vat number or fiscal code.
          * @param {string} [fileName] File name.
          * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
@@ -583,8 +604,8 @@ export const SendApiFp = function(configuration?: Configuration) {
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -597,7 +618,7 @@ export const SendApiFp = function(configuration?: Configuration) {
         /**
          * Send invoices are the invoices that are sent to the SDI.
          * @summary Get a invoice by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -612,11 +633,12 @@ export const SendApiFp = function(configuration?: Configuration) {
          * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendJsonPost(fatturaOrdinaria, validate, options);
+        async invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendJsonPost(fatturaOrdinaria, validate, signature, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendJsonPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -626,11 +648,12 @@ export const SendApiFp = function(configuration?: Configuration) {
          * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async invoiceV1SendPost(send: Send, validate?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendPost(send, validate, options);
+        async invoiceV1SendPost(send: Send, validate?: boolean, signature?: InvoiceV1SendPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendPost(send, validate, signature, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -692,11 +715,12 @@ export const SendApiFp = function(configuration?: Configuration) {
          * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendXmlPost(fatturaOrdinaria, validate, options);
+        async invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.invoiceV1SendXmlPost(fatturaOrdinaria, validate, signature, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.invoiceV1SendXmlPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -716,19 +740,20 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * @summary Add an invoice by file
          * @param {Array<File>} files 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendFilesPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
-            return localVarFp.invoiceV1SendFilesPost(files, validate, options).then((request) => request(axios, basePath));
+        invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, signature?: InvoiceV1SendFilesPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
+            return localVarFp.invoiceV1SendFilesPost(files, validate, signature, options).then((request) => request(axios, basePath));
         },
         /**
          * test **markdown**.
          * @summary List invoices
-         * @param {number} [companyId] Company id.
+         * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
-         * @param {string} [committente] VAT number or fiscal code.
-         * @param {string} [prestatore] VAT number or fiscal code.
+         * @param {string} [committente] Vat number or fiscal code.
+         * @param {string} [prestatore] Vat number or fiscal code.
          * @param {string} [fileName] File name.
          * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
@@ -737,8 +762,8 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -748,7 +773,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Send invoices are the invoices that are sent to the SDI.
          * @summary Get a invoice by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -760,22 +785,24 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
-            return localVarFp.invoiceV1SendJsonPost(fatturaOrdinaria, validate, options).then((request) => request(axios, basePath));
+        invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
+            return localVarFp.invoiceV1SendJsonPost(fatturaOrdinaria, validate, signature, options).then((request) => request(axios, basePath));
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
          * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendPost(send: Send, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
-            return localVarFp.invoiceV1SendPost(send, validate, options).then((request) => request(axios, basePath));
+        invoiceV1SendPost(send: Send, validate?: boolean, signature?: InvoiceV1SendPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
+            return localVarFp.invoiceV1SendPost(send, validate, signature, options).then((request) => request(axios, basePath));
         },
         /**
          * Send invoices are the invoices that are sent to the SDI.
@@ -822,11 +849,12 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
+         * @param {InvoiceV1SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
-            return localVarFp.invoiceV1SendXmlPost(fatturaOrdinaria, validate, options).then((request) => request(axios, basePath));
+        invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
+            return localVarFp.invoiceV1SendXmlPost(fatturaOrdinaria, validate, signature, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -842,19 +870,20 @@ export interface SendApiInterface {
      * @summary Add an invoice by file
      * @param {Array<File>} files 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendFilesPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
      */
-    invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
+    invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, signature?: InvoiceV1SendFilesPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
      * test **markdown**.
      * @summary List invoices
-     * @param {number} [companyId] Company id.
+     * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
-     * @param {string} [committente] VAT number or fiscal code.
-     * @param {string} [prestatore] VAT number or fiscal code.
+     * @param {string} [committente] Vat number or fiscal code.
+     * @param {string} [prestatore] Vat number or fiscal code.
      * @param {string} [fileName] File name.
      * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
@@ -863,8 +892,8 @@ export interface SendApiInterface {
      * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
@@ -874,7 +903,7 @@ export interface SendApiInterface {
     /**
      * Send invoices are the invoices that are sent to the SDI.
      * @summary Get a invoice by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
@@ -886,22 +915,24 @@ export interface SendApiInterface {
      * @summary Add an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
      */
-    invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
+    invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
      * @summary Add an invoice
      * @param {Send} send 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
      */
-    invoiceV1SendPost(send: Send, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
+    invoiceV1SendPost(send: Send, validate?: boolean, signature?: InvoiceV1SendPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
      * Send invoices are the invoices that are sent to the SDI.
@@ -948,11 +979,12 @@ export interface SendApiInterface {
      * @summary Add an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
      */
-    invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
+    invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
 }
 
@@ -968,21 +1000,22 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @summary Add an invoice by file
      * @param {Array<File>} files 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendFilesPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
      */
-    public invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).invoiceV1SendFilesPost(files, validate, options).then((request) => request(this.axios, this.basePath));
+    public invoiceV1SendFilesPost(files: Array<File>, validate?: boolean, signature?: InvoiceV1SendFilesPostSignatureEnum, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendFilesPost(files, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * test **markdown**.
      * @summary List invoices
-     * @param {number} [companyId] Company id.
+     * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
-     * @param {string} [committente] VAT number or fiscal code.
-     * @param {string} [prestatore] VAT number or fiscal code.
+     * @param {string} [committente] Vat number or fiscal code.
+     * @param {string} [prestatore] Vat number or fiscal code.
      * @param {string} [fileName] File name.
      * @param {string} [lastUpdateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
@@ -991,8 +1024,8 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
@@ -1004,7 +1037,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     /**
      * Send invoices are the invoices that are sent to the SDI.
      * @summary Get a invoice by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
@@ -1018,12 +1051,13 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @summary Add an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
      */
-    public invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).invoiceV1SendJsonPost(fatturaOrdinaria, validate, options).then((request) => request(this.axios, this.basePath));
+    public invoiceV1SendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendJsonPost(fatturaOrdinaria, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1031,12 +1065,13 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @summary Add an invoice
      * @param {Send} send 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
      */
-    public invoiceV1SendPost(send: Send, validate?: boolean, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).invoiceV1SendPost(send, validate, options).then((request) => request(this.axios, this.basePath));
+    public invoiceV1SendPost(send: Send, validate?: boolean, signature?: InvoiceV1SendPostSignatureEnum, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendPost(send, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1092,12 +1127,53 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @summary Add an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
+     * @param {InvoiceV1SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
      */
-    public invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).invoiceV1SendXmlPost(fatturaOrdinaria, validate, options).then((request) => request(this.axios, this.basePath));
+    public invoiceV1SendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: InvoiceV1SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).invoiceV1SendXmlPost(fatturaOrdinaria, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
+/**
+ * @export
+ */
+export const InvoiceV1SendFilesPostSignatureEnum = {
+    None: 'None',
+    Apply: 'Apply',
+    Force: 'Force',
+    Auto: 'Auto'
+} as const;
+export type InvoiceV1SendFilesPostSignatureEnum = typeof InvoiceV1SendFilesPostSignatureEnum[keyof typeof InvoiceV1SendFilesPostSignatureEnum];
+/**
+ * @export
+ */
+export const InvoiceV1SendJsonPostSignatureEnum = {
+    None: 'None',
+    Apply: 'Apply',
+    Force: 'Force',
+    Auto: 'Auto'
+} as const;
+export type InvoiceV1SendJsonPostSignatureEnum = typeof InvoiceV1SendJsonPostSignatureEnum[keyof typeof InvoiceV1SendJsonPostSignatureEnum];
+/**
+ * @export
+ */
+export const InvoiceV1SendPostSignatureEnum = {
+    None: 'None',
+    Apply: 'Apply',
+    Force: 'Force',
+    Auto: 'Auto'
+} as const;
+export type InvoiceV1SendPostSignatureEnum = typeof InvoiceV1SendPostSignatureEnum[keyof typeof InvoiceV1SendPostSignatureEnum];
+/**
+ * @export
+ */
+export const InvoiceV1SendXmlPostSignatureEnum = {
+    None: 'None',
+    Apply: 'Apply',
+    Force: 'Force',
+    Auto: 'Auto'
+} as const;
+export type InvoiceV1SendXmlPostSignatureEnum = typeof InvoiceV1SendXmlPostSignatureEnum[keyof typeof InvoiceV1SendXmlPostSignatureEnum];

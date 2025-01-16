@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Italian eInvoice API
- * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while still providing complete control over the invoice send/receive process. The API also provides advanced features and a rich toolchain, such as invoice validation, multiple upload methods, webhooks, event logs, CORS support, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
+ * The Italian eInvoice API is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. The API also provides advanced features as encryption at rest, invoice validation, multiple upload formats, webhooks, event logging, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@invoicetronic.com
@@ -39,8 +39,8 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -83,7 +83,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary Delete a webhook by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -121,7 +121,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary Get a webhook by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -239,8 +239,8 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary List webhook history items
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -283,7 +283,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get a webhook history item by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -331,8 +331,8 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -345,7 +345,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary Delete a webhook by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -358,7 +358,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary Get a webhook by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -397,8 +397,8 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary List webhook history items
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -411,7 +411,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get a webhook history item by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -434,8 +434,8 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -445,7 +445,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary Delete a webhook by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -455,7 +455,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary Get a webhook by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -485,8 +485,8 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary List webhook history items
-         * @param {number} [page] Page number.
-         * @param {number} [pageSize] Items per page.
+         * @param {number} [page] Page number. Defaults to 1.
+         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -496,7 +496,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Get a webhook history item by id
-         * @param {number} id Item id.
+         * @param {number} id Item id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -515,8 +515,8 @@ export interface WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary List webhooks
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
@@ -526,7 +526,7 @@ export interface WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary Delete a webhook by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
@@ -536,7 +536,7 @@ export interface WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary Get a webhook by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
@@ -566,8 +566,8 @@ export interface WebhookApiInterface {
     /**
      * 
      * @summary List webhook history items
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
@@ -577,7 +577,7 @@ export interface WebhookApiInterface {
     /**
      * 
      * @summary Get a webhook history item by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
@@ -596,8 +596,8 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary List webhooks
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
@@ -609,7 +609,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary Delete a webhook by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
@@ -621,7 +621,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary Get a webhook by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
@@ -657,8 +657,8 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * 
      * @summary List webhook history items
-     * @param {number} [page] Page number.
-     * @param {number} [pageSize] Items per page.
+     * @param {number} [page] Page number. Defaults to 1.
+     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
@@ -670,7 +670,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * 
      * @summary Get a webhook history item by id
-     * @param {number} id Item id.
+     * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
