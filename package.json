@@ -1,6 +1,6 @@
 {
   "name": "@invoicetronic/invoice-sdk",
-  "version": "1.0.0",
+  "version": "1",
   "description": "OpenAPI client for @invoicetronic/invoice-sdk",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
