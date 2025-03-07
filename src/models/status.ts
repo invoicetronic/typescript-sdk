@@ -17,20 +17,20 @@
 /**
  * 
  * @export
- * @interface DocumentData
+ * @interface Status
  */
-export interface DocumentData {
+export interface Status {
     /**
-     * 
-     * @type {string}
-     * @memberof DocumentData
+     * Operations (invoices and validations) left.
+     * @type {number}
+     * @memberof Status
      */
-    'number'?: string | null;
+    'operation_left'?: number;
     /**
-     * 
-     * @type {string}
-     * @memberof DocumentData
+     * Signatures left.
+     * @type {number}
+     * @memberof Status
      */
-    'date'?: string;
+    'signature_left'?: number;
 }
 

@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Italian eInvoice API v1
- * The [Italian eInvoice API][2] is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. The API also provides advanced features as encryption at rest, invoice validation, multiple upload formats, webhooks, event logging, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
+ * Invoicetronic API
+ * The [Invoicetronic API][2] is a RESTful service that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. It provides advanced features as encryption at rest, multi-language pre-flight invoice validation, multiple upload formats, webhooks, event logging, client SDKs, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
  *
  * The version of the OpenAPI document: 1
  * Contact: support@invoicetronic.com
@@ -35,7 +35,7 @@ import type { Receive } from '../../src/models';
 export const ReceiveApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary List incoming invoices
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
@@ -161,7 +161,7 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Delete an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -199,7 +199,7 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -247,7 +247,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReceiveApiAxiosParamCreator(configuration)
     return {
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary List incoming invoices
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
@@ -275,7 +275,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Delete an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -288,7 +288,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -311,7 +311,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = ReceiveApiFp(configuration)
     return {
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary List incoming invoices
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
@@ -336,7 +336,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Delete an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -346,7 +346,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.receiveIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Receive invoices are the invoices that are received from other companies.
+         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -365,7 +365,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
  */
 export interface ReceiveApiInterface {
     /**
-     * Receive invoices are the invoices that are received from other companies.
+     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary List incoming invoices
      * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
@@ -390,7 +390,7 @@ export interface ReceiveApiInterface {
     receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>>;
 
     /**
-     * Receive invoices are the invoices that are received from other companies.
+     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary Delete an incoming invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -400,7 +400,7 @@ export interface ReceiveApiInterface {
     receiveIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Receive>;
 
     /**
-     * Receive invoices are the invoices that are received from other companies.
+     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary Get an incoming invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -419,7 +419,7 @@ export interface ReceiveApiInterface {
  */
 export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     /**
-     * Receive invoices are the invoices that are received from other companies.
+     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary List incoming invoices
      * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
@@ -446,7 +446,7 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     }
 
     /**
-     * Receive invoices are the invoices that are received from other companies.
+     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary Delete an incoming invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -458,7 +458,7 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     }
 
     /**
-     * Receive invoices are the invoices that are received from other companies.
+     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary Get an incoming invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.

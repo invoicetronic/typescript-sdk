@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Italian eInvoice API v1
- * The [Italian eInvoice API][2] is a RESTful API that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed by Invoicetronic to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. The API also provides advanced features as encryption at rest, invoice validation, multiple upload formats, webhooks, event logging, client SDKs for commonly used languages, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
+ * Invoicetronic API
+ * The [Invoicetronic API][2] is a RESTful service that allows you to send and receive invoices through the Italian [Servizio di Interscambio (SDI)][1], or Interchange Service. The API is designed to be simple and easy to use, abstracting away SDI complexity while providing complete control over the invoice send/receive process. It provides advanced features as encryption at rest, multi-language pre-flight invoice validation, multiple upload formats, webhooks, event logging, client SDKs, and CLI tools.  For more information, see  [Invoicetronic website][2]  [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/ [2]: https://invoicetronic.com/
  *
  * The version of the OpenAPI document: 1
  * Contact: support@invoicetronic.com
@@ -27,6 +27,8 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { FatturaOrdinaria } from '../../src/models';
 // @ts-ignore
+import type { ProblemDetails } from '../../src/models';
+// @ts-ignore
 import type { ProblemHttpResult } from '../../src/models';
 // @ts-ignore
 import type { Send } from '../../src/models';
@@ -37,7 +39,7 @@ import type { Send } from '../../src/models';
 export const SendApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by file
          * @param {File} file 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -213,7 +215,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -251,7 +253,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -301,7 +303,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -351,7 +353,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by file
          * @param {Array<File>} files 
          * @param {*} [options] Override http request option.
@@ -398,7 +400,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {*} [options] Override http request option.
@@ -438,7 +440,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice
          * @param {Send} send 
          * @param {*} [options] Override http request option.
@@ -478,7 +480,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {*} [options] Override http request option.
@@ -518,7 +520,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -578,7 +580,7 @@ export const SendApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SendApiAxiosParamCreator(configuration)
     return {
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by file
          * @param {File} file 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -620,7 +622,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -633,7 +635,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -648,7 +650,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -663,7 +665,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by file
          * @param {Array<File>} files 
          * @param {*} [options] Override http request option.
@@ -676,7 +678,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {*} [options] Override http request option.
@@ -689,7 +691,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice
          * @param {Send} send 
          * @param {*} [options] Override http request option.
@@ -702,7 +704,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {*} [options] Override http request option.
@@ -715,7 +717,7 @@ export const SendApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -740,7 +742,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = SendApiFp(configuration)
     return {
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by file
          * @param {File} file 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -776,7 +778,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -786,7 +788,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -798,7 +800,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendJsonPost(fatturaOrdinaria, validate, signature, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice
          * @param {Send} send 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -810,7 +812,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendPost(send, validate, signature, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by file
          * @param {Array<File>} files 
          * @param {*} [options] Override http request option.
@@ -820,7 +822,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendValidateFilesPost(files, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by json
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {*} [options] Override http request option.
@@ -830,7 +832,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendValidateJsonPost(fatturaOrdinaria, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice
          * @param {Send} send 
          * @param {*} [options] Override http request option.
@@ -840,7 +842,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendValidatePost(send, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Validate an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {*} [options] Override http request option.
@@ -850,7 +852,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.sendValidateXmlPost(fatturaOrdinaria, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send invoices are the invoices that are sent to the SDI.
+         * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Add an invoice by xml
          * @param {FatturaOrdinaria} fatturaOrdinaria 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -871,7 +873,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
  */
 export interface SendApiInterface {
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice by file
      * @param {File} file 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -907,7 +909,7 @@ export interface SendApiInterface {
     sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Send>>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Get a invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -917,7 +919,7 @@ export interface SendApiInterface {
     sendIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -929,7 +931,7 @@ export interface SendApiInterface {
     sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice
      * @param {Send} send 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -941,7 +943,7 @@ export interface SendApiInterface {
     sendPost(send: Send, validate?: boolean, signature?: SendPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice by file
      * @param {Array<File>} files 
      * @param {*} [options] Override http request option.
@@ -951,7 +953,7 @@ export interface SendApiInterface {
     sendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
@@ -961,7 +963,7 @@ export interface SendApiInterface {
     sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice
      * @param {Send} send 
      * @param {*} [options] Override http request option.
@@ -971,7 +973,7 @@ export interface SendApiInterface {
     sendValidatePost(send: Send, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
@@ -981,7 +983,7 @@ export interface SendApiInterface {
     sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -1002,7 +1004,7 @@ export interface SendApiInterface {
  */
 export class SendApi extends BaseAPI implements SendApiInterface {
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice by file
      * @param {File} file 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -1042,7 +1044,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Get a invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -1054,7 +1056,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -1068,7 +1070,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice
      * @param {Send} send 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
@@ -1082,7 +1084,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice by file
      * @param {Array<File>} files 
      * @param {*} [options] Override http request option.
@@ -1094,7 +1096,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice by json
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
@@ -1106,7 +1108,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice
      * @param {Send} send 
      * @param {*} [options] Override http request option.
@@ -1118,7 +1120,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Validate an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
@@ -1130,7 +1132,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     }
 
     /**
-     * Send invoices are the invoices that are sent to the SDI.
+     * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Add an invoice by xml
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.

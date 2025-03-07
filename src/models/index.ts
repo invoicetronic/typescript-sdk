@@ -52,6 +52,7 @@ export * from './sede-cedente-prestatore';
 export * from './sede-cessionario-committente';
 export * from './send';
 export * from './stabile-organizzazione';
+export * from './status';
 export * from './terzo-intermediario-osoggetto-emittente';
 export * from './update';
 export * from './web-hook';

@@ -1,7 +1,7 @@
 {
-  "name": "@invoicetronic/invoice-sdk",
+  "name": "@invoicetronic/sdk",
   "version": "1",
-  "description": "OpenAPI client for @invoicetronic/invoice-sdk",
+  "description": "OpenAPI client for @invoicetronic/sdk",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "typescript",
     "openapi-client",
     "openapi-generator",
-    "@invoicetronic/invoice-sdk"
+    "@invoicetronic/sdk"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
