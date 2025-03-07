@@ -5,7 +5,7 @@
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/invoicetronic/invoice-typescript-sdk.git"
+    "url": "https://github.com/invoicetronic/typescript-sdk.git"
   },
   "keywords": [
     "axios",
