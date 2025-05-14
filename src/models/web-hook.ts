@@ -57,7 +57,7 @@ export interface WebHook {
      */
     'url'?: string | null;
     /**
-     * Wetehr the webhooks is enabled or not. On creation, this is set to `true`.
+     * Wether the webhook is enabled. On creation, this is set to `true`.
      * @type {boolean}
      * @memberof WebHook
      */

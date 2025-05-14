@@ -41,13 +41,18 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
+         * @param {number} [companyId] Company id
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {string} [description] 
+         * @param {boolean} [enabled] 
+         * @param {string} [events] 
+         * @param {string} [url] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        webhookGet: async (page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        webhookGet: async (companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/webhook`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -64,6 +69,10 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            if (companyId !== undefined) {
+                localVarQueryParameter['company_id'] = companyId;
+            }
+
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -74,6 +83,22 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
 
             if (sort !== undefined) {
                 localVarQueryParameter['sort'] = sort;
+            }
+
+            if (description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+
+            if (enabled !== undefined) {
+                localVarQueryParameter['enabled'] = enabled;
+            }
+
+            if (events !== undefined) {
+                localVarQueryParameter['events'] = events;
+            }
+
+            if (url !== undefined) {
+                localVarQueryParameter['url'] = url;
             }
 
 
@@ -249,10 +274,11 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {number} [webhookId] WebHook id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        webhookhistoryGet: async (page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        webhookhistoryGet: async (page?: number, pageSize?: number, sort?: string, webhookId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/webhookhistory`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -279,6 +305,10 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
 
             if (sort !== undefined) {
                 localVarQueryParameter['sort'] = sort;
+            }
+
+            if (webhookId !== undefined) {
+                localVarQueryParameter['webhook_id'] = webhookId;
             }
 
 
@@ -343,14 +373,19 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
+         * @param {number} [companyId] Company id
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {string} [description] 
+         * @param {boolean} [enabled] 
+         * @param {string} [events] 
+         * @param {string} [url] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async webhookGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WebHook>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.webhookGet(page, pageSize, sort, options);
+        async webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WebHook>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.webhookGet(companyId, page, pageSize, sort, description, enabled, events, url, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WebhookApi.webhookGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -413,11 +448,12 @@ export const WebhookApiFp = function(configuration?: Configuration) {
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {number} [webhookId] WebHook id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async webhookhistoryGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WebHookHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.webhookhistoryGet(page, pageSize, sort, options);
+        async webhookhistoryGet(page?: number, pageSize?: number, sort?: string, webhookId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WebHookHistory>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.webhookhistoryGet(page, pageSize, sort, webhookId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WebhookApi.webhookhistoryGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -448,14 +484,19 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
+         * @param {number} [companyId] Company id
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {string} [description] 
+         * @param {boolean} [enabled] 
+         * @param {string} [events] 
+         * @param {string} [url] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        webhookGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHook>> {
-            return localVarFp.webhookGet(page, pageSize, sort, options).then((request) => request(axios, basePath));
+        webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHook>> {
+            return localVarFp.webhookGet(companyId, page, pageSize, sort, description, enabled, events, url, options).then((request) => request(axios, basePath));
         },
         /**
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
@@ -503,11 +544,12 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {number} [webhookId] WebHook id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        webhookhistoryGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHookHistory>> {
-            return localVarFp.webhookhistoryGet(page, pageSize, sort, options).then((request) => request(axios, basePath));
+        webhookhistoryGet(page?: number, pageSize?: number, sort?: string, webhookId?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHookHistory>> {
+            return localVarFp.webhookhistoryGet(page, pageSize, sort, webhookId, options).then((request) => request(axios, basePath));
         },
         /**
          * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
@@ -531,14 +573,19 @@ export interface WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary List webhooks
+     * @param {number} [companyId] Company id
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+     * @param {string} [description] 
+     * @param {boolean} [enabled] 
+     * @param {string} [events] 
+     * @param {string} [url] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
      */
-    webhookGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHook>>;
+    webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHook>>;
 
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
@@ -586,11 +633,12 @@ export interface WebhookApiInterface {
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+     * @param {number} [webhookId] WebHook id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApiInterface
      */
-    webhookhistoryGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHookHistory>>;
+    webhookhistoryGet(page?: number, pageSize?: number, sort?: string, webhookId?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHookHistory>>;
 
     /**
      * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
@@ -614,15 +662,20 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary List webhooks
+     * @param {number} [companyId] Company id
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+     * @param {string} [description] 
+     * @param {boolean} [enabled] 
+     * @param {string} [events] 
+     * @param {string} [url] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
      */
-    public webhookGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
-        return WebhookApiFp(this.configuration).webhookGet(page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
+    public webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig) {
+        return WebhookApiFp(this.configuration).webhookGet(companyId, page, pageSize, sort, description, enabled, events, url, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -679,12 +732,13 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+     * @param {number} [webhookId] WebHook id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhookApi
      */
-    public webhookhistoryGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
-        return WebhookApiFp(this.configuration).webhookhistoryGet(page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
+    public webhookhistoryGet(page?: number, pageSize?: number, sort?: string, webhookId?: number, options?: RawAxiosRequestConfig) {
+        return WebhookApiFp(this.configuration).webhookhistoryGet(page, pageSize, sort, webhookId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
