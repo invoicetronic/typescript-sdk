@@ -354,15 +354,15 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
-         * @summary Validate an invoice by file
-         * @param {Array<File>} files 
+         * @summary Validate an invoice file
+         * @param {File} file 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendValidateFilesPost: async (files: Array<File>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'files' is not null or undefined
-            assertParamExists('sendValidateFilesPost', 'files', files)
-            const localVarPath = `/send/validate/files`;
+        sendValidateFilePost: async (file: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'file' is not null or undefined
+            assertParamExists('sendValidateFilePost', 'file', file)
+            const localVarPath = `/send/validate/file`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -379,12 +379,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-            if (files) {
-                files.forEach((element) => {
-                    localVarFormParams.append('files', element as any);
-                })
-            }
 
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
     
     
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -666,15 +664,15 @@ export const SendApiFp = function(configuration?: Configuration) {
         },
         /**
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
-         * @summary Validate an invoice by file
-         * @param {Array<File>} files 
+         * @summary Validate an invoice file
+         * @param {File} file 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendValidateFilesPost(files, options);
+        async sendValidateFilePost(file: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendValidateFilePost(file, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SendApi.sendValidateFilesPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SendApi.sendValidateFilePost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -813,13 +811,13 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
-         * @summary Validate an invoice by file
-         * @param {Array<File>} files 
+         * @summary Validate an invoice file
+         * @param {File} file 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.sendValidateFilesPost(files, options).then((request) => request(axios, basePath));
+        sendValidateFilePost(file: File, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.sendValidateFilePost(file, options).then((request) => request(axios, basePath));
         },
         /**
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
@@ -944,13 +942,13 @@ export interface SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
-     * @summary Validate an invoice by file
-     * @param {Array<File>} files 
+     * @summary Validate an invoice file
+     * @param {File} file 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
      */
-    sendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    sendValidateFilePost(file: File, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
@@ -1085,14 +1083,14 @@ export class SendApi extends BaseAPI implements SendApiInterface {
 
     /**
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
-     * @summary Validate an invoice by file
-     * @param {Array<File>} files 
+     * @summary Validate an invoice file
+     * @param {File} file 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
      */
-    public sendValidateFilesPost(files: Array<File>, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).sendValidateFilesPost(files, options).then((request) => request(this.axios, this.basePath));
+    public sendValidateFilePost(file: File, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).sendValidateFilePost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

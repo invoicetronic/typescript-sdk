@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 |[**sendIdGet**](#sendidget) | **GET** /send/{id} | Get a invoice by id|
 |[**sendJsonPost**](#sendjsonpost) | **POST** /send/json | Add an invoice by json|
 |[**sendPost**](#sendpost) | **POST** /send | Add an invoice|
-|[**sendValidateFilesPost**](#sendvalidatefilespost) | **POST** /send/validate/files | Validate an invoice by file|
+|[**sendValidateFilePost**](#sendvalidatefilepost) | **POST** /send/validate/file | Validate an invoice file|
 |[**sendValidateJsonPost**](#sendvalidatejsonpost) | **POST** /send/validate/json | Validate an invoice by json|
 |[**sendValidatePost**](#sendvalidatepost) | **POST** /send/validate | Validate an invoice|
 |[**sendValidateXmlPost**](#sendvalidatexmlpost) | **POST** /send/validate/xml | Validate an invoice by xml|
@@ -341,8 +341,8 @@ const { status, data } = await apiInstance.sendPost(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **sendValidateFilesPost**
-> sendValidateFilesPost()
+# **sendValidateFilePost**
+> sendValidateFilePost()
 
 Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
 
@@ -357,10 +357,10 @@ import {
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
-let files: Array<File>; // (default to undefined)
+let file: File; // (default to undefined)
 
-const { status, data } = await apiInstance.sendValidateFilesPost(
-    files
+const { status, data } = await apiInstance.sendValidateFilePost(
+    file
 );
 ```
 
@@ -368,7 +368,7 @@ const { status, data } = await apiInstance.sendValidateFilesPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **files** | **Array&lt;File&gt;** |  | defaults to undefined|
+| **file** | [**File**] |  | defaults to undefined|
 
 
 ### Return type
