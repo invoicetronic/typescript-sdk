@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { DocumentData } from './document-data';
 
 /**
  * 
@@ -104,6 +107,18 @@ export interface Update {
      * @memberof Update
      */
     'is_read'?: boolean;
+    /**
+     * Metadata from the Send item this update refers to.
+     * @type {{ [key: string]: string; }}
+     * @memberof Update
+     */
+    'meta_data'?: { [key: string]: string; } | null;
+    /**
+     * Invoice references from the Send item this update refers to.
+     * @type {Array<DocumentData>}
+     * @memberof Update
+     */
+    'documents'?: Array<DocumentData> | null;
 }
 
 export const UpdateStateEnum = {

@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **message_id** | **string** | SDI message id. | [optional] [default to undefined]
 **errors** | **Array&lt;Error&gt;** | SDI errors, if any. | [optional] [default to undefined]
 **is_read** | **boolean** | Wether the item has been read at least once. | [optional] [default to undefined]
+**meta_data** | **{ [key: string]: string; }** | Metadata from the Send item this update refers to. | [optional] [default to undefined]
+**documents** | [**Array&lt;DocumentData&gt;**](DocumentData.md) | Invoice references from the Send item this update refers to. | [optional] [default to undefined]
 
 ## Example
 
@@ -40,6 +42,8 @@ const instance: Update = {
     message_id,
     errors,
     is_read,
+    meta_data,
+    documents,
 };
 ```
 
