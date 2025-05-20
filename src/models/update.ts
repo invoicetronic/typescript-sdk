@@ -119,6 +119,12 @@ export interface Update {
      * @memberof Update
      */
     'documents'?: Array<DocumentData> | null;
+    /**
+     * Prestatore reference from the Send item this status refers to.
+     * @type {string}
+     * @memberof Update
+     */
+    'prestatore'?: string | null;
 }
 
 export const UpdateStateEnum = {

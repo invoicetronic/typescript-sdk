@@ -39,6 +39,7 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary List updates
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
+         * @param {string} [prestatore] Vat number or fiscal code.
          * @param {boolean} [unread] Unread items only.
          * @param {number} [sendId] Send item\&#39;s id.
          * @param {UpdateGetStateEnum} [state] SDI state
@@ -52,7 +53,7 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGet: async (companyId?: number, identifier?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateGet: async (companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/update`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -75,6 +76,10 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (identifier !== undefined) {
                 localVarQueryParameter['identifier'] = identifier;
+            }
+
+            if (prestatore !== undefined) {
+                localVarQueryParameter['prestatore'] = prestatore;
             }
 
             if (unread !== undefined) {
@@ -189,6 +194,7 @@ export const UpdateApiFp = function(configuration?: Configuration) {
          * @summary List updates
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
+         * @param {string} [prestatore] Vat number or fiscal code.
          * @param {boolean} [unread] Unread items only.
          * @param {number} [sendId] Send item\&#39;s id.
          * @param {UpdateGetStateEnum} [state] SDI state
@@ -202,8 +208,8 @@ export const UpdateApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateGet(companyId?: number, identifier?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Update>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGet(companyId, identifier, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options);
+        async updateGet(companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Update>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGet(companyId, identifier, prestatore, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UpdateApi.updateGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -236,6 +242,7 @@ export const UpdateApiFactory = function (configuration?: Configuration, basePat
          * @summary List updates
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
+         * @param {string} [prestatore] Vat number or fiscal code.
          * @param {boolean} [unread] Unread items only.
          * @param {number} [sendId] Send item\&#39;s id.
          * @param {UpdateGetStateEnum} [state] SDI state
@@ -249,8 +256,8 @@ export const UpdateApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGet(companyId?: number, identifier?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Update>> {
-            return localVarFp.updateGet(companyId, identifier, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options).then((request) => request(axios, basePath));
+        updateGet(companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Update>> {
+            return localVarFp.updateGet(companyId, identifier, prestatore, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates are notifications sent by the SDI about the status of invoices you sent.
@@ -276,6 +283,7 @@ export interface UpdateApiInterface {
      * @summary List updates
      * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
+     * @param {string} [prestatore] Vat number or fiscal code.
      * @param {boolean} [unread] Unread items only.
      * @param {number} [sendId] Send item\&#39;s id.
      * @param {UpdateGetStateEnum} [state] SDI state
@@ -290,7 +298,7 @@ export interface UpdateApiInterface {
      * @throws {RequiredError}
      * @memberof UpdateApiInterface
      */
-    updateGet(companyId?: number, identifier?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Update>>;
+    updateGet(companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Update>>;
 
     /**
      * Updates are notifications sent by the SDI about the status of invoices you sent.
@@ -316,6 +324,7 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
      * @summary List updates
      * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
+     * @param {string} [prestatore] Vat number or fiscal code.
      * @param {boolean} [unread] Unread items only.
      * @param {number} [sendId] Send item\&#39;s id.
      * @param {UpdateGetStateEnum} [state] SDI state
@@ -330,8 +339,8 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
      * @throws {RequiredError}
      * @memberof UpdateApi
      */
-    public updateGet(companyId?: number, identifier?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
-        return UpdateApiFp(this.configuration).updateGet(companyId, identifier, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
+    public updateGet(companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
+        return UpdateApiFp(this.configuration).updateGet(companyId, identifier, prestatore, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

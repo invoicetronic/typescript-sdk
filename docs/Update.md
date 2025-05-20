@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **is_read** | **boolean** | Wether the item has been read at least once. | [optional] [default to undefined]
 **meta_data** | **{ [key: string]: string; }** | Metadata from the Send item this update refers to. | [optional] [default to undefined]
 **documents** | [**Array&lt;DocumentData&gt;**](DocumentData.md) | Invoice references from the Send item this update refers to. | [optional] [default to undefined]
+**prestatore** | **string** | Prestatore reference from the Send item this status refers to. | [optional] [default to undefined]
 
 ## Example
 
@@ -44,6 +45,7 @@ const instance: Update = {
     is_read,
     meta_data,
     documents,
+    prestatore,
 };
 ```
 
