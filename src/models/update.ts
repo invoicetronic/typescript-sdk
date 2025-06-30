@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { DocumentData } from './document-data';
+import type { SendReduced } from './send-reduced';
 
 /**
  * 
@@ -60,23 +60,11 @@ export interface Update {
      */
     'send_id'?: number;
     /**
-     * When the document was sent to the SDI.
-     * @type {string}
-     * @memberof Update
-     */
-    'date_sent'?: string | null;
-    /**
      * Last update from SDI.
      * @type {string}
      * @memberof Update
      */
     'last_update'?: string;
-    /**
-     * SDI identifier. This is set by the SDI and it is unique within the SDI system.
-     * @type {string}
-     * @memberof Update
-     */
-    'identifier'?: string | null;
     /**
      * State of the document. Theses are the possible values, as per the SDI documentation:
      * @type {string}
@@ -108,23 +96,11 @@ export interface Update {
      */
     'is_read'?: boolean;
     /**
-     * Metadata from the Send item this update refers to.
-     * @type {{ [key: string]: string; }}
+     * 
+     * @type {SendReduced}
      * @memberof Update
      */
-    'meta_data'?: { [key: string]: string; } | null;
-    /**
-     * Invoice references from the Send item this update refers to.
-     * @type {Array<DocumentData>}
-     * @memberof Update
-     */
-    'documents'?: Array<DocumentData> | null;
-    /**
-     * Prestatore reference from the Send item this status refers to.
-     * @type {string}
-     * @memberof Update
-     */
-    'prestatore'?: string | null;
+    'send'?: SendReduced;
 }
 
 export const UpdateStateEnum = {

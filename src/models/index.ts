@@ -51,6 +51,7 @@ export * from './sconto-maggiorazione';
 export * from './sede-cedente-prestatore';
 export * from './sede-cessionario-committente';
 export * from './send';
+export * from './send-reduced';
 export * from './stabile-organizzazione';
 export * from './status';
 export * from './terzo-intermediario-osoggetto-emittente';

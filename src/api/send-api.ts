@@ -108,13 +108,14 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendGet: async (companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendGet: async (companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/send`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -189,6 +190,10 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (documentNumber !== undefined) {
                 localVarQueryParameter['document_number'] = documentNumber;
+            }
+
+            if (includePayload !== undefined) {
+                localVarQueryParameter['include_payload'] = includePayload;
             }
 
             if (page !== undefined) {
@@ -607,14 +612,15 @@ export const SendApiFp = function(configuration?: Configuration) {
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Send>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options);
+        async sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Send>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.sendGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -766,14 +772,15 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Send>> {
-            return localVarFp.sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options).then((request) => request(axios, basePath));
+        sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Send>> {
+            return localVarFp.sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
@@ -897,6 +904,7 @@ export interface SendApiInterface {
      * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
@@ -904,7 +912,7 @@ export interface SendApiInterface {
      * @throws {RequiredError}
      * @memberof SendApiInterface
      */
-    sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Send>>;
+    sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Send>>;
 
     /**
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
@@ -1030,6 +1038,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
@@ -1037,8 +1046,8 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @throws {RequiredError}
      * @memberof SendApi
      */
-    public sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
+    public sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -50,13 +50,14 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        receiveGet: async (companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        receiveGet: async (companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/receive`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -135,6 +136,10 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
 
             if (documentNumber !== undefined) {
                 localVarQueryParameter['document_number'] = documentNumber;
+            }
+
+            if (includePayload !== undefined) {
+                localVarQueryParameter['include_payload'] = includePayload;
             }
 
             if (page !== undefined) {
@@ -262,14 +267,15 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Receive>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options);
+        async receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Receive>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReceiveApi.receiveGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -326,14 +332,15 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
          * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {number} [page] Page number. Defaults to 1.
          * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>> {
-            return localVarFp.receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options).then((request) => request(axios, basePath));
+        receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>> {
+            return localVarFp.receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
          * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
@@ -380,6 +387,7 @@ export interface ReceiveApiInterface {
      * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
@@ -387,7 +395,7 @@ export interface ReceiveApiInterface {
      * @throws {RequiredError}
      * @memberof ReceiveApiInterface
      */
-    receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>>;
+    receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>>;
 
     /**
      * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
@@ -434,6 +442,7 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * @param {string} [documentDateFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {number} [page] Page number. Defaults to 1.
      * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
@@ -441,8 +450,8 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * @throws {RequiredError}
      * @memberof ReceiveApi
      */
-    public receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
-        return ReceiveApiFp(this.configuration).receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
+    public receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
+        return ReceiveApiFp(this.configuration).receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

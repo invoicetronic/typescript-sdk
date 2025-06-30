@@ -37,6 +37,7 @@ let dateSentTo: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (defaul
 let documentDateFrom: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let documentDateTo: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let documentNumber: string; //Document number. (optional) (default to undefined)
+let includePayload: boolean; //Include payload in the response. Defaults to false. (optional) (default to undefined)
 let page: number; //Page number. Defaults to 1. (optional) (default to 1)
 let pageSize: number; //Items per page. Defaults to 50. Cannot be greater than 200. (optional) (default to 100)
 let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to undefined)
@@ -55,6 +56,7 @@ const { status, data } = await apiInstance.receiveGet(
     documentDateFrom,
     documentDateTo,
     documentNumber,
+    includePayload,
     page,
     pageSize,
     sort
@@ -78,6 +80,7 @@ const { status, data } = await apiInstance.receiveGet(
 | **documentDateFrom** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **documentDateTo** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **documentNumber** | [**string**] | Document number. | (optional) defaults to undefined|
+| **includePayload** | [**boolean**] | Include payload in the response. Defaults to false. | (optional) defaults to undefined|
 | **page** | [**number**] | Page number. Defaults to 1. | (optional) defaults to 1|
 | **pageSize** | [**number**] | Items per page. Defaults to 50. Cannot be greater than 200. | (optional) defaults to 100|
 | **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to undefined|
