@@ -29,8 +29,8 @@ const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
 
 let companyId: number; //Company id (optional) (default to undefined)
-let page: number; //Page number. Defaults to 1. (optional) (default to 1)
-let pageSize: number; //Items per page. Defaults to 50. Cannot be greater than 200. (optional) (default to 100)
+let page: number; //Page number. (optional) (default to 1)
+let pageSize: number; //Items per page. Cannot be greater than 200. (optional) (default to 100)
 let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to undefined)
 let description: string; // (optional) (default to undefined)
 let enabled: boolean; // (optional) (default to undefined)
@@ -54,8 +54,8 @@ const { status, data } = await apiInstance.webhookGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | [**number**] | Company id | (optional) defaults to undefined|
-| **page** | [**number**] | Page number. Defaults to 1. | (optional) defaults to 1|
-| **pageSize** | [**number**] | Items per page. Defaults to 50. Cannot be greater than 200. | (optional) defaults to 100|
+| **page** | [**number**] | Page number. | (optional) defaults to 1|
+| **pageSize** | [**number**] | Items per page. Cannot be greater than 200. | (optional) defaults to 100|
 | **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to undefined|
 | **description** | [**string**] |  | (optional) defaults to undefined|
 | **enabled** | [**boolean**] |  | (optional) defaults to undefined|
@@ -316,8 +316,8 @@ import {
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
 
-let page: number; //Page number. Defaults to 1. (optional) (default to 1)
-let pageSize: number; //Items per page. Defaults to 50. Cannot be greater than 200. (optional) (default to 100)
+let page: number; //Page number. (optional) (default to 1)
+let pageSize: number; //Items per page. Cannot be greater than 200. (optional) (default to 100)
 let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to undefined)
 let webhookId: number; //WebHook id (optional) (default to undefined)
 
@@ -333,8 +333,8 @@ const { status, data } = await apiInstance.webhookhistoryGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **page** | [**number**] | Page number. Defaults to 1. | (optional) defaults to 1|
-| **pageSize** | [**number**] | Items per page. Defaults to 50. Cannot be greater than 200. | (optional) defaults to 100|
+| **page** | [**number**] | Page number. | (optional) defaults to 1|
+| **pageSize** | [**number**] | Items per page. Cannot be greater than 200. | (optional) defaults to 100|
 | **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to undefined|
 | **webhookId** | [**number**] | WebHook id | (optional) defaults to undefined|
 

@@ -39,8 +39,8 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
          * @summary List companies
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -254,8 +254,8 @@ export const CompanyApiFp = function(configuration?: Configuration) {
         /**
          * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
          * @summary List companies
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -331,8 +331,8 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
         /**
          * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
          * @summary List companies
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -392,8 +392,8 @@ export interface CompanyApiInterface {
     /**
      * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
      * @summary List companies
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -453,8 +453,8 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     /**
      * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
      * @summary List companies
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

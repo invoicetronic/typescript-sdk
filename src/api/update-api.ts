@@ -47,8 +47,8 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -202,8 +202,8 @@ export const UpdateApiFp = function(configuration?: Configuration) {
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -250,8 +250,8 @@ export const UpdateApiFactory = function (configuration?: Configuration, basePat
          * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -291,8 +291,8 @@ export interface UpdateApiInterface {
      * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -332,8 +332,8 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
      * @param {string} [lastUpdateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateSentFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateSentTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

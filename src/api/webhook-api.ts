@@ -42,8 +42,8 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
          * @param {number} [companyId] Company id
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {string} [description] 
          * @param {boolean} [enabled] 
@@ -271,8 +271,8 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
          * @summary List webhook history items
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {number} [webhookId] WebHook id
          * @param {*} [options] Override http request option.
@@ -374,8 +374,8 @@ export const WebhookApiFp = function(configuration?: Configuration) {
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
          * @param {number} [companyId] Company id
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {string} [description] 
          * @param {boolean} [enabled] 
@@ -445,8 +445,8 @@ export const WebhookApiFp = function(configuration?: Configuration) {
         /**
          * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
          * @summary List webhook history items
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {number} [webhookId] WebHook id
          * @param {*} [options] Override http request option.
@@ -485,8 +485,8 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
          * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
          * @summary List webhooks
          * @param {number} [companyId] Company id
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {string} [description] 
          * @param {boolean} [enabled] 
@@ -541,8 +541,8 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
         /**
          * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
          * @summary List webhook history items
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {number} [webhookId] WebHook id
          * @param {*} [options] Override http request option.
@@ -574,8 +574,8 @@ export interface WebhookApiInterface {
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary List webhooks
      * @param {number} [companyId] Company id
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {string} [description] 
      * @param {boolean} [enabled] 
@@ -630,8 +630,8 @@ export interface WebhookApiInterface {
     /**
      * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
      * @summary List webhook history items
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {number} [webhookId] WebHook id
      * @param {*} [options] Override http request option.
@@ -663,8 +663,8 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
      * @summary List webhooks
      * @param {number} [companyId] Company id
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {string} [description] 
      * @param {boolean} [enabled] 
@@ -729,8 +729,8 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
      * Webhook history items are stored in the database and can be accessed via the API. They are preserved for 15 in both the live and sandbox environments.
      * @summary List webhook history items
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {number} [webhookId] WebHook id
      * @param {*} [options] Override http request option.

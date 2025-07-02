@@ -44,8 +44,8 @@ export const LogApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {number} [statusCode] Response status code
          * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {string} [query] 
          * @param {boolean} [success] 
@@ -204,8 +204,8 @@ export const LogApiFp = function(configuration?: Configuration) {
          * @param {number} [statusCode] Response status code
          * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {string} [query] 
          * @param {boolean} [success] 
@@ -253,8 +253,8 @@ export const LogApiFactory = function (configuration?: Configuration, basePath?:
          * @param {number} [statusCode] Response status code
          * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {string} [query] 
          * @param {boolean} [success] 
@@ -295,8 +295,8 @@ export interface LogApiInterface {
      * @param {number} [statusCode] Response status code
      * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {string} [query] 
      * @param {boolean} [success] 
@@ -337,8 +337,8 @@ export class LogApi extends BaseAPI implements LogApiInterface {
      * @param {number} [statusCode] Response status code
      * @param {string} [dateCreatedFrom] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [dateCreatedTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {string} [query] 
      * @param {boolean} [success] 

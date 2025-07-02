@@ -51,8 +51,8 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
          * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -268,8 +268,8 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
          * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -333,8 +333,8 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
          * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
          * @param {string} [documentNumber] Document number.
          * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
-         * @param {number} [page] Page number. Defaults to 1.
-         * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+         * @param {number} [page] Page number.
+         * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -388,8 +388,8 @@ export interface ReceiveApiInterface {
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -443,8 +443,8 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * @param {string} [documentDateTo] UTC ISO 8601 (2024-11-29T12:34:56Z)
      * @param {string} [documentNumber] Document number.
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
-     * @param {number} [page] Page number. Defaults to 1.
-     * @param {number} [pageSize] Items per page. Defaults to 50. Cannot be greater than 200.
+     * @param {number} [page] Page number.
+     * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
