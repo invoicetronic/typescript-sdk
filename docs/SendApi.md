@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 |[**sendFilePost**](#sendfilepost) | **POST** /send/file | Add an invoice by file|
 |[**sendGet**](#sendget) | **GET** /send | List invoices|
 |[**sendIdGet**](#sendidget) | **GET** /send/{id} | Get a invoice by id|
+|[**sendIdentifierGet**](#sendidentifierget) | **GET** /send/{identifier} | Get a invoice by identifier|
 |[**sendJsonPost**](#sendjsonpost) | **POST** /send/json | Add an invoice by json|
 |[**sendPost**](#sendpost) | **POST** /send | Add an invoice|
 |[**sendValidateFilePost**](#sendvalidatefilepost) | **POST** /send/validate/file | Validate an invoice file|
@@ -189,9 +190,11 @@ const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
 let id: number; //Item id (default to undefined)
+let includePayload: boolean; // (optional) (default to false)
 
 const { status, data } = await apiInstance.sendIdGet(
-    id
+    id,
+    includePayload
 );
 ```
 
@@ -200,6 +203,7 @@ const { status, data } = await apiInstance.sendIdGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] | Item id | defaults to undefined|
+| **includePayload** | [**boolean**] |  | (optional) defaults to false|
 
 
 ### Return type
@@ -221,6 +225,62 @@ const { status, data } = await apiInstance.sendIdGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sendIdentifierGet**
+> Send sendIdentifierGet()
+
+Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
+
+### Example
+
+```typescript
+import {
+    SendApi,
+    Configuration
+} from '@invoicetronic/sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SendApi(configuration);
+
+let identifier: string; // (default to undefined)
+let includePayload: boolean; // (optional) (default to false)
+
+const { status, data } = await apiInstance.sendIdentifierGet(
+    identifier,
+    includePayload
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **identifier** | [**string**] |  | defaults to undefined|
+| **includePayload** | [**boolean**] |  | (optional) defaults to false|
+
+
+### Return type
+
+**Send**
+
+### Authorization
+
+[Basic](../README.md#Basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**404** | Not Found |  -  |
+|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

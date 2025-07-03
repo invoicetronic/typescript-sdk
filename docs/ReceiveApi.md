@@ -180,9 +180,11 @@ const configuration = new Configuration();
 const apiInstance = new ReceiveApi(configuration);
 
 let id: number; //Item id (default to undefined)
+let includePayload: boolean; // (optional) (default to false)
 
 const { status, data } = await apiInstance.receiveIdGet(
-    id
+    id,
+    includePayload
 );
 ```
 
@@ -191,6 +193,7 @@ const { status, data } = await apiInstance.receiveIdGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] | Item id | defaults to undefined|
+| **includePayload** | [**boolean**] |  | (optional) defaults to false|
 
 
 ### Return type
