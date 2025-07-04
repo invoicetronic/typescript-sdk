@@ -28,7 +28,7 @@ let identifier: string; //SDI identifier. (optional) (default to undefined)
 let prestatore: string; //Vat number or fiscal code. (optional) (default to undefined)
 let unread: boolean; //Unread items only. (optional) (default to undefined)
 let sendId: number; //Send item\'s id. (optional) (default to undefined)
-let state: 'Inviato' | 'Consegnato' | 'NonConsegnato' | 'Scartato' | 'AccettatoDalDestinatario' | 'RifiutatoDalDestinatario' | 'ImpossibilitaDiRecapito' | 'DecorrenzaTermini' | 'AttestazioneTrasmissioneFattura'; //SDI state (optional) (default to undefined)
+let state: 'Inviato' | 'Consegnato' | 'NonConsegnato' | 'Scartato' | 'AccettatoDalDestinatario' | 'RifiutatoDalDestinatario' | 'ImpossibilitàDiRecapito' | 'DecorrenzaTermini' | 'AttestazioneTrasmissioneFattura'; //SDI state (optional) (default to undefined)
 let lastUpdateFrom: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let lastUpdateTo: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let dateSentFrom: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
@@ -63,7 +63,7 @@ const { status, data } = await apiInstance.updateGet(
 | **prestatore** | [**string**] | Vat number or fiscal code. | (optional) defaults to undefined|
 | **unread** | [**boolean**] | Unread items only. | (optional) defaults to undefined|
 | **sendId** | [**number**] | Send item\&#39;s id. | (optional) defaults to undefined|
-| **state** | [**&#39;Inviato&#39; | &#39;Consegnato&#39; | &#39;NonConsegnato&#39; | &#39;Scartato&#39; | &#39;AccettatoDalDestinatario&#39; | &#39;RifiutatoDalDestinatario&#39; | &#39;ImpossibilitaDiRecapito&#39; | &#39;DecorrenzaTermini&#39; | &#39;AttestazioneTrasmissioneFattura&#39;**]**Array<&#39;Inviato&#39; &#124; &#39;Consegnato&#39; &#124; &#39;NonConsegnato&#39; &#124; &#39;Scartato&#39; &#124; &#39;AccettatoDalDestinatario&#39; &#124; &#39;RifiutatoDalDestinatario&#39; &#124; &#39;ImpossibilitaDiRecapito&#39; &#124; &#39;DecorrenzaTermini&#39; &#124; &#39;AttestazioneTrasmissioneFattura&#39;>** | SDI state | (optional) defaults to undefined|
+| **state** | [**&#39;Inviato&#39; | &#39;Consegnato&#39; | &#39;NonConsegnato&#39; | &#39;Scartato&#39; | &#39;AccettatoDalDestinatario&#39; | &#39;RifiutatoDalDestinatario&#39; | &#39;ImpossibilitàDiRecapito&#39; | &#39;DecorrenzaTermini&#39; | &#39;AttestazioneTrasmissioneFattura&#39;**]**Array<&#39;Inviato&#39; &#124; &#39;Consegnato&#39; &#124; &#39;NonConsegnato&#39; &#124; &#39;Scartato&#39; &#124; &#39;AccettatoDalDestinatario&#39; &#124; &#39;RifiutatoDalDestinatario&#39; &#124; &#39;ImpossibilitàDiRecapito&#39; &#124; &#39;DecorrenzaTermini&#39; &#124; &#39;AttestazioneTrasmissioneFattura&#39;>** | SDI state | (optional) defaults to undefined|
 | **lastUpdateFrom** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **lastUpdateTo** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **dateSentFrom** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|

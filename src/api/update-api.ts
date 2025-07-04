@@ -366,7 +366,7 @@ export const UpdateGetStateEnum = {
     Scartato: 'Scartato',
     AccettatoDalDestinatario: 'AccettatoDalDestinatario',
     RifiutatoDalDestinatario: 'RifiutatoDalDestinatario',
-    ImpossibilitaDiRecapito: 'ImpossibilitaDiRecapito',
+    ImpossibilitDiRecapito: 'ImpossibilitàDiRecapito',
     DecorrenzaTermini: 'DecorrenzaTermini',
     AttestazioneTrasmissioneFattura: 'AttestazioneTrasmissioneFattura'
 } as const;
