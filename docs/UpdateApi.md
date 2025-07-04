@@ -35,7 +35,7 @@ let dateSentFrom: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (defa
 let dateSentTo: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let page: number; //Page number. (optional) (default to 1)
 let pageSize: number; //Items per page. Cannot be greater than 200. (optional) (default to 100)
-let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to undefined)
+let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to 'last_update')
 
 const { status, data } = await apiInstance.updateGet(
     companyId,
@@ -70,7 +70,7 @@ const { status, data } = await apiInstance.updateGet(
 | **dateSentTo** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **page** | [**number**] | Page number. | (optional) defaults to 1|
 | **pageSize** | [**number**] | Items per page. Cannot be greater than 200. | (optional) defaults to 100|
-| **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to undefined|
+| **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to 'last_update'|
 
 
 ### Return type
