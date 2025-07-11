@@ -207,7 +207,7 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
          * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -232,7 +232,7 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
             if (includePayload !== undefined) {
-                localVarQueryParameter['includePayload'] = includePayload;
+                localVarQueryParameter['include_payload'] = includePayload;
             }
 
 
@@ -302,7 +302,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
          * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -362,7 +362,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
          * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -418,7 +418,7 @@ export interface ReceiveApiInterface {
      * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary Get an incoming invoice by id
      * @param {number} id Item id
-     * @param {boolean} [includePayload] 
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReceiveApiInterface
@@ -478,7 +478,7 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
      * @summary Get an incoming invoice by id
      * @param {number} id Item id
-     * @param {boolean} [includePayload] 
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReceiveApi

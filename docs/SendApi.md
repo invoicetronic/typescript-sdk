@@ -190,7 +190,7 @@ const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
 let id: number; //Item id (default to undefined)
-let includePayload: boolean; // (optional) (default to false)
+let includePayload: boolean; //Include payload in the response. Defaults to false. (optional) (default to false)
 
 const { status, data } = await apiInstance.sendIdGet(
     id,
@@ -203,7 +203,7 @@ const { status, data } = await apiInstance.sendIdGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] | Item id | defaults to undefined|
-| **includePayload** | [**boolean**] |  | (optional) defaults to false|
+| **includePayload** | [**boolean**] | Include payload in the response. Defaults to false. | (optional) defaults to false|
 
 
 ### Return type
@@ -245,7 +245,7 @@ const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
 let identifier: string; // (default to undefined)
-let includePayload: boolean; // (optional) (default to false)
+let includePayload: boolean; //Include payload in the response. Defaults to false. (optional) (default to false)
 
 const { status, data } = await apiInstance.sendIdentifierGet(
     identifier,
@@ -258,7 +258,7 @@ const { status, data } = await apiInstance.sendIdentifierGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **identifier** | [**string**] |  | defaults to undefined|
-| **includePayload** | [**boolean**] |  | (optional) defaults to false|
+| **includePayload** | [**boolean**] | Include payload in the response. Defaults to false. | (optional) defaults to false|
 
 
 ### Return type

@@ -223,7 +223,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by id
          * @param {number} id Item id
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -248,7 +248,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
             if (includePayload !== undefined) {
-                localVarQueryParameter['includePayload'] = includePayload;
+                localVarQueryParameter['include_payload'] = includePayload;
             }
 
 
@@ -266,7 +266,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by identifier
          * @param {string} identifier 
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -291,7 +291,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
             if (includePayload !== undefined) {
-                localVarQueryParameter['includePayload'] = includePayload;
+                localVarQueryParameter['include_payload'] = includePayload;
             }
 
 
@@ -677,7 +677,7 @@ export const SendApiFp = function(configuration?: Configuration) {
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by id
          * @param {number} id Item id
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -691,7 +691,7 @@ export const SendApiFp = function(configuration?: Configuration) {
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by identifier
          * @param {string} identifier 
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -849,7 +849,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by id
          * @param {number} id Item id
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -860,7 +860,7 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
          * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
          * @summary Get a invoice by identifier
          * @param {string} identifier 
-         * @param {boolean} [includePayload] 
+         * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -993,7 +993,7 @@ export interface SendApiInterface {
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Get a invoice by id
      * @param {number} id Item id
-     * @param {boolean} [includePayload] 
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
@@ -1004,7 +1004,7 @@ export interface SendApiInterface {
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Get a invoice by identifier
      * @param {string} identifier 
-     * @param {boolean} [includePayload] 
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApiInterface
@@ -1141,7 +1141,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Get a invoice by id
      * @param {number} id Item id
-     * @param {boolean} [includePayload] 
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
@@ -1154,7 +1154,7 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * Send invoices are the invoices that are sent to the SDI. They are preserved for two years in the live environment and 15 days in the Sandbox.
      * @summary Get a invoice by identifier
      * @param {string} identifier 
-     * @param {boolean} [includePayload] 
+     * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SendApi
