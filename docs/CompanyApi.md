@@ -21,7 +21,7 @@ Companies are the entities that send and receive invoices. As you send invoices,
 import {
     CompanyApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new CompanyApi(configuration);
@@ -80,7 +80,7 @@ Companies are the entities that send and receive invoices. As you send invoices,
 import {
     CompanyApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new CompanyApi(configuration);
@@ -134,7 +134,7 @@ Companies are the entities that send and receive invoices. As you send invoices,
 import {
     CompanyApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new CompanyApi(configuration);
@@ -187,7 +187,7 @@ import {
     CompanyApi,
     Configuration,
     Company
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new CompanyApi(configuration);
@@ -241,7 +241,7 @@ import {
     CompanyApi,
     Configuration,
     Company
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new CompanyApi(configuration);

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiTrasporto } from '@invoicetronic/sdk';
+import { DatiTrasporto } from '@invoicetronic/ts-sdk';
 
 const instance: DatiTrasporto = {
     dati_anagrafici_vettore,

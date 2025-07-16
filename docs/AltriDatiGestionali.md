@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { AltriDatiGestionali } from '@invoicetronic/sdk';
+import { AltriDatiGestionali } from '@invoicetronic/ts-sdk';
 
 const instance: AltriDatiGestionali = {
     tipo_dato,

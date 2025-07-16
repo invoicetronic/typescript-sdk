@@ -27,7 +27,7 @@ Send invoices are the invoices that are sent to the SDI. They are preserved for 
 import {
     SendApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -86,7 +86,7 @@ test **markdown**.
 import {
     SendApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -184,7 +184,7 @@ Send invoices are the invoices that are sent to the SDI. They are preserved for 
 import {
     SendApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -239,7 +239,7 @@ Send invoices are the invoices that are sent to the SDI. They are preserved for 
 import {
     SendApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -296,7 +296,7 @@ import {
     SendApi,
     Configuration,
     FatturaOrdinaria
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -356,7 +356,7 @@ import {
     SendApi,
     Configuration,
     Send
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -415,7 +415,7 @@ Send invoices are the invoices that are sent to the SDI. They are preserved for 
 import {
     SendApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -469,7 +469,7 @@ import {
     SendApi,
     Configuration,
     FatturaOrdinaria
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -523,7 +523,7 @@ import {
     SendApi,
     Configuration,
     Send
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -577,7 +577,7 @@ import {
     SendApi,
     Configuration,
     FatturaOrdinaria
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
@@ -631,7 +631,7 @@ import {
     SendApi,
     Configuration,
     FatturaOrdinaria
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);

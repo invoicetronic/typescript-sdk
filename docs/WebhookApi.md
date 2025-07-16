@@ -23,7 +23,7 @@ Webhooks are used to notify external services about write events that occur in t
 import {
     WebhookApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
@@ -97,7 +97,7 @@ Webhooks are used to notify external services about write events that occur in t
 import {
     WebhookApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
@@ -151,7 +151,7 @@ Webhooks are used to notify external services about write events that occur in t
 import {
     WebhookApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
@@ -204,7 +204,7 @@ import {
     WebhookApi,
     Configuration,
     WebHook
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
@@ -258,7 +258,7 @@ import {
     WebhookApi,
     Configuration,
     WebHook
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
@@ -311,7 +311,7 @@ Webhook history items are stored in the database and can be accessed via the API
 import {
     WebhookApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);
@@ -373,7 +373,7 @@ Webhook history items are stored in the database and can be accessed via the API
 import {
     WebhookApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new WebhookApi(configuration);

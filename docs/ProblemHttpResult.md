@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ProblemHttpResult } from '@invoicetronic/sdk';
+import { ProblemHttpResult } from '@invoicetronic/ts-sdk';
 
 const instance: ProblemHttpResult = {
     problem_details,

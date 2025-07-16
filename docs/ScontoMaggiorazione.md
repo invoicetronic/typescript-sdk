@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ScontoMaggiorazione } from '@invoicetronic/sdk';
+import { ScontoMaggiorazione } from '@invoicetronic/ts-sdk';
 
 const instance: ScontoMaggiorazione = {
     tipo,

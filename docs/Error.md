@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ModelError } from '@invoicetronic/sdk';
+import { ModelError } from '@invoicetronic/ts-sdk';
 
 const instance: ModelError = {
     code,

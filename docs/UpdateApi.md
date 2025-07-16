@@ -18,7 +18,7 @@ Updates are notifications sent by the SDI about the status of invoices you sent.
 import {
     UpdateApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new UpdateApi(configuration);
@@ -107,7 +107,7 @@ Updates are notifications sent by the SDI about the status of invoices you sent.
 import {
     UpdateApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new UpdateApi(configuration);

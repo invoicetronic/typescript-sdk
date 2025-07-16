@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiRiepilogo } from '@invoicetronic/sdk';
+import { DatiRiepilogo } from '@invoicetronic/ts-sdk';
 
 const instance: DatiRiepilogo = {
     aliquota_iva,

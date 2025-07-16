@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { SedeCedentePrestatore } from '@invoicetronic/sdk';
+import { SedeCedentePrestatore } from '@invoicetronic/ts-sdk';
 
 const instance: SedeCedentePrestatore = {
     indirizzo,

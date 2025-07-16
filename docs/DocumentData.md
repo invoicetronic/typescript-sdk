@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DocumentData } from '@invoicetronic/sdk';
+import { DocumentData } from '@invoicetronic/ts-sdk';
 
 const instance: DocumentData = {
     number,

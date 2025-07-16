@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Anagrafica } from '@invoicetronic/sdk';
+import { Anagrafica } from '@invoicetronic/ts-sdk';
 
 const instance: Anagrafica = {
     denominazione,

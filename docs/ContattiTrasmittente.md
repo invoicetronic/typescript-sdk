@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ContattiTrasmittente } from '@invoicetronic/sdk';
+import { ContattiTrasmittente } from '@invoicetronic/ts-sdk';
 
 const instance: ContattiTrasmittente = {
     telefono,

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiDDT } from '@invoicetronic/sdk';
+import { DatiDDT } from '@invoicetronic/ts-sdk';
 
 const instance: DatiDDT = {
     numero_ddt,

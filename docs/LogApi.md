@@ -18,7 +18,7 @@ Every API operation is logged and can be retrieved here. Log records are preserv
 import {
     LogApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new LogApi(configuration);
@@ -110,7 +110,7 @@ Every API operation is logged and can be retrieved here. Log records are preserv
 import {
     LogApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new LogApi(configuration);

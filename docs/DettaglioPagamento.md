@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DettaglioPagamento } from '@invoicetronic/sdk';
+import { DettaglioPagamento } from '@invoicetronic/ts-sdk';
 
 const instance: DettaglioPagamento = {
     beneficiario,

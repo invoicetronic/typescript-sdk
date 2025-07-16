@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FatturaPrincipale } from '@invoicetronic/sdk';
+import { FatturaPrincipale } from '@invoicetronic/ts-sdk';
 
 const instance: FatturaPrincipale = {
     numero_fattura_principale,

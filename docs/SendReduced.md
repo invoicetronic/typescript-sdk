@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { SendReduced } from '@invoicetronic/sdk';
+import { SendReduced } from '@invoicetronic/ts-sdk';
 
 const instance: SendReduced = {
     identifier,

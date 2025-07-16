@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiRitenuta } from '@invoicetronic/sdk';
+import { DatiRitenuta } from '@invoicetronic/ts-sdk';
 
 const instance: DatiRitenuta = {
     tipo_ritenuta,

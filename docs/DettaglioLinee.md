@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DettaglioLinee } from '@invoicetronic/sdk';
+import { DettaglioLinee } from '@invoicetronic/ts-sdk';
 
 const instance: DettaglioLinee = {
     numero_linea,

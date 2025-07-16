@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Update } from '@invoicetronic/sdk';
+import { Update } from '@invoicetronic/ts-sdk';
 
 const instance: Update = {
     id,

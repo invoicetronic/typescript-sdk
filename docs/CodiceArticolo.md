@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CodiceArticolo } from '@invoicetronic/sdk';
+import { CodiceArticolo } from '@invoicetronic/ts-sdk';
 
 const instance: CodiceArticolo = {
     codice_tipo,

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiContratto } from '@invoicetronic/sdk';
+import { DatiContratto } from '@invoicetronic/ts-sdk';
 
 const instance: DatiContratto = {
     riferimento_numero_linea,

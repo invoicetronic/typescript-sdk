@@ -19,7 +19,7 @@ Receive invoices are the invoices that are received from other companies. They a
 import {
     ReceiveApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new ReceiveApi(configuration);
@@ -120,7 +120,7 @@ Receive invoices are the invoices that are received from other companies. They a
 import {
     ReceiveApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new ReceiveApi(configuration);
@@ -174,7 +174,7 @@ Receive invoices are the invoices that are received from other companies. They a
 import {
     ReceiveApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new ReceiveApi(configuration);

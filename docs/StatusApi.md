@@ -17,7 +17,7 @@ This endpoint is used to know how many operations (invoices + validations) and s
 import {
     StatusApi,
     Configuration
-} from '@invoicetronic/sdk';
+} from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new StatusApi(configuration);

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CedentePrestatore } from '@invoicetronic/sdk';
+import { CedentePrestatore } from '@invoicetronic/ts-sdk';
 
 const instance: CedentePrestatore = {
     dati_anagrafici,

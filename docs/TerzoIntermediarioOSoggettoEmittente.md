@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { TerzoIntermediarioOSoggettoEmittente } from '@invoicetronic/sdk';
+import { TerzoIntermediarioOSoggettoEmittente } from '@invoicetronic/ts-sdk';
 
 const instance: TerzoIntermediarioOSoggettoEmittente = {
     dati_anagrafici,

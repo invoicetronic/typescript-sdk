@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiAnagraficiCedentePrestatore } from '@invoicetronic/sdk';
+import { DatiAnagraficiCedentePrestatore } from '@invoicetronic/ts-sdk';
 
 const instance: DatiAnagraficiCedentePrestatore = {
     id_fiscale_iva,

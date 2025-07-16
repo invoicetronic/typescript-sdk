@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FatturaOrdinaria } from '@invoicetronic/sdk';
+import { FatturaOrdinaria } from '@invoicetronic/ts-sdk';
 
 const instance: FatturaOrdinaria = {
     sistema_emittente,

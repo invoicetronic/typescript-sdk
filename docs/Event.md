@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Event } from '@invoicetronic/sdk';
+import { Event } from '@invoicetronic/ts-sdk';
 
 const instance: Event = {
     id,

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RappresentanteFiscale } from '@invoicetronic/sdk';
+import { RappresentanteFiscale } from '@invoicetronic/ts-sdk';
 
 const instance: RappresentanteFiscale = {
     dati_anagrafici,

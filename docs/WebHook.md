@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { WebHook } from '@invoicetronic/sdk';
+import { WebHook } from '@invoicetronic/ts-sdk';
 
 const instance: WebHook = {
     id,

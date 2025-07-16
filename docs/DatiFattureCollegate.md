@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiFattureCollegate } from '@invoicetronic/sdk';
+import { DatiFattureCollegate } from '@invoicetronic/ts-sdk';
 
 const instance: DatiFattureCollegate = {
     riferimento_numero_linea,

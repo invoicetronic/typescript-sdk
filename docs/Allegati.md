@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Allegati } from '@invoicetronic/sdk';
+import { Allegati } from '@invoicetronic/ts-sdk';
 
 const instance: Allegati = {
     nome_attachment,

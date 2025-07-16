@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdFiscaleIVA } from '@invoicetronic/sdk';
+import { IdFiscaleIVA } from '@invoicetronic/ts-sdk';
 
 const instance: IdFiscaleIVA = {
     id_paese,

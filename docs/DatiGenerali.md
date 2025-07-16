@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiGenerali } from '@invoicetronic/sdk';
+import { DatiGenerali } from '@invoicetronic/ts-sdk';
 
 const instance: DatiGenerali = {
     dati_generali_documento,

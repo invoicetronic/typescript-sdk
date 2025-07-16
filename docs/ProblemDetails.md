@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ProblemDetails } from '@invoicetronic/sdk';
+import { ProblemDetails } from '@invoicetronic/ts-sdk';
 
 const instance: ProblemDetails = {
     type,

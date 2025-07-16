@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdTrasmittente } from '@invoicetronic/sdk';
+import { IdTrasmittente } from '@invoicetronic/ts-sdk';
 
 const instance: IdTrasmittente = {
     id_paese,

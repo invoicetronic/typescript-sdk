@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DatiVeicoli } from '@invoicetronic/sdk';
+import { DatiVeicoli } from '@invoicetronic/ts-sdk';
 
 const instance: DatiVeicoli = {
     data,

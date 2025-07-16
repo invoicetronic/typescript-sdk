@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Send } from '@invoicetronic/sdk';
+import { Send } from '@invoicetronic/ts-sdk';
 
 const instance: Send = {
     id,

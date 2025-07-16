@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Status } from '@invoicetronic/sdk';
+import { Status } from '@invoicetronic/ts-sdk';
 
 const instance: Status = {
     operation_left,

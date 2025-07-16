@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FatturaElettronicaBody } from '@invoicetronic/sdk';
+import { FatturaElettronicaBody } from '@invoicetronic/ts-sdk';
 
 const instance: FatturaElettronicaBody = {
     dati_generali,
