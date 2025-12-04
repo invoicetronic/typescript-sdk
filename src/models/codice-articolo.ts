@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface CodiceArticolo
- */
 export interface CodiceArticolo {
-    /**
-     * 
-     * @type {string}
-     * @memberof CodiceArticolo
-     */
     'codice_tipo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CodiceArticolo
-     */
     'codice_valore'?: string | null;
 }
 

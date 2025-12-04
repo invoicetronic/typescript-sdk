@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiRitenuta
- */
 export interface DatiRitenuta {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRitenuta
-     */
     'tipo_ritenuta'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRitenuta
-     */
     'importo_ritenuta'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRitenuta
-     */
     'aliquota_ritenuta'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRitenuta
-     */
     'causale_pagamento'?: string | null;
 }
 

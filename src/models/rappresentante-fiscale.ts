@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { DatiAnagrafici } from './dati-anagrafici';
 
-/**
- * 
- * @export
- * @interface RappresentanteFiscale
- */
 export interface RappresentanteFiscale {
-    /**
-     * 
-     * @type {DatiAnagrafici}
-     * @memberof RappresentanteFiscale
-     */
     'dati_anagrafici'?: DatiAnagrafici;
 }
 

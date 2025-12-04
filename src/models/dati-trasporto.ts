@@ -20,89 +20,19 @@ import type { DatiAnagraficiVettore } from './dati-anagrafici-vettore';
 // @ts-ignore
 import type { IndirizzoResa } from './indirizzo-resa';
 
-/**
- * 
- * @export
- * @interface DatiTrasporto
- */
 export interface DatiTrasporto {
-    /**
-     * 
-     * @type {DatiAnagraficiVettore}
-     * @memberof DatiTrasporto
-     */
     'dati_anagrafici_vettore'?: DatiAnagraficiVettore;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'mezzo_trasporto'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'causale_trasporto'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiTrasporto
-     */
     'numero_colli'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'descrizione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'unita_misura_peso'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiTrasporto
-     */
     'peso_lordo'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiTrasporto
-     */
     'peso_netto'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'data_ora_ritiro'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'data_inizio_trasporto'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'tipo_resa'?: string | null;
-    /**
-     * 
-     * @type {IndirizzoResa}
-     * @memberof DatiTrasporto
-     */
     'indirizzo_resa'?: IndirizzoResa;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasporto
-     */
     'data_ora_consegna'?: string | null;
 }
 

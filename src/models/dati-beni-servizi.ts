@@ -20,23 +20,8 @@ import type { DatiRiepilogo } from './dati-riepilogo';
 // @ts-ignore
 import type { DettaglioLinee } from './dettaglio-linee';
 
-/**
- * 
- * @export
- * @interface DatiBeniServizi
- */
 export interface DatiBeniServizi {
-    /**
-     * 
-     * @type {Array<DettaglioLinee>}
-     * @memberof DatiBeniServizi
-     */
     'dettaglio_linee'?: Array<DettaglioLinee> | null;
-    /**
-     * 
-     * @type {Array<DatiRiepilogo>}
-     * @memberof DatiBeniServizi
-     */
     'dati_riepilogo'?: Array<DatiRiepilogo> | null;
 }
 

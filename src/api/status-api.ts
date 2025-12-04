@@ -28,7 +28,6 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 import type { Status } from '../../src/models';
 /**
  * StatusApi - axios parameter creator
- * @export
  */
 export const StatusApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -71,7 +70,6 @@ export const StatusApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * StatusApi - functional programming interface
- * @export
  */
 export const StatusApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StatusApiAxiosParamCreator(configuration)
@@ -93,7 +91,6 @@ export const StatusApiFp = function(configuration?: Configuration) {
 
 /**
  * StatusApi - factory interface
- * @export
  */
 export const StatusApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StatusApiFp(configuration)
@@ -112,8 +109,6 @@ export const StatusApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * StatusApi - interface
- * @export
- * @interface StatusApi
  */
 export interface StatusApiInterface {
     /**
@@ -121,7 +116,6 @@ export interface StatusApiInterface {
      * @summary Account status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatusApiInterface
      */
     statusGet(options?: RawAxiosRequestConfig): AxiosPromise<Status>;
 
@@ -129,9 +123,6 @@ export interface StatusApiInterface {
 
 /**
  * StatusApi - object-oriented interface
- * @export
- * @class StatusApi
- * @extends {BaseAPI}
  */
 export class StatusApi extends BaseAPI implements StatusApiInterface {
     /**
@@ -139,7 +130,6 @@ export class StatusApi extends BaseAPI implements StatusApiInterface {
      * @summary Account status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatusApi
      */
     public statusGet(options?: RawAxiosRequestConfig) {
         return StatusApiFp(this.configuration).statusGet(options).then((request) => request(this.axios, this.basePath));

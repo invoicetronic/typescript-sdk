@@ -20,29 +20,9 @@ import type { Anagrafica } from './anagrafica';
 // @ts-ignore
 import type { IdFiscaleIVA } from './id-fiscale-iva';
 
-/**
- * 
- * @export
- * @interface DatiAnagraficiCessionarioCommittente
- */
 export interface DatiAnagraficiCessionarioCommittente {
-    /**
-     * 
-     * @type {IdFiscaleIVA}
-     * @memberof DatiAnagraficiCessionarioCommittente
-     */
     'id_fiscale_iva'?: IdFiscaleIVA;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCessionarioCommittente
-     */
     'codice_fiscale'?: string | null;
-    /**
-     * 
-     * @type {Anagrafica}
-     * @memberof DatiAnagraficiCessionarioCommittente
-     */
     'anagrafica'?: Anagrafica;
 }
 

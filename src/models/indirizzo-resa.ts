@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IndirizzoResa
- */
 export interface IndirizzoResa {
-    /**
-     * 
-     * @type {string}
-     * @memberof IndirizzoResa
-     */
     'indirizzo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IndirizzoResa
-     */
     'numero_civico'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IndirizzoResa
-     */
     'cap'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IndirizzoResa
-     */
     'comune'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IndirizzoResa
-     */
     'provincia'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IndirizzoResa
-     */
     'nazione'?: string | null;
 }
 

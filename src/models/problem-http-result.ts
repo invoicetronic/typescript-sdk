@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { ProblemDetails } from './problem-details';
 
-/**
- * 
- * @export
- * @interface ProblemHttpResult
- */
 export interface ProblemHttpResult {
-    /**
-     * 
-     * @type {ProblemDetails}
-     * @memberof ProblemHttpResult
-     */
     'problem_details'?: ProblemDetails;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProblemHttpResult
-     */
     'content_type'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProblemHttpResult
-     */
     'status_code'?: number;
 }
 

@@ -20,47 +20,12 @@ import type { ContattiTrasmittente } from './contatti-trasmittente';
 // @ts-ignore
 import type { IdTrasmittente } from './id-trasmittente';
 
-/**
- * 
- * @export
- * @interface DatiTrasmissione
- */
 export interface DatiTrasmissione {
-    /**
-     * 
-     * @type {IdTrasmittente}
-     * @memberof DatiTrasmissione
-     */
     'id_trasmittente'?: IdTrasmittente;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasmissione
-     */
     'progressivo_invio'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasmissione
-     */
     'formato_trasmissione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasmissione
-     */
     'codice_destinatario'?: string | null;
-    /**
-     * 
-     * @type {ContattiTrasmittente}
-     * @memberof DatiTrasmissione
-     */
     'contatti_trasmittente'?: ContattiTrasmittente;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiTrasmissione
-     */
     'pec_destinatario'?: string | null;
 }
 

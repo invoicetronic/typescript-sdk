@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiDDT
- */
 export interface DatiDDT {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiDDT
-     */
     'numero_ddt'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiDDT
-     */
     'data_ddt'?: string;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof DatiDDT
-     */
     'riferimento_numero_linea'?: Array<number> | null;
 }
 

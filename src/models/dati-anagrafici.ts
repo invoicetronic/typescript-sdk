@@ -20,29 +20,9 @@ import type { Anagrafica } from './anagrafica';
 // @ts-ignore
 import type { IdFiscaleIVA } from './id-fiscale-iva';
 
-/**
- * 
- * @export
- * @interface DatiAnagrafici
- */
 export interface DatiAnagrafici {
-    /**
-     * 
-     * @type {IdFiscaleIVA}
-     * @memberof DatiAnagrafici
-     */
     'id_fiscale_iva'?: IdFiscaleIVA;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagrafici
-     */
     'codice_fiscale'?: string | null;
-    /**
-     * 
-     * @type {Anagrafica}
-     * @memberof DatiAnagrafici
-     */
     'anagrafica'?: Anagrafica;
 }
 

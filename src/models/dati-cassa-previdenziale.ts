@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiCassaPrevidenziale
- */
 export interface DatiCassaPrevidenziale {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiCassaPrevidenziale
-     */
     'tipo_cassa'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiCassaPrevidenziale
-     */
     'al_cassa'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiCassaPrevidenziale
-     */
     'importo_contributo_cassa'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiCassaPrevidenziale
-     */
     'imponibile_cassa'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiCassaPrevidenziale
-     */
     'aliquota_iva'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiCassaPrevidenziale
-     */
     'ritenuta'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiCassaPrevidenziale
-     */
     'natura'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiCassaPrevidenziale
-     */
     'riferimento_amministrazione'?: string | null;
 }
 

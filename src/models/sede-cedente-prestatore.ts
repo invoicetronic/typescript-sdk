@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface SedeCedentePrestatore
- */
 export interface SedeCedentePrestatore {
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCedentePrestatore
-     */
     'indirizzo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCedentePrestatore
-     */
     'numero_civico'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCedentePrestatore
-     */
     'cap'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCedentePrestatore
-     */
     'comune'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCedentePrestatore
-     */
     'provincia'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCedentePrestatore
-     */
     'nazione'?: string | null;
 }
 

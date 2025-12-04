@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ContattiTrasmittente
- */
 export interface ContattiTrasmittente {
-    /**
-     * 
-     * @type {string}
-     * @memberof ContattiTrasmittente
-     */
     'telefono'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ContattiTrasmittente
-     */
     'email'?: string | null;
 }
 

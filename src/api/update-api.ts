@@ -30,7 +30,6 @@ import type { ProblemHttpResult } from '../../src/models';
 import type { Update } from '../../src/models';
 /**
  * UpdateApi - axios parameter creator
- * @export
  */
 export const UpdateApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -184,7 +183,6 @@ export const UpdateApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * UpdateApi - functional programming interface
- * @export
  */
 export const UpdateApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UpdateApiAxiosParamCreator(configuration)
@@ -232,7 +230,6 @@ export const UpdateApiFp = function(configuration?: Configuration) {
 
 /**
  * UpdateApi - factory interface
- * @export
  */
 export const UpdateApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UpdateApiFp(configuration)
@@ -274,8 +271,6 @@ export const UpdateApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * UpdateApi - interface
- * @export
- * @interface UpdateApi
  */
 export interface UpdateApiInterface {
     /**
@@ -296,7 +291,6 @@ export interface UpdateApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UpdateApiInterface
      */
     updateGet(companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Update>>;
 
@@ -306,7 +300,6 @@ export interface UpdateApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UpdateApiInterface
      */
     updateIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Update>;
 
@@ -314,9 +307,6 @@ export interface UpdateApiInterface {
 
 /**
  * UpdateApi - object-oriented interface
- * @export
- * @class UpdateApi
- * @extends {BaseAPI}
  */
 export class UpdateApi extends BaseAPI implements UpdateApiInterface {
     /**
@@ -337,7 +327,6 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UpdateApi
      */
     public updateGet(companyId?: number, identifier?: string, prestatore?: string, unread?: boolean, sendId?: number, state?: UpdateGetStateEnum, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
         return UpdateApiFp(this.configuration).updateGet(companyId, identifier, prestatore, unread, sendId, state, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
@@ -349,16 +338,12 @@ export class UpdateApi extends BaseAPI implements UpdateApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UpdateApi
      */
     public updateIdGet(id: number, options?: RawAxiosRequestConfig) {
         return UpdateApiFp(this.configuration).updateIdGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const UpdateGetStateEnum = {
     Inviato: 'Inviato',
     Consegnato: 'Consegnato',

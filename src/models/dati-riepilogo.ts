@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiRiepilogo
- */
 export interface DatiRiepilogo {
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRiepilogo
-     */
     'aliquota_iva'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRiepilogo
-     */
     'natura'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRiepilogo
-     */
     'spese_accessorie'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRiepilogo
-     */
     'arrotondamento'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRiepilogo
-     */
     'imponibile_importo'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiRiepilogo
-     */
     'imposta'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRiepilogo
-     */
     'esigibilita_iva'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRiepilogo
-     */
     'riferimento_normativo'?: string | null;
 }
 

@@ -29,47 +29,12 @@ import type { SedeCedentePrestatore } from './sede-cedente-prestatore';
 // @ts-ignore
 import type { StabileOrganizzazione } from './stabile-organizzazione';
 
-/**
- * 
- * @export
- * @interface CedentePrestatore
- */
 export interface CedentePrestatore {
-    /**
-     * 
-     * @type {DatiAnagraficiCedentePrestatore}
-     * @memberof CedentePrestatore
-     */
     'dati_anagrafici'?: DatiAnagraficiCedentePrestatore;
-    /**
-     * 
-     * @type {SedeCedentePrestatore}
-     * @memberof CedentePrestatore
-     */
     'sede'?: SedeCedentePrestatore;
-    /**
-     * 
-     * @type {StabileOrganizzazione}
-     * @memberof CedentePrestatore
-     */
     'stabile_organizzazione'?: StabileOrganizzazione;
-    /**
-     * 
-     * @type {IscrizioneREA}
-     * @memberof CedentePrestatore
-     */
     'iscrizione_rea'?: IscrizioneREA;
-    /**
-     * 
-     * @type {Contatti}
-     * @memberof CedentePrestatore
-     */
     'contatti'?: Contatti;
-    /**
-     * 
-     * @type {string}
-     * @memberof CedentePrestatore
-     */
     'riferimento_amministrazione'?: string | null;
 }
 

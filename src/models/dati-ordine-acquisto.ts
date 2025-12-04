@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiOrdineAcquisto
- */
 export interface DatiOrdineAcquisto {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof DatiOrdineAcquisto
-     */
     'riferimento_numero_linea'?: Array<number> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiOrdineAcquisto
-     */
     'id_documento'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiOrdineAcquisto
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiOrdineAcquisto
-     */
     'num_item'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiOrdineAcquisto
-     */
     'codice_commessa_convenzione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiOrdineAcquisto
-     */
     'codice_cup'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiOrdineAcquisto
-     */
     'codice_cig'?: string | null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdTrasmittente
- */
 export interface IdTrasmittente {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdTrasmittente
-     */
     'id_paese'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdTrasmittente
-     */
     'id_codice'?: string | null;
 }
 

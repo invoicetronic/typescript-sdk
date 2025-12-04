@@ -16,26 +16,18 @@
 
 /**
  * Validation error from the SDI.
- * @export
- * @interface ModelError
  */
 export interface ModelError {
     /**
      * Error code.
-     * @type {string}
-     * @memberof ModelError
      */
     'code'?: string | null;
     /**
      * Error description.
-     * @type {string}
-     * @memberof ModelError
      */
     'description'?: string | null;
     /**
      * Hint on how to solve the issue.
-     * @type {string}
-     * @memberof ModelError
      */
     'hint'?: string | null;
 }

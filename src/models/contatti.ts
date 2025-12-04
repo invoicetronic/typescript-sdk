@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface Contatti
- */
 export interface Contatti {
-    /**
-     * 
-     * @type {string}
-     * @memberof Contatti
-     */
     'telefono'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Contatti
-     */
     'fax'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Contatti
-     */
     'email'?: string | null;
 }
 

@@ -17,89 +17,55 @@
 // @ts-ignore
 import type { SendReduced } from './send-reduced';
 
-/**
- * 
- * @export
- * @interface Update
- */
 export interface Update {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
-     * @type {number}
-     * @memberof Update
      */
     'id'?: number;
     /**
      * Creation date. It is set automatically.
-     * @type {string}
-     * @memberof Update
      */
     'created'?: string;
     /**
      * Row version, for optimistic concurrency. It is set automatically.
-     * @type {number}
-     * @memberof Update
      */
     'version'?: number;
     /**
      * User id.
-     * @type {number}
-     * @memberof Update
      */
     'user_id'?: number;
     /**
      * Company id.
-     * @type {number}
-     * @memberof Update
      */
     'company_id'?: number;
     /**
      * Send id. This is the id of the sent invoice to which this update refers to.
-     * @type {number}
-     * @memberof Update
      */
     'send_id'?: number;
     /**
      * Last update from SDI.
-     * @type {string}
-     * @memberof Update
      */
     'last_update'?: string;
     /**
      * State of the document. Theses are the possible values, as per the SDI documentation:
-     * @type {string}
-     * @memberof Update
      */
     'state'?: UpdateStateEnum;
     /**
      * Description for the state.
-     * @type {string}
-     * @memberof Update
      */
     'description'?: string | null;
     /**
      * SDI message id.
-     * @type {string}
-     * @memberof Update
      */
     'message_id'?: string | null;
     /**
      * SDI errors, if any.
-     * @type {Array<Error>}
-     * @memberof Update
      */
     'errors'?: Array<Error> | null;
     /**
      * Wether the item has been read at least once.
-     * @type {boolean}
-     * @memberof Update
      */
     'is_read'?: boolean;
-    /**
-     * 
-     * @type {SendReduced}
-     * @memberof Update
-     */
     'send'?: SendReduced;
 }
 

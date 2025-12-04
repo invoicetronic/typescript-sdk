@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface DocumentData
- */
 export interface DocumentData {
-    /**
-     * 
-     * @type {string}
-     * @memberof DocumentData
-     */
     'number'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DocumentData
-     */
     'date'?: string;
 }
 

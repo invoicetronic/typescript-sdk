@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IscrizioneREA
- */
 export interface IscrizioneREA {
-    /**
-     * 
-     * @type {string}
-     * @memberof IscrizioneREA
-     */
     'ufficio'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IscrizioneREA
-     */
     'numero_rea'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IscrizioneREA
-     */
     'capitale_sociale'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IscrizioneREA
-     */
     'socio_unico'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IscrizioneREA
-     */
     'stato_liquidazione'?: string | null;
 }
 

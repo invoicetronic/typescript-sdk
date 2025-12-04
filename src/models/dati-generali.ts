@@ -44,71 +44,16 @@ import type { DatiTrasporto } from './dati-trasporto';
 // @ts-ignore
 import type { FatturaPrincipale } from './fattura-principale';
 
-/**
- * 
- * @export
- * @interface DatiGenerali
- */
 export interface DatiGenerali {
-    /**
-     * 
-     * @type {DatiGeneraliDocumento}
-     * @memberof DatiGenerali
-     */
     'dati_generali_documento'?: DatiGeneraliDocumento;
-    /**
-     * 
-     * @type {Array<DatiOrdineAcquisto>}
-     * @memberof DatiGenerali
-     */
     'dati_ordine_acquisto'?: Array<DatiOrdineAcquisto> | null;
-    /**
-     * 
-     * @type {Array<DatiContratto>}
-     * @memberof DatiGenerali
-     */
     'dati_contratto'?: Array<DatiContratto> | null;
-    /**
-     * 
-     * @type {Array<DatiConvenzione>}
-     * @memberof DatiGenerali
-     */
     'dati_convenzione'?: Array<DatiConvenzione> | null;
-    /**
-     * 
-     * @type {Array<DatiRicezione>}
-     * @memberof DatiGenerali
-     */
     'dati_ricezione'?: Array<DatiRicezione> | null;
-    /**
-     * 
-     * @type {Array<DatiFattureCollegate>}
-     * @memberof DatiGenerali
-     */
     'dati_fatture_collegate'?: Array<DatiFattureCollegate> | null;
-    /**
-     * 
-     * @type {Array<DatiSAL>}
-     * @memberof DatiGenerali
-     */
     'dati_sal'?: Array<DatiSAL> | null;
-    /**
-     * 
-     * @type {Array<DatiDDT>}
-     * @memberof DatiGenerali
-     */
     'dati_ddt'?: Array<DatiDDT> | null;
-    /**
-     * 
-     * @type {DatiTrasporto}
-     * @memberof DatiGenerali
-     */
     'dati_trasporto'?: DatiTrasporto;
-    /**
-     * 
-     * @type {FatturaPrincipale}
-     * @memberof DatiGenerali
-     */
     'fattura_principale'?: FatturaPrincipale;
 }
 

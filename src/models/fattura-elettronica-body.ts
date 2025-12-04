@@ -29,41 +29,11 @@ import type { DatiPagamento } from './dati-pagamento';
 // @ts-ignore
 import type { DatiVeicoli } from './dati-veicoli';
 
-/**
- * 
- * @export
- * @interface FatturaElettronicaBody
- */
 export interface FatturaElettronicaBody {
-    /**
-     * 
-     * @type {DatiGenerali}
-     * @memberof FatturaElettronicaBody
-     */
     'dati_generali'?: DatiGenerali;
-    /**
-     * 
-     * @type {DatiBeniServizi}
-     * @memberof FatturaElettronicaBody
-     */
     'dati_beni_servizi'?: DatiBeniServizi;
-    /**
-     * 
-     * @type {DatiVeicoli}
-     * @memberof FatturaElettronicaBody
-     */
     'dati_veicoli'?: DatiVeicoli;
-    /**
-     * 
-     * @type {Array<DatiPagamento>}
-     * @memberof FatturaElettronicaBody
-     */
     'dati_pagamento'?: Array<DatiPagamento> | null;
-    /**
-     * 
-     * @type {Array<Allegati>}
-     * @memberof FatturaElettronicaBody
-     */
     'allegati'?: Array<Allegati> | null;
 }
 

@@ -20,35 +20,10 @@ import type { Anagrafica } from './anagrafica';
 // @ts-ignore
 import type { IdFiscaleIVA } from './id-fiscale-iva';
 
-/**
- * 
- * @export
- * @interface DatiAnagraficiVettore
- */
 export interface DatiAnagraficiVettore {
-    /**
-     * 
-     * @type {IdFiscaleIVA}
-     * @memberof DatiAnagraficiVettore
-     */
     'id_fiscale_iva'?: IdFiscaleIVA;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiVettore
-     */
     'codice_fiscale'?: string | null;
-    /**
-     * 
-     * @type {Anagrafica}
-     * @memberof DatiAnagraficiVettore
-     */
     'anagrafica'?: Anagrafica;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiVettore
-     */
     'numero_licenza_guida'?: string | null;
 }
 

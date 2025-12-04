@@ -23,107 +23,22 @@ import type { CodiceArticolo } from './codice-articolo';
 // @ts-ignore
 import type { ScontoMaggiorazione } from './sconto-maggiorazione';
 
-/**
- * 
- * @export
- * @interface DettaglioLinee
- */
 export interface DettaglioLinee {
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioLinee
-     */
     'numero_linea'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'tipo_cessione_prestazione'?: string | null;
-    /**
-     * 
-     * @type {Array<CodiceArticolo>}
-     * @memberof DettaglioLinee
-     */
     'codice_articolo'?: Array<CodiceArticolo> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'descrizione'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioLinee
-     */
     'quantita'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'unita_misura'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'data_inizio_periodo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'data_fine_periodo'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioLinee
-     */
     'prezzo_unitario'?: number;
-    /**
-     * 
-     * @type {Array<ScontoMaggiorazione>}
-     * @memberof DettaglioLinee
-     */
     'sconto_maggiorazione'?: Array<ScontoMaggiorazione> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioLinee
-     */
     'prezzo_totale'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioLinee
-     */
     'aliquota_iva'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'ritenuta'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'natura'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioLinee
-     */
     'riferimento_amministrazione'?: string | null;
-    /**
-     * 
-     * @type {Array<AltriDatiGestionali>}
-     * @memberof DettaglioLinee
-     */
     'altri_dati_gestionali'?: Array<AltriDatiGestionali> | null;
 }
 

@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface Anagrafica
- */
 export interface Anagrafica {
-    /**
-     * 
-     * @type {string}
-     * @memberof Anagrafica
-     */
     'denominazione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Anagrafica
-     */
     'nome'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Anagrafica
-     */
     'cognome'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Anagrafica
-     */
     'titolo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Anagrafica
-     */
     'cod_eori'?: string | null;
 }
 

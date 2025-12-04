@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiSAL
- */
 export interface DatiSAL {
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiSAL
-     */
     'riferimento_fase'?: number;
 }
 

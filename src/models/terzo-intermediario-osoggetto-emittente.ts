@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { DatiAnagrafici } from './dati-anagrafici';
 
-/**
- * 
- * @export
- * @interface TerzoIntermediarioOSoggettoEmittente
- */
 export interface TerzoIntermediarioOSoggettoEmittente {
-    /**
-     * 
-     * @type {DatiAnagrafici}
-     * @memberof TerzoIntermediarioOSoggettoEmittente
-     */
     'dati_anagrafici'?: DatiAnagrafici;
 }
 

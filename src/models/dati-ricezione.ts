@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiRicezione
- */
 export interface DatiRicezione {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof DatiRicezione
-     */
     'riferimento_numero_linea'?: Array<number> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRicezione
-     */
     'id_documento'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRicezione
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRicezione
-     */
     'num_item'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRicezione
-     */
     'codice_commessa_convenzione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRicezione
-     */
     'codice_cup'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiRicezione
-     */
     'codice_cig'?: string | null;
 }
 

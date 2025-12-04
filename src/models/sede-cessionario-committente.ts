@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface SedeCessionarioCommittente
- */
 export interface SedeCessionarioCommittente {
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCessionarioCommittente
-     */
     'indirizzo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCessionarioCommittente
-     */
     'numero_civico'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCessionarioCommittente
-     */
     'cap'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCessionarioCommittente
-     */
     'comune'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCessionarioCommittente
-     */
     'provincia'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SedeCessionarioCommittente
-     */
     'nazione'?: string | null;
 }
 

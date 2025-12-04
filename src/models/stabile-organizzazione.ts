@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface StabileOrganizzazione
- */
 export interface StabileOrganizzazione {
-    /**
-     * 
-     * @type {string}
-     * @memberof StabileOrganizzazione
-     */
     'indirizzo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof StabileOrganizzazione
-     */
     'numero_civico'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof StabileOrganizzazione
-     */
     'cap'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof StabileOrganizzazione
-     */
     'comune'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof StabileOrganizzazione
-     */
     'provincia'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof StabileOrganizzazione
-     */
     'nazione'?: string | null;
 }
 

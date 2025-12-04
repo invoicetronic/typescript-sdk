@@ -16,62 +16,42 @@
 
 /**
  * Webhook history.
- * @export
- * @interface WebHookHistory
  */
 export interface WebHookHistory {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
-     * @type {number}
-     * @memberof WebHookHistory
      */
     'id'?: number;
     /**
      * Creation date. It is set automatically.
-     * @type {string}
-     * @memberof WebHookHistory
      */
     'created'?: string;
     /**
      * Row version, for optimistic concurrency. It is set automatically.
-     * @type {number}
-     * @memberof WebHookHistory
      */
     'version'?: number;
     /**
      * Webhook id.
-     * @type {number}
-     * @memberof WebHookHistory
      */
     'web_hook_id'?: number;
     /**
      * User id.
-     * @type {number}
-     * @memberof WebHookHistory
      */
     'user_id'?: number;
     /**
      * Event name.
-     * @type {string}
-     * @memberof WebHookHistory
      */
     'event'?: string | null;
     /**
      * Status code.
-     * @type {number}
-     * @memberof WebHookHistory
      */
     'status_code'?: number;
     /**
      * Date and time of the request.
-     * @type {string}
-     * @memberof WebHookHistory
      */
     'date_time'?: string;
     /**
      * Wether the request was successful.
-     * @type {boolean}
-     * @memberof WebHookHistory
      */
     'success'?: boolean;
 }

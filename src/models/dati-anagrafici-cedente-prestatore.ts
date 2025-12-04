@@ -20,59 +20,14 @@ import type { Anagrafica } from './anagrafica';
 // @ts-ignore
 import type { IdFiscaleIVA } from './id-fiscale-iva';
 
-/**
- * 
- * @export
- * @interface DatiAnagraficiCedentePrestatore
- */
 export interface DatiAnagraficiCedentePrestatore {
-    /**
-     * 
-     * @type {IdFiscaleIVA}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'id_fiscale_iva'?: IdFiscaleIVA;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'codice_fiscale'?: string | null;
-    /**
-     * 
-     * @type {Anagrafica}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'anagrafica'?: Anagrafica;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'albo_professionale'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'provincia_albo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'numero_iscrizione_albo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'data_iscrizione_albo'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiAnagraficiCedentePrestatore
-     */
     'regime_fiscale'?: string | null;
 }
 

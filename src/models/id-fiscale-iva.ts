@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdFiscaleIVA
- */
 export interface IdFiscaleIVA {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdFiscaleIVA
-     */
     'id_paese'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdFiscaleIVA
-     */
     'id_codice'?: string | null;
 }
 

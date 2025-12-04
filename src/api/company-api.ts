@@ -32,7 +32,6 @@ import type { ProblemDetails } from '../../src/models';
 import type { ProblemHttpResult } from '../../src/models';
 /**
  * CompanyApi - axios parameter creator
- * @export
  */
 export const CompanyApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -246,7 +245,6 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * CompanyApi - functional programming interface
- * @export
  */
 export const CompanyApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CompanyApiAxiosParamCreator(configuration)
@@ -323,7 +321,6 @@ export const CompanyApiFp = function(configuration?: Configuration) {
 
 /**
  * CompanyApi - factory interface
- * @export
  */
 export const CompanyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CompanyApiFp(configuration)
@@ -385,8 +382,6 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * CompanyApi - interface
- * @export
- * @interface CompanyApi
  */
 export interface CompanyApiInterface {
     /**
@@ -397,7 +392,6 @@ export interface CompanyApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApiInterface
      */
     companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Company>>;
 
@@ -407,7 +401,6 @@ export interface CompanyApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApiInterface
      */
     companyIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
@@ -417,7 +410,6 @@ export interface CompanyApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApiInterface
      */
     companyIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
@@ -427,7 +419,6 @@ export interface CompanyApiInterface {
      * @param {Company} company 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApiInterface
      */
     companyPost(company: Company, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
@@ -437,7 +428,6 @@ export interface CompanyApiInterface {
      * @param {Company} company 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApiInterface
      */
     companyPut(company: Company, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
@@ -445,9 +435,6 @@ export interface CompanyApiInterface {
 
 /**
  * CompanyApi - object-oriented interface
- * @export
- * @class CompanyApi
- * @extends {BaseAPI}
  */
 export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     /**
@@ -458,7 +445,6 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApi
      */
     public companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
         return CompanyApiFp(this.configuration).companyGet(page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
@@ -470,7 +456,6 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApi
      */
     public companyIdDelete(id: number, options?: RawAxiosRequestConfig) {
         return CompanyApiFp(this.configuration).companyIdDelete(id, options).then((request) => request(this.axios, this.basePath));
@@ -482,7 +467,6 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApi
      */
     public companyIdGet(id: number, options?: RawAxiosRequestConfig) {
         return CompanyApiFp(this.configuration).companyIdGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -494,7 +478,6 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
      * @param {Company} company 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApi
      */
     public companyPost(company: Company, options?: RawAxiosRequestConfig) {
         return CompanyApiFp(this.configuration).companyPost(company, options).then((request) => request(this.axios, this.basePath));
@@ -506,7 +489,6 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
      * @param {Company} company 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompanyApi
      */
     public companyPut(company: Company, options?: RawAxiosRequestConfig) {
         return CompanyApiFp(this.configuration).companyPut(company, options).then((request) => request(this.axios, this.basePath));

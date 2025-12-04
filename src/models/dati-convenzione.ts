@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiConvenzione
- */
 export interface DatiConvenzione {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof DatiConvenzione
-     */
     'riferimento_numero_linea'?: Array<number> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiConvenzione
-     */
     'id_documento'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiConvenzione
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiConvenzione
-     */
     'num_item'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiConvenzione
-     */
     'codice_commessa_convenzione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiConvenzione
-     */
     'codice_cup'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiConvenzione
-     */
     'codice_cig'?: string | null;
 }
 

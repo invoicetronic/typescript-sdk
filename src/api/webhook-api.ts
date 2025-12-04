@@ -34,7 +34,6 @@ import type { WebHook } from '../../src/models';
 import type { WebHookHistory } from '../../src/models';
 /**
  * WebhookApi - axios parameter creator
- * @export
  */
 export const WebhookApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -365,7 +364,6 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * WebhookApi - functional programming interface
- * @export
  */
 export const WebhookApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = WebhookApiAxiosParamCreator(configuration)
@@ -476,7 +474,6 @@ export const WebhookApiFp = function(configuration?: Configuration) {
 
 /**
  * WebhookApi - factory interface
- * @export
  */
 export const WebhookApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = WebhookApiFp(configuration)
@@ -566,8 +563,6 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * WebhookApi - interface
- * @export
- * @interface WebhookApi
  */
 export interface WebhookApiInterface {
     /**
@@ -583,7 +578,6 @@ export interface WebhookApiInterface {
      * @param {string} [url] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHook>>;
 
@@ -593,7 +587,6 @@ export interface WebhookApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
@@ -603,7 +596,6 @@ export interface WebhookApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
@@ -613,7 +605,6 @@ export interface WebhookApiInterface {
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookPost(webHook: WebHook, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
@@ -623,7 +614,6 @@ export interface WebhookApiInterface {
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookPut(webHook: WebHook, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
@@ -636,7 +626,6 @@ export interface WebhookApiInterface {
      * @param {number} [webhookId] WebHook id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookhistoryGet(page?: number, pageSize?: number, sort?: string, webhookId?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHookHistory>>;
 
@@ -646,7 +635,6 @@ export interface WebhookApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApiInterface
      */
     webhookhistoryIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<WebHookHistory>;
 
@@ -654,9 +642,6 @@ export interface WebhookApiInterface {
 
 /**
  * WebhookApi - object-oriented interface
- * @export
- * @class WebhookApi
- * @extends {BaseAPI}
  */
 export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
@@ -672,7 +657,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {string} [url] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookGet(companyId, page, pageSize, sort, description, enabled, events, url, options).then((request) => request(this.axios, this.basePath));
@@ -684,7 +668,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookIdDelete(id: number, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookIdDelete(id, options).then((request) => request(this.axios, this.basePath));
@@ -696,7 +679,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookIdGet(id: number, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookIdGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -708,7 +690,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookPost(webHook: WebHook, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookPost(webHook, options).then((request) => request(this.axios, this.basePath));
@@ -720,7 +701,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookPut(webHook: WebHook, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookPut(webHook, options).then((request) => request(this.axios, this.basePath));
@@ -735,7 +715,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {number} [webhookId] WebHook id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookhistoryGet(page?: number, pageSize?: number, sort?: string, webhookId?: number, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookhistoryGet(page, pageSize, sort, webhookId, options).then((request) => request(this.axios, this.basePath));
@@ -747,7 +726,6 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WebhookApi
      */
     public webhookhistoryIdGet(id: number, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookhistoryIdGet(id, options).then((request) => request(this.axios, this.basePath));

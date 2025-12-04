@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ScontoMaggiorazione
- */
 export interface ScontoMaggiorazione {
-    /**
-     * 
-     * @type {string}
-     * @memberof ScontoMaggiorazione
-     */
     'tipo'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ScontoMaggiorazione
-     */
     'percentuale'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ScontoMaggiorazione
-     */
     'importo'?: number | null;
 }
 

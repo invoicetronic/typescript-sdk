@@ -14,100 +14,69 @@
 
 
 
-/**
- * 
- * @export
- * @interface Event
- */
 export interface Event {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
-     * @type {number}
-     * @memberof Event
      */
     'id'?: number;
     /**
      * Creation date. It is set automatically.
-     * @type {string}
-     * @memberof Event
      */
     'created'?: string;
     /**
      * Row version, for optimistic concurrency. It is set automatically.
-     * @type {number}
-     * @memberof Event
      */
     'version'?: number;
     /**
      * User id.
-     * @type {number}
-     * @memberof Event
      */
     'user_id'?: number;
     /**
      * Api key id.
-     * @type {number}
-     * @memberof Event
      */
     'api_key_id'?: number;
     /**
      * Company id.
-     * @type {number}
-     * @memberof Event
      */
     'company_id'?: number | null;
     /**
      * Request method.
-     * @type {string}
-     * @memberof Event
      */
     'method'?: string | null;
     /**
-     * Request query.
-     * @type {string}
-     * @memberof Event
-     */
-    'query'?: string | null;
-    /**
      * API endpoint.
-     * @type {string}
-     * @memberof Event
      */
     'endpoint'?: string | null;
     /**
      * Api version.
-     * @type {number}
-     * @memberof Event
      */
     'api_version'?: number;
     /**
      * Status code returned by the API.
-     * @type {number}
-     * @memberof Event
      */
     'status_code'?: number;
     /**
      * Date and time of the request.
-     * @type {string}
-     * @memberof Event
      */
     'date_time'?: string;
     /**
      * Response error.
-     * @type {string}
-     * @memberof Event
      */
     'error'?: string | null;
     /**
+     * ID of the resource created or modified by this request.
+     */
+    'resource_id'?: number | null;
+    /**
      * Wether the request was successful.
-     * @type {boolean}
-     * @memberof Event
      */
     'success'?: boolean;
     /**
+     * Request query. Only used for internal logging, not sent to webhooks.
+     */
+    'query'?: string | null;
+    /**
      * Response payload. It is guaranteed to be cyphered at rest.
-     * @type {string}
-     * @memberof Event
      */
     'response_body'?: string | null;
 }

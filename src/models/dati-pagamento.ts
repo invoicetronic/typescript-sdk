@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { DettaglioPagamento } from './dettaglio-pagamento';
 
-/**
- * 
- * @export
- * @interface DatiPagamento
- */
 export interface DatiPagamento {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiPagamento
-     */
     'condizioni_pagamento'?: string | null;
-    /**
-     * 
-     * @type {Array<DettaglioPagamento>}
-     * @memberof DatiPagamento
-     */
     'dettaglio_pagamento'?: Array<DettaglioPagamento> | null;
 }
 

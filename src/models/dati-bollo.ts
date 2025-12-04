@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiBollo
- */
 export interface DatiBollo {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiBollo
-     */
     'bollo_virtuale'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiBollo
-     */
     'importo_bollo'?: number | null;
 }
 

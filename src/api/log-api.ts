@@ -30,7 +30,6 @@ import type { Event } from '../../src/models';
 import type { ProblemHttpResult } from '../../src/models';
 /**
  * LogApi - axios parameter creator
- * @export
  */
 export const LogApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -189,7 +188,6 @@ export const LogApiAxiosParamCreator = function (configuration?: Configuration) 
 
 /**
  * LogApi - functional programming interface
- * @export
  */
 export const LogApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LogApiAxiosParamCreator(configuration)
@@ -238,7 +236,6 @@ export const LogApiFp = function(configuration?: Configuration) {
 
 /**
  * LogApi - factory interface
- * @export
  */
 export const LogApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = LogApiFp(configuration)
@@ -281,8 +278,6 @@ export const LogApiFactory = function (configuration?: Configuration, basePath?:
 
 /**
  * LogApi - interface
- * @export
- * @interface LogApi
  */
 export interface LogApiInterface {
     /**
@@ -304,7 +299,6 @@ export interface LogApiInterface {
      * @param {string} [dateTimeTo] Date and time of the event
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LogApiInterface
      */
     logGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, sort?: string, query?: string, success?: boolean, dateTimeFrom?: string, dateTimeTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Event>>;
 
@@ -314,7 +308,6 @@ export interface LogApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LogApiInterface
      */
     logIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Event>;
 
@@ -322,9 +315,6 @@ export interface LogApiInterface {
 
 /**
  * LogApi - object-oriented interface
- * @export
- * @class LogApi
- * @extends {BaseAPI}
  */
 export class LogApi extends BaseAPI implements LogApiInterface {
     /**
@@ -346,7 +336,6 @@ export class LogApi extends BaseAPI implements LogApiInterface {
      * @param {string} [dateTimeTo] Date and time of the event
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LogApi
      */
     public logGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, sort?: string, query?: string, success?: boolean, dateTimeFrom?: string, dateTimeTo?: string, options?: RawAxiosRequestConfig) {
         return LogApiFp(this.configuration).logGet(companyId, endpoint, method, apiVerion, statusCode, dateCreatedFrom, dateCreatedTo, page, pageSize, sort, query, success, dateTimeFrom, dateTimeTo, options).then((request) => request(this.axios, this.basePath));
@@ -358,7 +347,6 @@ export class LogApi extends BaseAPI implements LogApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LogApi
      */
     public logIdGet(id: number, options?: RawAxiosRequestConfig) {
         return LogApiFp(this.configuration).logIdGet(id, options).then((request) => request(this.axios, this.basePath));

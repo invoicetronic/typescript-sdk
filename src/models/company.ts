@@ -16,50 +16,34 @@
 
 /**
  * A company model.
- * @export
- * @interface Company
  */
 export interface Company {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
-     * @type {number}
-     * @memberof Company
      */
     'id'?: number;
     /**
      * Creation date. It is set automatically.
-     * @type {string}
-     * @memberof Company
      */
     'created'?: string;
     /**
      * Row version, for optimistic concurrency. It is set automatically.
-     * @type {number}
-     * @memberof Company
      */
     'version'?: number;
     /**
      * User id.
-     * @type {number}
-     * @memberof Company
      */
     'user_id'?: number;
     /**
      * Vat number. Must include the country code.
-     * @type {string}
-     * @memberof Company
      */
     'vat': string;
     /**
      * Fiscal code. In most cases it\'s the same as the vat number.
-     * @type {string}
-     * @memberof Company
      */
     'fiscal_code': string;
     /**
      * Name
-     * @type {string}
-     * @memberof Company
      */
     'name': string;
 }

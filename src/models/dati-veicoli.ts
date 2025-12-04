@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface DatiVeicoli
- */
 export interface DatiVeicoli {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiVeicoli
-     */
     'data'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiVeicoli
-     */
     'totale_percorso'?: string | null;
 }
 

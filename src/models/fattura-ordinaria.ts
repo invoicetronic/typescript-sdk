@@ -20,29 +20,9 @@ import type { FatturaElettronicaBody } from './fattura-elettronica-body';
 // @ts-ignore
 import type { FatturaElettronicaHeader } from './fattura-elettronica-header';
 
-/**
- * 
- * @export
- * @interface FatturaOrdinaria
- */
 export interface FatturaOrdinaria {
-    /**
-     * 
-     * @type {string}
-     * @memberof FatturaOrdinaria
-     */
     'sistema_emittente'?: string | null;
-    /**
-     * 
-     * @type {FatturaElettronicaHeader}
-     * @memberof FatturaOrdinaria
-     */
     'fattura_elettronica_header'?: FatturaElettronicaHeader;
-    /**
-     * 
-     * @type {Array<FatturaElettronicaBody>}
-     * @memberof FatturaOrdinaria
-     */
     'fattura_elettronica_body'?: Array<FatturaElettronicaBody> | null;
 }
 

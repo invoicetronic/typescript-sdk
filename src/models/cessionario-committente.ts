@@ -26,35 +26,10 @@ import type { SedeCessionarioCommittente } from './sede-cessionario-committente'
 // @ts-ignore
 import type { StabileOrganizzazione } from './stabile-organizzazione';
 
-/**
- * 
- * @export
- * @interface CessionarioCommittente
- */
 export interface CessionarioCommittente {
-    /**
-     * 
-     * @type {DatiAnagraficiCessionarioCommittente}
-     * @memberof CessionarioCommittente
-     */
     'dati_anagrafici'?: DatiAnagraficiCessionarioCommittente;
-    /**
-     * 
-     * @type {SedeCessionarioCommittente}
-     * @memberof CessionarioCommittente
-     */
     'sede'?: SedeCessionarioCommittente;
-    /**
-     * 
-     * @type {StabileOrganizzazione}
-     * @memberof CessionarioCommittente
-     */
     'stabile_organizzazione'?: StabileOrganizzazione;
-    /**
-     * 
-     * @type {RappresentanteFiscaleCessionarioCommittente}
-     * @memberof CessionarioCommittente
-     */
     'rappresentante_fiscale'?: RappresentanteFiscaleCessionarioCommittente;
 }
 

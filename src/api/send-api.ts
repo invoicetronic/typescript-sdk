@@ -34,7 +34,6 @@ import type { ProblemHttpResult } from '../../src/models';
 import type { Send } from '../../src/models';
 /**
  * SendApi - axios parameter creator
- * @export
  */
 export const SendApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -625,7 +624,6 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * SendApi - functional programming interface
- * @export
  */
 export const SendApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SendApiAxiosParamCreator(configuration)
@@ -803,7 +801,6 @@ export const SendApiFp = function(configuration?: Configuration) {
 
 /**
  * SendApi - factory interface
- * @export
  */
 export const SendApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SendApiFp(configuration)
@@ -948,8 +945,6 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * SendApi - interface
- * @export
- * @interface SendApi
  */
 export interface SendApiInterface {
     /**
@@ -960,7 +955,6 @@ export interface SendApiInterface {
      * @param {SendFilePostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendFilePost(file: File, validate?: boolean, signature?: SendFilePostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
@@ -985,7 +979,6 @@ export interface SendApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Send>>;
 
@@ -996,7 +989,6 @@ export interface SendApiInterface {
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
@@ -1007,7 +999,6 @@ export interface SendApiInterface {
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendIdentifierGet(identifier: string, includePayload?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
@@ -1019,7 +1010,6 @@ export interface SendApiInterface {
      * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
@@ -1031,7 +1021,6 @@ export interface SendApiInterface {
      * @param {SendPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendPost(send: Send, validate?: boolean, signature?: SendPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
@@ -1041,7 +1030,6 @@ export interface SendApiInterface {
      * @param {File} file 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendValidateFilePost(file: File, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1051,7 +1039,6 @@ export interface SendApiInterface {
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1061,7 +1048,6 @@ export interface SendApiInterface {
      * @param {Send} send 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendValidatePost(send: Send, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1071,7 +1057,6 @@ export interface SendApiInterface {
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1083,7 +1068,6 @@ export interface SendApiInterface {
      * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApiInterface
      */
     sendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
@@ -1091,9 +1075,6 @@ export interface SendApiInterface {
 
 /**
  * SendApi - object-oriented interface
- * @export
- * @class SendApi
- * @extends {BaseAPI}
  */
 export class SendApi extends BaseAPI implements SendApiInterface {
     /**
@@ -1104,7 +1085,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {SendFilePostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendFilePost(file: File, validate?: boolean, signature?: SendFilePostSignatureEnum, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendFilePost(file, validate, signature, options).then((request) => request(this.axios, this.basePath));
@@ -1131,7 +1111,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendGet(companyId?: number, identifier?: string, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendGet(companyId, identifier, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
@@ -1144,7 +1123,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendIdGet(id, includePayload, options).then((request) => request(this.axios, this.basePath));
@@ -1157,7 +1135,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendIdentifierGet(identifier: string, includePayload?: boolean, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendIdentifierGet(identifier, includePayload, options).then((request) => request(this.axios, this.basePath));
@@ -1171,7 +1148,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendJsonPost(fatturaOrdinaria, validate, signature, options).then((request) => request(this.axios, this.basePath));
@@ -1185,7 +1161,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {SendPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendPost(send: Send, validate?: boolean, signature?: SendPostSignatureEnum, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendPost(send, validate, signature, options).then((request) => request(this.axios, this.basePath));
@@ -1197,7 +1172,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {File} file 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendValidateFilePost(file: File, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendValidateFilePost(file, options).then((request) => request(this.axios, this.basePath));
@@ -1209,7 +1183,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendValidateJsonPost(fatturaOrdinaria, options).then((request) => request(this.axios, this.basePath));
@@ -1221,7 +1194,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {Send} send 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendValidatePost(send: Send, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendValidatePost(send, options).then((request) => request(this.axios, this.basePath));
@@ -1233,7 +1205,6 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {FatturaOrdinaria} fatturaOrdinaria 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendValidateXmlPost(fatturaOrdinaria, options).then((request) => request(this.axios, this.basePath));
@@ -1247,16 +1218,12 @@ export class SendApi extends BaseAPI implements SendApiInterface {
      * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SendApi
      */
     public sendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig) {
         return SendApiFp(this.configuration).sendXmlPost(fatturaOrdinaria, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const SendFilePostSignatureEnum = {
     None: 'None',
     Apply: 'Apply',
@@ -1264,9 +1231,6 @@ export const SendFilePostSignatureEnum = {
     Auto: 'Auto'
 } as const;
 export type SendFilePostSignatureEnum = typeof SendFilePostSignatureEnum[keyof typeof SendFilePostSignatureEnum];
-/**
- * @export
- */
 export const SendJsonPostSignatureEnum = {
     None: 'None',
     Apply: 'Apply',
@@ -1274,9 +1238,6 @@ export const SendJsonPostSignatureEnum = {
     Auto: 'Auto'
 } as const;
 export type SendJsonPostSignatureEnum = typeof SendJsonPostSignatureEnum[keyof typeof SendJsonPostSignatureEnum];
-/**
- * @export
- */
 export const SendPostSignatureEnum = {
     None: 'None',
     Apply: 'Apply',
@@ -1284,9 +1245,6 @@ export const SendPostSignatureEnum = {
     Auto: 'Auto'
 } as const;
 export type SendPostSignatureEnum = typeof SendPostSignatureEnum[keyof typeof SendPostSignatureEnum];
-/**
- * @export
- */
 export const SendXmlPostSignatureEnum = {
     None: 'None',
     Apply: 'Apply',

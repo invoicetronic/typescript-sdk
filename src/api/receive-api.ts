@@ -30,7 +30,6 @@ import type { ProblemHttpResult } from '../../src/models';
 import type { Receive } from '../../src/models';
 /**
  * ReceiveApi - axios parameter creator
- * @export
  */
 export const ReceiveApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -251,7 +250,6 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * ReceiveApi - functional programming interface
- * @export
  */
 export const ReceiveApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReceiveApiAxiosParamCreator(configuration)
@@ -317,7 +315,6 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
 
 /**
  * ReceiveApi - factory interface
- * @export
  */
 export const ReceiveApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReceiveApiFp(configuration)
@@ -374,8 +371,6 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * ReceiveApi - interface
- * @export
- * @interface ReceiveApi
  */
 export interface ReceiveApiInterface {
     /**
@@ -400,7 +395,6 @@ export interface ReceiveApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReceiveApiInterface
      */
     receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>>;
 
@@ -410,7 +404,6 @@ export interface ReceiveApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReceiveApiInterface
      */
     receiveIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Receive>;
 
@@ -421,7 +414,6 @@ export interface ReceiveApiInterface {
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReceiveApiInterface
      */
     receiveIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Receive>;
 
@@ -429,9 +421,6 @@ export interface ReceiveApiInterface {
 
 /**
  * ReceiveApi - object-oriented interface
- * @export
- * @class ReceiveApi
- * @extends {BaseAPI}
  */
 export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     /**
@@ -456,7 +445,6 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReceiveApi
      */
     public receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
         return ReceiveApiFp(this.configuration).receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
@@ -468,7 +456,6 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReceiveApi
      */
     public receiveIdDelete(id: number, options?: RawAxiosRequestConfig) {
         return ReceiveApiFp(this.configuration).receiveIdDelete(id, options).then((request) => request(this.axios, this.basePath));
@@ -481,7 +468,6 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReceiveApi
      */
     public receiveIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig) {
         return ReceiveApiFp(this.configuration).receiveIdGet(id, includePayload, options).then((request) => request(this.axios, this.basePath));

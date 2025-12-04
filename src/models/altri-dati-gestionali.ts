@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface AltriDatiGestionali
- */
 export interface AltriDatiGestionali {
-    /**
-     * 
-     * @type {string}
-     * @memberof AltriDatiGestionali
-     */
     'tipo_dato'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AltriDatiGestionali
-     */
     'riferimento_testo'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof AltriDatiGestionali
-     */
     'riferimento_numero'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AltriDatiGestionali
-     */
     'riferimento_data'?: string | null;
 }
 

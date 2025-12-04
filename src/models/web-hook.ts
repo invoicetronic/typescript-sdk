@@ -14,70 +14,45 @@
 
 
 
-/**
- * 
- * @export
- * @interface WebHook
- */
 export interface WebHook {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
-     * @type {number}
-     * @memberof WebHook
      */
     'id'?: number;
     /**
      * Creation date. It is set automatically.
-     * @type {string}
-     * @memberof WebHook
      */
     'created'?: string;
     /**
      * Row version, for optimistic concurrency. It is set automatically.
-     * @type {number}
-     * @memberof WebHook
      */
     'version'?: number;
     /**
      * User id.
-     * @type {number}
-     * @memberof WebHook
      */
     'user_id'?: number;
     /**
      * Company id.
-     * @type {number}
-     * @memberof WebHook
      */
     'company_id'?: number | null;
     /**
      * The url of your application\'s endpoint that will receive a POST request when the webhook is fired.
-     * @type {string}
-     * @memberof WebHook
      */
     'url'?: string | null;
     /**
      * Wether the webhook is enabled. On creation, this is set to `true`.
-     * @type {boolean}
-     * @memberof WebHook
      */
     'enabled'?: boolean;
     /**
      * The secret used to generate webhook signatures, only returned on creation. You should store this value securely and validate it on every call, to ensure that the caller is InvoicetronicApi.
-     * @type {string}
-     * @memberof WebHook
      */
     'secret'?: string | null;
     /**
      * An optional description.
-     * @type {string}
-     * @memberof WebHook
      */
     'description'?: string | null;
     /**
      * List of events to that trigger the webhook.  See Invoicetronic.SupportedEvents.Available for a list of valid event names.
-     * @type {Array<string>}
-     * @memberof WebHook
      */
     'events'?: Array<string> | null;
 }

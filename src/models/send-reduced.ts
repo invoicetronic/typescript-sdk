@@ -19,38 +19,26 @@ import type { DocumentData } from './document-data';
 
 /**
  * Reduced Send data for Update responses, containing only the essential fields.
- * @export
- * @interface SendReduced
  */
 export interface SendReduced {
     /**
      * SDI identifier.
-     * @type {string}
-     * @memberof SendReduced
      */
     'identifier'?: string | null;
     /**
      * VAT number of the Cedente/Prestatore (vendor).
-     * @type {string}
-     * @memberof SendReduced
      */
     'prestatore'?: string | null;
     /**
      * Optional metadata, as json.
-     * @type {{ [key: string]: string; }}
-     * @memberof SendReduced
      */
     'meta_data'?: { [key: string]: string; } | null;
     /**
      * The invoices included in the payload.
-     * @type {Array<DocumentData>}
-     * @memberof SendReduced
      */
     'documents'?: Array<DocumentData> | null;
     /**
      * When the invoice was sent to SDI.
-     * @type {string}
-     * @memberof SendReduced
      */
     'date_sent'?: string | null;
 }

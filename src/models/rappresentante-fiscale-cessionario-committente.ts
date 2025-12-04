@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdFiscaleIVA } from './id-fiscale-iva';
 
-/**
- * 
- * @export
- * @interface RappresentanteFiscaleCessionarioCommittente
- */
 export interface RappresentanteFiscaleCessionarioCommittente {
-    /**
-     * 
-     * @type {string}
-     * @memberof RappresentanteFiscaleCessionarioCommittente
-     */
     'denominazione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RappresentanteFiscaleCessionarioCommittente
-     */
     'nome'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RappresentanteFiscaleCessionarioCommittente
-     */
     'cognome'?: string | null;
-    /**
-     * 
-     * @type {IdFiscaleIVA}
-     * @memberof RappresentanteFiscaleCessionarioCommittente
-     */
     'id_fiscale_iva'?: IdFiscaleIVA;
 }
 

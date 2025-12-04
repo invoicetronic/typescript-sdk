@@ -14,137 +14,27 @@
 
 
 
-/**
- * 
- * @export
- * @interface DettaglioPagamento
- */
 export interface DettaglioPagamento {
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'beneficiario'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'modalita_pagamento'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'data_riferimento_termini_pagamento'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioPagamento
-     */
     'giorni_termini_pagamento'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'data_scadenza_pagamento'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioPagamento
-     */
     'importo_pagamento'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'cod_ufficio_postale'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'cognome_quietanzante'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'nome_quietanzante'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'cf_quietanzante'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'titolo_quietanzante'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'istituto_finanziario'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'iban'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'abi'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'cab'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'bic'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioPagamento
-     */
     'sconto_pagamento_anticipato'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'data_limite_pagamento_anticipato'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DettaglioPagamento
-     */
     'penalita_pagamenti_ritardati'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'data_decorrenza_penale'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DettaglioPagamento
-     */
     'codice_pagamento'?: string | null;
 }
 

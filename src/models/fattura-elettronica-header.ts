@@ -29,47 +29,12 @@ import type { RappresentanteFiscale } from './rappresentante-fiscale';
 // @ts-ignore
 import type { TerzoIntermediarioOSoggettoEmittente } from './terzo-intermediario-osoggetto-emittente';
 
-/**
- * 
- * @export
- * @interface FatturaElettronicaHeader
- */
 export interface FatturaElettronicaHeader {
-    /**
-     * 
-     * @type {DatiTrasmissione}
-     * @memberof FatturaElettronicaHeader
-     */
     'dati_trasmissione'?: DatiTrasmissione;
-    /**
-     * 
-     * @type {CedentePrestatore}
-     * @memberof FatturaElettronicaHeader
-     */
     'cedente_prestatore'?: CedentePrestatore;
-    /**
-     * 
-     * @type {RappresentanteFiscale}
-     * @memberof FatturaElettronicaHeader
-     */
     'RappresentanteFiscale'?: RappresentanteFiscale;
-    /**
-     * 
-     * @type {CessionarioCommittente}
-     * @memberof FatturaElettronicaHeader
-     */
     'cessionario_committente'?: CessionarioCommittente;
-    /**
-     * 
-     * @type {TerzoIntermediarioOSoggettoEmittente}
-     * @memberof FatturaElettronicaHeader
-     */
     'terzo_intermediario_o_soggetto_emittente'?: TerzoIntermediarioOSoggettoEmittente;
-    /**
-     * 
-     * @type {string}
-     * @memberof FatturaElettronicaHeader
-     */
     'soggetto_emittente'?: string | null;
 }
 

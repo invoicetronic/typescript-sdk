@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface Status
- */
 export interface Status {
     /**
      * Operations (invoices and validations) left.
-     * @type {number}
-     * @memberof Status
      */
     'operation_left'?: number;
     /**
      * Signatures left.
-     * @type {number}
-     * @memberof Status
      */
     'signature_left'?: number;
 }

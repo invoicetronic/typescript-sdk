@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FatturaPrincipale
- */
 export interface FatturaPrincipale {
-    /**
-     * 
-     * @type {string}
-     * @memberof FatturaPrincipale
-     */
     'numero_fattura_principale'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FatturaPrincipale
-     */
     'data_fattura_principale'?: string | null;
 }
 

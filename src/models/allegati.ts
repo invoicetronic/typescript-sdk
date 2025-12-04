@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface Allegati
- */
 export interface Allegati {
-    /**
-     * 
-     * @type {string}
-     * @memberof Allegati
-     */
     'nome_attachment'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Allegati
-     */
     'algoritmo_compressione'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Allegati
-     */
     'formato_attachment'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Allegati
-     */
     'descrizione_attachment'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Allegati
-     */
     'attachment'?: string | null;
 }
 

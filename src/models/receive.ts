@@ -17,112 +17,73 @@
 // @ts-ignore
 import type { DocumentData } from './document-data';
 
-/**
- * 
- * @export
- * @interface Receive
- */
 export interface Receive {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
-     * @type {number}
-     * @memberof Receive
      */
     'id'?: number;
     /**
      * Creation date. It is set automatically.
-     * @type {string}
-     * @memberof Receive
      */
     'created'?: string;
     /**
      * Row version, for optimistic concurrency. It is set automatically.
-     * @type {number}
-     * @memberof Receive
      */
     'version'?: number;
     /**
      * User id.
-     * @type {number}
-     * @memberof Receive
      */
     'user_id'?: number;
     /**
      * Company id. On send, this is the sender and must be set in advance. On receive, it will be  automatically set based on the recipient\'s VAT number. If a matching company is not found, the invoice will be rejected until the company is created.
-     * @type {number}
-     * @memberof Receive
      */
     'company_id'?: number;
     /**
      * VAT number of the Cessionario/Committente (customer). This is automatically set based on the recipient\'s VAT number.
-     * @type {string}
-     * @memberof Receive
      */
     'committente'?: string | null;
     /**
      * VAT number of the Cedente/Prestatore (vendor). This is automatically set based on the sender\'s VAT number.
-     * @type {string}
-     * @memberof Receive
      */
     'prestatore'?: string | null;
     /**
      * SDI identifier. This is set by the SDI and is guaranted to be unique within the SDI system.
-     * @type {string}
-     * @memberof Receive
      */
     'identifier'?: string | null;
     /**
      * Xml file name.
-     * @type {string}
-     * @memberof Receive
      */
     'file_name'?: string | null;
     /**
      * SDI format (FPA12, FPR12, FSM10, ...)
-     * @type {string}
-     * @memberof Receive
      */
     'format'?: string | null;
     /**
      * Xml payloaad. This is the actual xml content, as string. On send, it can be base64 encoded. If it\'s not, it will be encoded before sending. It is guaranteed to be cyphered at rest.
-     * @type {string}
-     * @memberof Receive
      */
     'payload'?: string | null;
     /**
      * Last update from SDI.
-     * @type {string}
-     * @memberof Receive
      */
     'last_update'?: string | null;
     /**
      * When the invoice was sent to SDI.
-     * @type {string}
-     * @memberof Receive
      */
     'date_sent'?: string | null;
     /**
      * The invoices included in the payload. This is set by the system, based on the xml content.
-     * @type {Array<DocumentData>}
-     * @memberof Receive
      */
     'documents'?: Array<DocumentData> | null;
     /**
      * Whether the payload is Base64 encoded or a plain XML (text).
-     * @type {string}
-     * @memberof Receive
      */
     'encoding'?: ReceiveEncodingEnum;
     /**
      * Wether the invoice has been read at least once.
-     * @type {boolean}
-     * @memberof Receive
      */
     'is_read'?: boolean;
     /**
      * SDI message id.
-     * @type {string}
-     * @memberof Receive
      */
     'message_id'?: string | null;
 }

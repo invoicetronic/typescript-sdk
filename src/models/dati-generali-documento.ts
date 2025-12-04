@@ -26,83 +26,18 @@ import type { DatiRitenuta } from './dati-ritenuta';
 // @ts-ignore
 import type { ScontoMaggiorazione } from './sconto-maggiorazione';
 
-/**
- * 
- * @export
- * @interface DatiGeneraliDocumento
- */
 export interface DatiGeneraliDocumento {
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiGeneraliDocumento
-     */
     'tipo_documento'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiGeneraliDocumento
-     */
     'divisa'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiGeneraliDocumento
-     */
     'data'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiGeneraliDocumento
-     */
     'numero'?: string | null;
-    /**
-     * 
-     * @type {Array<DatiRitenuta>}
-     * @memberof DatiGeneraliDocumento
-     */
     'dati_ritenuta'?: Array<DatiRitenuta> | null;
-    /**
-     * 
-     * @type {DatiBollo}
-     * @memberof DatiGeneraliDocumento
-     */
     'dati_bollo'?: DatiBollo;
-    /**
-     * 
-     * @type {Array<DatiCassaPrevidenziale>}
-     * @memberof DatiGeneraliDocumento
-     */
     'dati_cassa_previdenziale'?: Array<DatiCassaPrevidenziale> | null;
-    /**
-     * 
-     * @type {Array<ScontoMaggiorazione>}
-     * @memberof DatiGeneraliDocumento
-     */
     'sconto_maggiorazione'?: Array<ScontoMaggiorazione> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiGeneraliDocumento
-     */
     'importo_totale_documento'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof DatiGeneraliDocumento
-     */
     'arrotondamento'?: number | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DatiGeneraliDocumento
-     */
     'causale'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof DatiGeneraliDocumento
-     */
     'art73'?: string | null;
 }
 
