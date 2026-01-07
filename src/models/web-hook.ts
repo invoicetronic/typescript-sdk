@@ -38,7 +38,7 @@ export interface WebHook {
     /**
      * The url of your application\'s endpoint that will receive a POST request when the webhook is fired.
      */
-    'url'?: string | null;
+    'url': string;
     /**
      * Wether the webhook is enabled. On creation, this is set to `true`.
      */

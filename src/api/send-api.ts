@@ -78,10 +78,9 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -207,8 +206,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['sort'] = sort;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -250,8 +249,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['include_payload'] = includePayload;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -293,8 +292,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['include_payload'] = includePayload;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -340,9 +339,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['signature'] = signature;
             }
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -390,9 +388,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['signature'] = signature;
             }
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -435,10 +432,9 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -475,9 +471,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -515,9 +510,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -555,9 +549,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/xml';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -605,9 +598,8 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['signature'] = signature;
             }
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/xml';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

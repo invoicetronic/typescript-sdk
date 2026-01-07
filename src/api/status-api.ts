@@ -54,8 +54,8 @@ export const StatusApiAxiosParamCreator = function (configuration?: Configuratio
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};

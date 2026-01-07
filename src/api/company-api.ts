@@ -73,8 +73,8 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['sort'] = sort;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -111,8 +111,8 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -149,8 +149,8 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -186,9 +186,8 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -226,9 +225,8 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

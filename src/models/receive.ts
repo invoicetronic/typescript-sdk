@@ -61,7 +61,7 @@ export interface Receive {
     /**
      * Xml payloaad. This is the actual xml content, as string. On send, it can be base64 encoded. If it\'s not, it will be encoded before sending. It is guaranteed to be cyphered at rest.
      */
-    'payload'?: string | null;
+    'payload': string;
     /**
      * Last update from SDI.
      */

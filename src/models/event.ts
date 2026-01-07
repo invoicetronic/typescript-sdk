@@ -42,11 +42,11 @@ export interface Event {
     /**
      * Request method.
      */
-    'method'?: string | null;
+    'method': string;
     /**
      * API endpoint.
      */
-    'endpoint'?: string | null;
+    'endpoint': string;
     /**
      * Api version.
      */

@@ -153,8 +153,8 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['sort'] = sort;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -191,8 +191,8 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -234,8 +234,8 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['include_payload'] = includePayload;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
