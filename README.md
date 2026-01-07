@@ -7,7 +7,7 @@ For more information, see  [Invoicetronic website][2]
 [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/
 [2]: https://invoicetronic.com/
 
-## @invoicetronic/ts-sdk@1.1.3
+## @invoicetronic/ts-sdk@1.1.4
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -45,7 +45,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @invoicetronic/ts-sdk@1.1.3 --save
+npm install @invoicetronic/ts-sdk@1.1.4 --save
 ```
 
 _unPublished (not recommended):_
