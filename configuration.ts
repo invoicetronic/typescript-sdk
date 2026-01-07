@@ -98,7 +98,7 @@ export class Configuration {
         this.baseOptions = {
             ...param.baseOptions,
             headers: {
-                'User-Agent': "Invoicetronic/1.1.6/TypeScript-SDK",
+                'User-Agent': "Invoicetronic/1.1.7/TypeScript-SDK",
                 ...param.baseOptions?.headers,
             },
         };
