@@ -12,11 +12,11 @@ Name | Type | Description | Notes
 **company_id** | **number** | Company id. | [optional] [default to undefined]
 **send_id** | **number** | Send id. This is the id of the sent invoice to which this update refers to. | [optional] [default to undefined]
 **last_update** | **string** | Last update from SDI. | [optional] [default to undefined]
-**state** | **string** | State of the document. Theses are the possible values, as per the SDI documentation: | [optional] [default to undefined]
+**state** | **string** | State of the document. These are the possible values, as per the SDI documentation: | [optional] [default to undefined]
 **description** | **string** | Description for the state. | [optional] [default to undefined]
 **message_id** | **string** | SDI message id. | [optional] [default to undefined]
 **errors** | **Array&lt;Error&gt;** | SDI errors, if any. | [optional] [default to undefined]
-**is_read** | **boolean** | Wether the item has been read at least once. | [optional] [default to undefined]
+**is_read** | **boolean** | Whether the item has been read at least once. | [optional] [default to undefined]
 **send** | [**SendReduced**](SendReduced.md) |  | [optional] [default to undefined]
 
 ## Example

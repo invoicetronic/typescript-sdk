@@ -12,15 +12,15 @@ Name | Type | Description | Notes
 **company_id** | **number** | Company id. On send, this is the sender and must be set in advance. On receive, it will be  automatically set based on the recipient\&#39;s VAT number. If a matching company is not found, the invoice will be rejected until the company is created. | [optional] [default to undefined]
 **committente** | **string** | VAT number of the Cessionario/Committente (customer). This is automatically set based on the recipient\&#39;s VAT number. | [optional] [default to undefined]
 **prestatore** | **string** | VAT number of the Cedente/Prestatore (vendor). This is automatically set based on the sender\&#39;s VAT number. | [optional] [default to undefined]
-**identifier** | **string** | SDI identifier. This is set by the SDI and is guaranted to be unique within the SDI system. | [optional] [default to undefined]
+**identifier** | **string** | SDI identifier. This is set by the SDI and is guaranteed to be unique within the SDI system. | [optional] [default to undefined]
 **file_name** | **string** | Xml file name. | [optional] [default to undefined]
 **format** | **string** | SDI format (FPA12, FPR12, FSM10, ...) | [optional] [default to undefined]
-**payload** | **string** | Xml payloaad. This is the actual xml content, as string. On send, it can be base64 encoded. If it\&#39;s not, it will be encoded before sending. It is guaranteed to be cyphered at rest. | [default to undefined]
+**payload** | **string** | Xml payload. This is the actual xml content, as string. On send, it can be base64 encoded. If it\&#39;s not, it will be encoded before sending. It is guaranteed to be encrypted at rest. | [default to undefined]
 **last_update** | **string** | Last update from SDI. | [optional] [default to undefined]
 **date_sent** | **string** | When the invoice was sent to SDI. | [optional] [default to undefined]
 **documents** | [**Array&lt;DocumentData&gt;**](DocumentData.md) | The invoices included in the payload. This is set by the system, based on the xml content. | [optional] [default to undefined]
 **encoding** | **string** | Whether the payload is Base64 encoded or a plain XML (text). | [optional] [default to undefined]
-**is_read** | **boolean** | Wether the invoice has been read at least once. | [optional] [default to undefined]
+**is_read** | **boolean** | Whether the invoice has been read at least once. Set to true only when the invoice is requested with include_payload&#x3D;true. | [optional] [default to undefined]
 **message_id** | **string** | SDI message id. | [optional] [default to undefined]
 
 ## Example

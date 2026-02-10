@@ -21,7 +21,7 @@ import globalAxios from 'axios';
 import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
@@ -34,7 +34,7 @@ import type { Receive } from '../../src/models';
 export const ReceiveApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, and document number. Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary List incoming invoices
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
@@ -165,7 +165,7 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Delete an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -203,7 +203,7 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
          * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
@@ -255,7 +255,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReceiveApiAxiosParamCreator(configuration)
     return {
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, and document number. Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary List incoming invoices
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
@@ -284,7 +284,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Delete an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -297,7 +297,7 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
          * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
@@ -320,7 +320,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = ReceiveApiFp(configuration)
     return {
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, and document number. Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary List incoming invoices
          * @param {number} [companyId] Company id
          * @param {string} [identifier] SDI identifier.
@@ -346,7 +346,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.receiveGet(companyId, identifier, unread, committente, prestatore, fileName, lastUpdateFrom, lastUpdateTo, dateSentFrom, dateSentTo, documentDateFrom, documentDateTo, documentNumber, includePayload, page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Delete an incoming invoice by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -356,7 +356,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.receiveIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+         * Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Get an incoming invoice by id
          * @param {number} id Item id
          * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
@@ -374,7 +374,7 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
  */
 export interface ReceiveApiInterface {
     /**
-     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+     * Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, and document number. Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary List incoming invoices
      * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
@@ -399,7 +399,7 @@ export interface ReceiveApiInterface {
     receiveGet(companyId?: number, identifier?: string, unread?: boolean, committente?: string, prestatore?: string, fileName?: string, lastUpdateFrom?: string, lastUpdateTo?: string, dateSentFrom?: string, dateSentTo?: string, documentDateFrom?: string, documentDateTo?: string, documentNumber?: string, includePayload?: boolean, page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Receive>>;
 
     /**
-     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+     * Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Delete an incoming invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -408,7 +408,7 @@ export interface ReceiveApiInterface {
     receiveIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Receive>;
 
     /**
-     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+     * Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Get an incoming invoice by id
      * @param {number} id Item id
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.
@@ -424,7 +424,7 @@ export interface ReceiveApiInterface {
  */
 export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     /**
-     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+     * Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, and document number. Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary List incoming invoices
      * @param {number} [companyId] Company id
      * @param {string} [identifier] SDI identifier.
@@ -451,7 +451,7 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     }
 
     /**
-     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+     * Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Delete an incoming invoice by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -462,7 +462,7 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
     }
 
     /**
-     * Receive invoices are the invoices that are received from other companies. They are preserved for two years in the live environment and 24 hours in the Sandbox.
+     * Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Get an incoming invoice by id
      * @param {number} id Item id
      * @param {boolean} [includePayload] Include payload in the response. Defaults to false.

@@ -21,7 +21,7 @@ import globalAxios from 'axios';
 import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
@@ -36,7 +36,7 @@ import type { ProblemHttpResult } from '../../src/models';
 export const CompanyApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary List companies
          * @param {number} [page] Page number.
          * @param {number} [pageSize] Items per page. Cannot be greater than 200.
@@ -85,13 +85,14 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
          * @summary Delete a company
          * @param {number} id Item id
+         * @param {boolean} [force] Force delete including all related data.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        companyIdDelete: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        companyIdDelete: async (id: number, force?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('companyIdDelete', 'id', id)
             const localVarPath = `/company/{id}`
@@ -111,6 +112,10 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            if (force !== undefined) {
+                localVarQueryParameter['force'] = force;
+            }
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -123,7 +128,7 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Retrieve a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Get a company by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -161,7 +166,7 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Add a new company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Add a company
          * @param {Company} company 
          * @param {*} [options] Override http request option.
@@ -200,7 +205,7 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Update an existing company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Update a company
          * @param {Company} company 
          * @param {*} [options] Override http request option.
@@ -248,7 +253,7 @@ export const CompanyApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CompanyApiAxiosParamCreator(configuration)
     return {
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary List companies
          * @param {number} [page] Page number.
          * @param {number} [pageSize] Items per page. Cannot be greater than 200.
@@ -263,20 +268,21 @@ export const CompanyApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
          * @summary Delete a company
          * @param {number} id Item id
+         * @param {boolean} [force] Force delete including all related data.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async companyIdDelete(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Company>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.companyIdDelete(id, options);
+        async companyIdDelete(id: number, force?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Company>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.companyIdDelete(id, force, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CompanyApi.companyIdDelete']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Retrieve a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Get a company by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -289,7 +295,7 @@ export const CompanyApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Add a new company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Add a company
          * @param {Company} company 
          * @param {*} [options] Override http request option.
@@ -302,7 +308,7 @@ export const CompanyApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Update an existing company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Update a company
          * @param {Company} company 
          * @param {*} [options] Override http request option.
@@ -324,7 +330,7 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = CompanyApiFp(configuration)
     return {
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary List companies
          * @param {number} [page] Page number.
          * @param {number} [pageSize] Items per page. Cannot be greater than 200.
@@ -336,17 +342,18 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.companyGet(page, pageSize, sort, options).then((request) => request(axios, basePath));
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
          * @summary Delete a company
          * @param {number} id Item id
+         * @param {boolean} [force] Force delete including all related data.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        companyIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Company> {
-            return localVarFp.companyIdDelete(id, options).then((request) => request(axios, basePath));
+        companyIdDelete(id: number, force?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Company> {
+            return localVarFp.companyIdDelete(id, force, options).then((request) => request(axios, basePath));
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Retrieve a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Get a company by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -356,7 +363,7 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.companyIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Add a new company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Add a company
          * @param {Company} company 
          * @param {*} [options] Override http request option.
@@ -366,7 +373,7 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.companyPost(company, options).then((request) => request(axios, basePath));
         },
         /**
-         * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+         * Update an existing company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary Update a company
          * @param {Company} company 
          * @param {*} [options] Override http request option.
@@ -383,7 +390,7 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
  */
 export interface CompanyApiInterface {
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary List companies
      * @param {number} [page] Page number.
      * @param {number} [pageSize] Items per page. Cannot be greater than 200.
@@ -394,16 +401,17 @@ export interface CompanyApiInterface {
     companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Company>>;
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
      * @summary Delete a company
      * @param {number} id Item id
+     * @param {boolean} [force] Force delete including all related data.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    companyIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
+    companyIdDelete(id: number, force?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Retrieve a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary Get a company by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -412,7 +420,7 @@ export interface CompanyApiInterface {
     companyIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Add a new company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary Add a company
      * @param {Company} company 
      * @param {*} [options] Override http request option.
@@ -421,7 +429,7 @@ export interface CompanyApiInterface {
     companyPost(company: Company, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Update an existing company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary Update a company
      * @param {Company} company 
      * @param {*} [options] Override http request option.
@@ -436,7 +444,7 @@ export interface CompanyApiInterface {
  */
 export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary List companies
      * @param {number} [page] Page number.
      * @param {number} [pageSize] Items per page. Cannot be greater than 200.
@@ -449,18 +457,19 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     }
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
      * @summary Delete a company
      * @param {number} id Item id
+     * @param {boolean} [force] Force delete including all related data.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public companyIdDelete(id: number, options?: RawAxiosRequestConfig) {
-        return CompanyApiFp(this.configuration).companyIdDelete(id, options).then((request) => request(this.axios, this.basePath));
+    public companyIdDelete(id: number, force?: boolean, options?: RawAxiosRequestConfig) {
+        return CompanyApiFp(this.configuration).companyIdDelete(id, force, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Retrieve a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary Get a company by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -471,7 +480,7 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     }
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Add a new company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary Add a company
      * @param {Company} company 
      * @param {*} [options] Override http request option.
@@ -482,7 +491,7 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     }
 
     /**
-     * Companies are the entities that send and receive invoices. As you send invoices, companies are added as needed (company details are extrapolated). **You can only receive invoices for existing companies, so ensure they exist**.
+     * Update an existing company.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary Update a company
      * @param {Company} company 
      * @param {*} [options] Override http request option.

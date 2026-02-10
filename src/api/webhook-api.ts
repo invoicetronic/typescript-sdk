@@ -21,7 +21,7 @@ import globalAxios from 'axios';
 import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
@@ -38,7 +38,7 @@ import type { WebHookHistory } from '../../src/models';
 export const WebhookApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Retrieve a paginated list of webhooks. Results can be filtered by company, description, enabled status, events, and URL.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary List webhooks
          * @param {number} [companyId] Company id
          * @param {number} [page] Page number.
@@ -112,7 +112,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Delete a webhook subscription by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Delete a webhook by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -150,7 +150,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Retrieve a webhook by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Get a webhook by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -188,7 +188,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Create a new webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Add a webhook
          * @param {WebHook} webHook 
          * @param {*} [options] Override http request option.
@@ -227,7 +227,7 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Update an existing webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Update a webhook
          * @param {WebHook} webHook 
          * @param {*} [options] Override http request option.
@@ -367,7 +367,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = WebhookApiAxiosParamCreator(configuration)
     return {
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Retrieve a paginated list of webhooks. Results can be filtered by company, description, enabled status, events, and URL.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary List webhooks
          * @param {number} [companyId] Company id
          * @param {number} [page] Page number.
@@ -387,7 +387,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Delete a webhook subscription by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Delete a webhook by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -400,7 +400,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Retrieve a webhook by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Get a webhook by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -413,7 +413,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Create a new webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Add a webhook
          * @param {WebHook} webHook 
          * @param {*} [options] Override http request option.
@@ -426,7 +426,7 @@ export const WebhookApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Update an existing webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Update a webhook
          * @param {WebHook} webHook 
          * @param {*} [options] Override http request option.
@@ -477,7 +477,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = WebhookApiFp(configuration)
     return {
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Retrieve a paginated list of webhooks. Results can be filtered by company, description, enabled status, events, and URL.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary List webhooks
          * @param {number} [companyId] Company id
          * @param {number} [page] Page number.
@@ -494,7 +494,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.webhookGet(companyId, page, pageSize, sort, description, enabled, events, url, options).then((request) => request(axios, basePath));
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Delete a webhook subscription by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Delete a webhook by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -504,7 +504,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.webhookIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Retrieve a webhook by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Get a webhook by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -514,7 +514,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.webhookIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Create a new webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Add a webhook
          * @param {WebHook} webHook 
          * @param {*} [options] Override http request option.
@@ -524,7 +524,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.webhookPost(webHook, options).then((request) => request(axios, basePath));
         },
         /**
-         * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+         * Update an existing webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
          * @summary Update a webhook
          * @param {WebHook} webHook 
          * @param {*} [options] Override http request option.
@@ -564,7 +564,7 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
  */
 export interface WebhookApiInterface {
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Retrieve a paginated list of webhooks. Results can be filtered by company, description, enabled status, events, and URL.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary List webhooks
      * @param {number} [companyId] Company id
      * @param {number} [page] Page number.
@@ -580,7 +580,7 @@ export interface WebhookApiInterface {
     webhookGet(companyId?: number, page?: number, pageSize?: number, sort?: string, description?: string, enabled?: boolean, events?: string, url?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<WebHook>>;
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Delete a webhook subscription by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Delete a webhook by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -589,7 +589,7 @@ export interface WebhookApiInterface {
     webhookIdDelete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Retrieve a webhook by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Get a webhook by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -598,7 +598,7 @@ export interface WebhookApiInterface {
     webhookIdGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Create a new webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Add a webhook
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
@@ -607,7 +607,7 @@ export interface WebhookApiInterface {
     webhookPost(webHook: WebHook, options?: RawAxiosRequestConfig): AxiosPromise<WebHook>;
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Update an existing webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Update a webhook
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
@@ -643,7 +643,7 @@ export interface WebhookApiInterface {
  */
 export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Retrieve a paginated list of webhooks. Results can be filtered by company, description, enabled status, events, and URL.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary List webhooks
      * @param {number} [companyId] Company id
      * @param {number} [page] Page number.
@@ -661,7 +661,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     }
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Delete a webhook subscription by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Delete a webhook by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -672,7 +672,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     }
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Retrieve a webhook by its internal id.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Get a webhook by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -683,7 +683,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     }
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Create a new webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Add a webhook
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.
@@ -694,7 +694,7 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
     }
 
     /**
-     * Webhooks are used to notify external services about write events that occur in the API. You can subscribe to specific events and receive a notification when they occur.
+     * Update an existing webhook subscription.  **Webhooks** allow you to receive notifications to an external service when specific events occur, such as invoice creation or status updates. You can subscribe to specific events and receive a notification when they occur.  You can also manage webhooks via the [Dashboard](https://dashboard.invoicetronic.com).  For more information, see the **[Webhooks documentation page](https://invoicetronic.com/en/docs/webhooks/)**.
      * @summary Update a webhook
      * @param {WebHook} webHook 
      * @param {*} [options] Override http request option.

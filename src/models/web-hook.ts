@@ -40,7 +40,7 @@ export interface WebHook {
      */
     'url': string;
     /**
-     * Wether the webhook is enabled. On creation, this is set to `true`.
+     * Whether the webhook is enabled. On creation, this is set to `true`.
      */
     'enabled'?: boolean;
     /**
@@ -52,7 +52,7 @@ export interface WebHook {
      */
     'description'?: string | null;
     /**
-     * List of events to that trigger the webhook.  See Invoicetronic.SupportedEvents.Available for a list of valid event names.
+     * List of events that trigger the webhook.  See Invoicetronic.SupportedEvents.Available for a list of valid event names.
      */
     'events'?: Array<string> | null;
 }

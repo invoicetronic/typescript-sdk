@@ -1,1 +1,1 @@
-# Changelog\n\n## [1.1.7.0] - 2026-01-07\nSee main repository changelog for details.
+# Changelog\n\n## [1.2.0] - 2026-02-10\nSee main repository changelog for details.

@@ -68,7 +68,7 @@ export interface Event {
      */
     'resource_id'?: number | null;
     /**
-     * Wether the request was successful.
+     * Whether the request was successful.
      */
     'success'?: boolean;
     /**
@@ -76,7 +76,7 @@ export interface Event {
      */
     'query'?: string | null;
     /**
-     * Response payload. It is guaranteed to be cyphered at rest.
+     * Response payload. It is guaranteed to be encrypted at rest.
      */
     'response_body'?: string | null;
 }

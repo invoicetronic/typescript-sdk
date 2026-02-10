@@ -21,7 +21,7 @@ import globalAxios from 'axios';
 import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
@@ -34,7 +34,7 @@ import type { ProblemHttpResult } from '../../src/models';
 export const LogApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+         * Retrieve a paginated list of log events. Results can be filtered by various criteria such as endpoint, method, status code, and date ranges.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary List events
          * @param {number} [companyId] Company id
          * @param {string} [endpoint] 
@@ -146,7 +146,7 @@ export const LogApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+         * Retrieve a log event by its internal id.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Get an event by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -193,7 +193,7 @@ export const LogApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LogApiAxiosParamCreator(configuration)
     return {
         /**
-         * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+         * Retrieve a paginated list of log events. Results can be filtered by various criteria such as endpoint, method, status code, and date ranges.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary List events
          * @param {number} [companyId] Company id
          * @param {string} [endpoint] 
@@ -219,7 +219,7 @@ export const LogApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+         * Retrieve a log event by its internal id.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Get an event by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -241,7 +241,7 @@ export const LogApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = LogApiFp(configuration)
     return {
         /**
-         * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+         * Retrieve a paginated list of log events. Results can be filtered by various criteria such as endpoint, method, status code, and date ranges.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary List events
          * @param {number} [companyId] Company id
          * @param {string} [endpoint] 
@@ -264,7 +264,7 @@ export const LogApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.logGet(companyId, endpoint, method, apiVerion, statusCode, dateCreatedFrom, dateCreatedTo, page, pageSize, sort, query, success, dateTimeFrom, dateTimeTo, options).then((request) => request(axios, basePath));
         },
         /**
-         * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+         * Retrieve a log event by its internal id.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Get an event by id
          * @param {number} id Item id
          * @param {*} [options] Override http request option.
@@ -281,7 +281,7 @@ export const LogApiFactory = function (configuration?: Configuration, basePath?:
  */
 export interface LogApiInterface {
     /**
-     * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+     * Retrieve a paginated list of log events. Results can be filtered by various criteria such as endpoint, method, status code, and date ranges.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary List events
      * @param {number} [companyId] Company id
      * @param {string} [endpoint] 
@@ -303,7 +303,7 @@ export interface LogApiInterface {
     logGet(companyId?: number, endpoint?: string, method?: string, apiVerion?: number, statusCode?: number, dateCreatedFrom?: string, dateCreatedTo?: string, page?: number, pageSize?: number, sort?: string, query?: string, success?: boolean, dateTimeFrom?: string, dateTimeTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Event>>;
 
     /**
-     * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+     * Retrieve a log event by its internal id.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary Get an event by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.
@@ -318,7 +318,7 @@ export interface LogApiInterface {
  */
 export class LogApi extends BaseAPI implements LogApiInterface {
     /**
-     * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+     * Retrieve a paginated list of log events. Results can be filtered by various criteria such as endpoint, method, status code, and date ranges.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary List events
      * @param {number} [companyId] Company id
      * @param {string} [endpoint] 
@@ -342,7 +342,7 @@ export class LogApi extends BaseAPI implements LogApiInterface {
     }
 
     /**
-     * Every API operation is logged and can be retrieved here. Log records are preserved for 15 days.
+     * Retrieve a log event by its internal id.  **Logs** record every API request. They are preserved for 15 days.  You can also view logs in the Events section of the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary Get an event by id
      * @param {number} id Item id
      * @param {*} [options] Override http request option.

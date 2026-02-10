@@ -47,7 +47,7 @@ export interface Update {
      */
     'last_update'?: string;
     /**
-     * State of the document. Theses are the possible values, as per the SDI documentation:
+     * State of the document. These are the possible values, as per the SDI documentation:
      */
     'state'?: UpdateStateEnum;
     /**
@@ -63,7 +63,7 @@ export interface Update {
      */
     'errors'?: Array<Error> | null;
     /**
-     * Wether the item has been read at least once.
+     * Whether the item has been read at least once.
      */
     'is_read'?: boolean;
     'send'?: SendReduced;

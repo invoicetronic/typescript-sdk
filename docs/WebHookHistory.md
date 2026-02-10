@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **event** | **string** | Event name. | [optional] [default to undefined]
 **status_code** | **number** | Status code. | [optional] [default to undefined]
 **date_time** | **string** | Date and time of the request. | [optional] [default to undefined]
-**success** | **boolean** | Wether the request was successful. | [optional] [readonly] [default to undefined]
+**success** | **boolean** | Whether the request was successful. | [optional] [readonly] [default to undefined]
 
 ## Example
 

@@ -51,7 +51,7 @@ export interface WebHookHistory {
      */
     'date_time'?: string;
     /**
-     * Wether the request was successful.
+     * Whether the request was successful.
      */
     'success'?: boolean;
 }

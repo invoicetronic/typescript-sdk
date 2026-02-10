@@ -50,7 +50,7 @@ export interface Send {
      */
     'prestatore'?: string | null;
     /**
-     * SDI identifier. This is set by the SDI and is guaranted to be unique within the SDI system.
+     * SDI identifier. This is set by the SDI and is guaranteed to be unique within the SDI system.
      */
     'identifier'?: string | null;
     /**
@@ -62,7 +62,7 @@ export interface Send {
      */
     'format'?: string | null;
     /**
-     * Xml payloaad. This is the actual xml content, as string. On send, it can be base64 encoded. If it\'s not, it will be encoded before sending. It is guaranteed to be cyphered at rest.
+     * Xml payload. This is the actual xml content, as string. On send, it can be base64 encoded. If it\'s not, it will be encoded before sending. It is guaranteed to be encrypted at rest.
      */
     'payload': string;
     /**

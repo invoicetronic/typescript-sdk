@@ -47,7 +47,7 @@ export interface Receive {
      */
     'prestatore'?: string | null;
     /**
-     * SDI identifier. This is set by the SDI and is guaranted to be unique within the SDI system.
+     * SDI identifier. This is set by the SDI and is guaranteed to be unique within the SDI system.
      */
     'identifier'?: string | null;
     /**
@@ -59,7 +59,7 @@ export interface Receive {
      */
     'format'?: string | null;
     /**
-     * Xml payloaad. This is the actual xml content, as string. On send, it can be base64 encoded. If it\'s not, it will be encoded before sending. It is guaranteed to be cyphered at rest.
+     * Xml payload. This is the actual xml content, as string. On send, it can be base64 encoded. If it\'s not, it will be encoded before sending. It is guaranteed to be encrypted at rest.
      */
     'payload': string;
     /**
@@ -79,7 +79,7 @@ export interface Receive {
      */
     'encoding'?: ReceiveEncodingEnum;
     /**
-     * Wether the invoice has been read at least once.
+     * Whether the invoice has been read at least once. Set to true only when the invoice is requested with include_payload=true.
      */
     'is_read'?: boolean;
     /**
