@@ -15,6 +15,7 @@
 
 
 export * from './src/api/company-api';
+export * from './src/api/export-api';
 export * from './src/api/log-api';
 export * from './src/api/receive-api';
 export * from './src/api/send-api';
