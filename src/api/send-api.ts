@@ -25,8 +25,6 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
-import type { FatturaOrdinaria } from '../../src/models';
-// @ts-ignore
 import type { ProblemDetails } from '../../src/models';
 // @ts-ignore
 import type { ProblemHttpResult } from '../../src/models';
@@ -344,15 +342,15 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Add an invoice by json
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendJsonPost: async (fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fatturaOrdinaria' is not null or undefined
-            assertParamExists('sendJsonPost', 'fatturaOrdinaria', fatturaOrdinaria)
+        sendJsonPost: async (body: object, validate?: boolean, signature?: SendJsonPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('sendJsonPost', 'body', body)
             const localVarPath = `/send/json`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -383,7 +381,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(fatturaOrdinaria, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -486,13 +484,13 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Validate an invoice by json
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendValidateJsonPost: async (fatturaOrdinaria: FatturaOrdinaria, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fatturaOrdinaria' is not null or undefined
-            assertParamExists('sendValidateJsonPost', 'fatturaOrdinaria', fatturaOrdinaria)
+        sendValidateJsonPost: async (body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('sendValidateJsonPost', 'body', body)
             const localVarPath = `/send/validate/json`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -515,7 +513,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(fatturaOrdinaria, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -564,13 +562,13 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Validate an XML invoice document without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Validate an invoice by xml
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendValidateXmlPost: async (fatturaOrdinaria: FatturaOrdinaria, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fatturaOrdinaria' is not null or undefined
-            assertParamExists('sendValidateXmlPost', 'fatturaOrdinaria', fatturaOrdinaria)
+        sendValidateXmlPost: async (body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('sendValidateXmlPost', 'body', body)
             const localVarPath = `/send/validate/xml`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -593,7 +591,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(fatturaOrdinaria, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -603,15 +601,15 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Add an invoice by xml
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendXmlPost: async (fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fatturaOrdinaria' is not null or undefined
-            assertParamExists('sendXmlPost', 'fatturaOrdinaria', fatturaOrdinaria)
+        sendXmlPost: async (body: object, validate?: boolean, signature?: SendXmlPostSignatureEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('sendXmlPost', 'body', body)
             const localVarPath = `/send/xml`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -642,7 +640,7 @@ export const SendApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(fatturaOrdinaria, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -745,14 +743,14 @@ export const SendApiFp = function(configuration?: Configuration) {
         /**
          * Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Add an invoice by json
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendJsonPost(fatturaOrdinaria, validate, signature, options);
+        async sendJsonPost(body: object, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendJsonPost(body, validate, signature, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.sendJsonPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -788,12 +786,12 @@ export const SendApiFp = function(configuration?: Configuration) {
         /**
          * Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Validate an invoice by json
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendValidateJsonPost(fatturaOrdinaria, options);
+        async sendValidateJsonPost(body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendValidateJsonPost(body, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.sendValidateJsonPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -814,12 +812,12 @@ export const SendApiFp = function(configuration?: Configuration) {
         /**
          * Validate an XML invoice document without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Validate an invoice by xml
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendValidateXmlPost(fatturaOrdinaria, options);
+        async sendValidateXmlPost(body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendValidateXmlPost(body, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.sendValidateXmlPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -827,14 +825,14 @@ export const SendApiFp = function(configuration?: Configuration) {
         /**
          * Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Add an invoice by xml
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendXmlPost(fatturaOrdinaria, validate, signature, options);
+        async sendXmlPost(body: object, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Send>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendXmlPost(body, validate, signature, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SendApi.sendXmlPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -920,14 +918,14 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Add an invoice by json
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
-            return localVarFp.sendJsonPost(fatturaOrdinaria, validate, signature, options).then((request) => request(axios, basePath));
+        sendJsonPost(body: object, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
+            return localVarFp.sendJsonPost(body, validate, signature, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a new invoice using a structured Send object. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
@@ -954,12 +952,12 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Validate an invoice by json
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.sendValidateJsonPost(fatturaOrdinaria, options).then((request) => request(axios, basePath));
+        sendValidateJsonPost(body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.sendValidateJsonPost(body, options).then((request) => request(axios, basePath));
         },
         /**
          * Validate an invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
@@ -974,24 +972,24 @@ export const SendApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Validate an XML invoice document without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
          * @summary Validate an invoice by xml
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.sendValidateXmlPost(fatturaOrdinaria, options).then((request) => request(axios, basePath));
+        sendValidateXmlPost(body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.sendValidateXmlPost(body, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
          * @summary Add an invoice by xml
-         * @param {FatturaOrdinaria} fatturaOrdinaria 
+         * @param {object} body 
          * @param {boolean} [validate] Validate the document first, and reject it on failure.
          * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
-            return localVarFp.sendXmlPost(fatturaOrdinaria, validate, signature, options).then((request) => request(axios, basePath));
+        sendXmlPost(body: object, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send> {
+            return localVarFp.sendXmlPost(body, validate, signature, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1067,13 +1065,13 @@ export interface SendApiInterface {
     /**
      * Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary Add an invoice by json
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
+    sendJsonPost(body: object, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
     /**
      * Add a new invoice using a structured Send object. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
@@ -1098,11 +1096,11 @@ export interface SendApiInterface {
     /**
      * Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Validate an invoice by json
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    sendValidateJsonPost(body: object, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Validate an invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
@@ -1116,22 +1114,22 @@ export interface SendApiInterface {
     /**
      * Validate an XML invoice document without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Validate an invoice by xml
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    sendValidateXmlPost(body: object, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary Add an invoice by xml
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
+    sendXmlPost(body: object, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig): AxiosPromise<Send>;
 
 }
 
@@ -1216,14 +1214,14 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     /**
      * Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary Add an invoice by json
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {SendJsonPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public sendJsonPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).sendJsonPost(fatturaOrdinaria, validate, signature, options).then((request) => request(this.axios, this.basePath));
+    public sendJsonPost(body: object, validate?: boolean, signature?: SendJsonPostSignatureEnum, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).sendJsonPost(body, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1253,12 +1251,12 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     /**
      * Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Validate an invoice by json
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public sendValidateJsonPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).sendValidateJsonPost(fatturaOrdinaria, options).then((request) => request(this.axios, this.basePath));
+    public sendValidateJsonPost(body: object, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).sendValidateJsonPost(body, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1275,25 +1273,25 @@ export class SendApi extends BaseAPI implements SendApiInterface {
     /**
      * Validate an XML invoice document without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
      * @summary Validate an invoice by xml
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public sendValidateXmlPost(fatturaOrdinaria: FatturaOrdinaria, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).sendValidateXmlPost(fatturaOrdinaria, options).then((request) => request(this.axios, this.basePath));
+    public sendValidateXmlPost(body: object, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).sendValidateXmlPost(body, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
      * @summary Add an invoice by xml
-     * @param {FatturaOrdinaria} fatturaOrdinaria 
+     * @param {object} body 
      * @param {boolean} [validate] Validate the document first, and reject it on failure.
      * @param {SendXmlPostSignatureEnum} [signature] Whether to digitally sign the document.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public sendXmlPost(fatturaOrdinaria: FatturaOrdinaria, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig) {
-        return SendApiFp(this.configuration).sendXmlPost(fatturaOrdinaria, validate, signature, options).then((request) => request(this.axios, this.basePath));
+    public sendXmlPost(body: object, validate?: boolean, signature?: SendXmlPostSignatureEnum, options?: RawAxiosRequestConfig) {
+        return SendApiFp(this.configuration).sendXmlPost(body, validate, signature, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

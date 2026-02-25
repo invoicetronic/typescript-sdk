@@ -338,7 +338,7 @@ const { status, data } = await apiInstance.sendIdentifierGet(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendJsonPost**
-> Send sendJsonPost(fatturaOrdinaria)
+> Send sendJsonPost(body)
 
 Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
 
@@ -347,19 +347,18 @@ Add a new invoice using a FatturaPA JSON representation. The invoice will be sig
 ```typescript
 import {
     SendApi,
-    Configuration,
-    FatturaOrdinaria
+    Configuration
 } from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
-let fatturaOrdinaria: FatturaOrdinaria; //
+let body: object; //
 let validate: boolean; //Validate the document first, and reject it on failure. (optional) (default to false)
 let signature: 'None' | 'Apply' | 'Force' | 'Auto'; //Whether to digitally sign the document. (optional) (default to 'Auto')
 
 const { status, data } = await apiInstance.sendJsonPost(
-    fatturaOrdinaria,
+    body,
     validate,
     signature
 );
@@ -369,7 +368,7 @@ const { status, data } = await apiInstance.sendJsonPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **fatturaOrdinaria** | **FatturaOrdinaria**|  | |
+| **body** | **object**|  | |
 | **validate** | [**boolean**] | Validate the document first, and reject it on failure. | (optional) defaults to false|
 | **signature** | [**&#39;None&#39; | &#39;Apply&#39; | &#39;Force&#39; | &#39;Auto&#39;**]**Array<&#39;None&#39; &#124; &#39;Apply&#39; &#124; &#39;Force&#39; &#124; &#39;Auto&#39;>** | Whether to digitally sign the document. | (optional) defaults to 'Auto'|
 
@@ -511,7 +510,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendValidateJsonPost**
-> sendValidateJsonPost(fatturaOrdinaria)
+> sendValidateJsonPost(body)
 
 Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
 
@@ -520,17 +519,16 @@ Validate a JSON invoice without sending it to SDI. Use this to check for errors 
 ```typescript
 import {
     SendApi,
-    Configuration,
-    FatturaOrdinaria
+    Configuration
 } from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
-let fatturaOrdinaria: FatturaOrdinaria; //
+let body: object; //
 
 const { status, data } = await apiInstance.sendValidateJsonPost(
-    fatturaOrdinaria
+    body
 );
 ```
 
@@ -538,7 +536,7 @@ const { status, data } = await apiInstance.sendValidateJsonPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **fatturaOrdinaria** | **FatturaOrdinaria**|  | |
+| **body** | **object**|  | |
 
 
 ### Return type
@@ -619,7 +617,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendValidateXmlPost**
-> sendValidateXmlPost(fatturaOrdinaria)
+> sendValidateXmlPost(body)
 
 Validate an XML invoice document without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
 
@@ -628,17 +626,16 @@ Validate an XML invoice document without sending it to SDI. Use this to check fo
 ```typescript
 import {
     SendApi,
-    Configuration,
-    FatturaOrdinaria
+    Configuration
 } from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
-let fatturaOrdinaria: FatturaOrdinaria; //
+let body: object; //
 
 const { status, data } = await apiInstance.sendValidateXmlPost(
-    fatturaOrdinaria
+    body
 );
 ```
 
@@ -646,7 +643,7 @@ const { status, data } = await apiInstance.sendValidateXmlPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **fatturaOrdinaria** | **FatturaOrdinaria**|  | |
+| **body** | **object**|  | |
 
 
 ### Return type
@@ -673,7 +670,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendXmlPost**
-> Send sendXmlPost(fatturaOrdinaria)
+> Send sendXmlPost(body)
 
 Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
 
@@ -682,19 +679,18 @@ Add a new invoice using a raw XML document in FatturaPA format. The invoice will
 ```typescript
 import {
     SendApi,
-    Configuration,
-    FatturaOrdinaria
+    Configuration
 } from '@invoicetronic/ts-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SendApi(configuration);
 
-let fatturaOrdinaria: FatturaOrdinaria; //
+let body: object; //
 let validate: boolean; //Validate the document first, and reject it on failure. (optional) (default to false)
 let signature: 'None' | 'Apply' | 'Force' | 'Auto'; //Whether to digitally sign the document. (optional) (default to 'Auto')
 
 const { status, data } = await apiInstance.sendXmlPost(
-    fatturaOrdinaria,
+    body,
     validate,
     signature
 );
@@ -704,7 +700,7 @@ const { status, data } = await apiInstance.sendXmlPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **fatturaOrdinaria** | **FatturaOrdinaria**|  | |
+| **body** | **object**|  | |
 | **validate** | [**boolean**] | Validate the document first, and reject it on failure. | (optional) defaults to false|
 | **signature** | [**&#39;None&#39; | &#39;Apply&#39; | &#39;Force&#39; | &#39;Auto&#39;**]**Array<&#39;None&#39; &#124; &#39;Apply&#39; &#124; &#39;Force&#39; &#124; &#39;Auto&#39;>** | Whether to digitally sign the document. | (optional) defaults to 'Auto'|
 
