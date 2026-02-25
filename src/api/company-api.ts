@@ -243,6 +243,44 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Retrieve a company by its VAT number.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+         * @summary Get a company by vat number
+         * @param {string} vat 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        companyVatGet: async (vat: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'vat' is not null or undefined
+            assertParamExists('companyVatGet', 'vat', vat)
+            const localVarPath = `/company/{vat}`
+                .replace(`{${"vat"}}`, encodeURIComponent(String(vat)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -320,6 +358,19 @@ export const CompanyApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['CompanyApi.companyPut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Retrieve a company by its VAT number.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+         * @summary Get a company by vat number
+         * @param {string} vat 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async companyVatGet(vat: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Company>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.companyVatGet(vat, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CompanyApi.companyVatGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -382,6 +433,16 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
         companyPut(company: Company, options?: RawAxiosRequestConfig): AxiosPromise<Company> {
             return localVarFp.companyPut(company, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Retrieve a company by its VAT number.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+         * @summary Get a company by vat number
+         * @param {string} vat 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        companyVatGet(vat: string, options?: RawAxiosRequestConfig): AxiosPromise<Company> {
+            return localVarFp.companyVatGet(vat, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -436,6 +497,15 @@ export interface CompanyApiInterface {
      * @throws {RequiredError}
      */
     companyPut(company: Company, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
+
+    /**
+     * Retrieve a company by its VAT number.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+     * @summary Get a company by vat number
+     * @param {string} vat 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    companyVatGet(vat: string, options?: RawAxiosRequestConfig): AxiosPromise<Company>;
 
 }
 
@@ -499,6 +569,17 @@ export class CompanyApi extends BaseAPI implements CompanyApiInterface {
      */
     public companyPut(company: Company, options?: RawAxiosRequestConfig) {
         return CompanyApiFp(this.configuration).companyPut(company, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a company by its VAT number.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+     * @summary Get a company by vat number
+     * @param {string} vat 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public companyVatGet(vat: string, options?: RawAxiosRequestConfig) {
+        return CompanyApiFp(this.configuration).companyVatGet(vat, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

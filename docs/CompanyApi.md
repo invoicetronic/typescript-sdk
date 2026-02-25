@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 |[**companyIdGet**](#companyidget) | **GET** /company/{id} | Get a company by id|
 |[**companyPost**](#companypost) | **POST** /company | Add a company|
 |[**companyPut**](#companyput) | **PUT** /company | Update a company|
+|[**companyVatGet**](#companyvatget) | **GET** /company/{vat} | Get a company by vat number|
 
 # **companyGet**
 > Array<Company> companyGet()
@@ -283,6 +284,59 @@ const { status, data } = await apiInstance.companyPut(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**422** | Unprocessable Content |  -  |
+|**400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **companyVatGet**
+> Company companyVatGet()
+
+Retrieve a company by its VAT number.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+
+### Example
+
+```typescript
+import {
+    CompanyApi,
+    Configuration
+} from '@invoicetronic/ts-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyApi(configuration);
+
+let vat: string; // (default to undefined)
+
+const { status, data } = await apiInstance.companyVatGet(
+    vat
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **vat** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**Company**
+
+### Authorization
+
+[Basic](../README.md#Basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**404** | Not Found |  -  |
 |**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

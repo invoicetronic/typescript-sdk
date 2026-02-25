@@ -14,6 +14,9 @@
 
 
 
+/**
+ * Account status with remaining operations and signatures.
+ */
 export interface Status {
     /**
      * Operations (invoices and validations) left.

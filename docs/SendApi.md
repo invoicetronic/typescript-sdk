@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 |[**sendFilePost**](#sendfilepost) | **POST** /send/file | Add an invoice by file|
 |[**sendGet**](#sendget) | **GET** /send | List invoices|
 |[**sendIdGet**](#sendidget) | **GET** /send/{id} | Get a invoice by id|
+|[**sendIdPayloadGet**](#sendidpayloadget) | **GET** /send/{id}/payload | Get a send invoice payload by id|
 |[**sendIdentifierGet**](#sendidentifierget) | **GET** /send/{identifier} | Get a invoice by identifier|
 |[**sendJsonPost**](#sendjsonpost) | **POST** /send/json | Add an invoice by json|
 |[**sendPost**](#sendpost) | **POST** /send | Add an invoice|
@@ -218,6 +219,58 @@ const { status, data } = await apiInstance.sendIdGet(
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sendIdPayloadGet**
+> sendIdPayloadGet()
+
+Retrieve only the payload of a send invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`. Depending on how the invoice was originally submitted, the payload may be Base64-encoded or plain XML. 
+
+### Example
+
+```typescript
+import {
+    SendApi,
+    Configuration
+} from '@invoicetronic/ts-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SendApi(configuration);
+
+let id: number; //Item id (default to undefined)
+
+const { status, data } = await apiInstance.sendIdPayloadGet(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] | Item id | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/problem+json
 
 
 ### HTTP response details

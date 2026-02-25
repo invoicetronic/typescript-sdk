@@ -17,6 +17,9 @@
 // @ts-ignore
 import type { DocumentData } from './document-data';
 
+/**
+ * A received invoice.
+ */
 export interface Receive {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.

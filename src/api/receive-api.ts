@@ -25,6 +25,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../../base';
 // @ts-ignore
+import type { ProblemDetails } from '../../src/models';
+// @ts-ignore
 import type { ProblemHttpResult } from '../../src/models';
 // @ts-ignore
 import type { Receive } from '../../src/models';
@@ -245,6 +247,44 @@ export const ReceiveApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Retrieve only the payload of a receive invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`.  The invoice is marked as read (`is_read` = true) and counted as an operation, same as when retrieving the full invoice with `include_payload=true`. 
+         * @summary Get a receive invoice payload by id
+         * @param {number} id Item id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        receiveIdPayloadGet: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('receiveIdPayloadGet', 'id', id)
+            const localVarPath = `/receive/{id}/payload`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/problem+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -310,6 +350,19 @@ export const ReceiveApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['ReceiveApi.receiveIdGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Retrieve only the payload of a receive invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`.  The invoice is marked as read (`is_read` = true) and counted as an operation, same as when retrieving the full invoice with `include_payload=true`. 
+         * @summary Get a receive invoice payload by id
+         * @param {number} id Item id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async receiveIdPayloadGet(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.receiveIdPayloadGet(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReceiveApi.receiveIdPayloadGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -366,6 +419,16 @@ export const ReceiveApiFactory = function (configuration?: Configuration, basePa
         receiveIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Receive> {
             return localVarFp.receiveIdGet(id, includePayload, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Retrieve only the payload of a receive invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`.  The invoice is marked as read (`is_read` = true) and counted as an operation, same as when retrieving the full invoice with `include_payload=true`. 
+         * @summary Get a receive invoice payload by id
+         * @param {number} id Item id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        receiveIdPayloadGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.receiveIdPayloadGet(id, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -416,6 +479,15 @@ export interface ReceiveApiInterface {
      * @throws {RequiredError}
      */
     receiveIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Receive>;
+
+    /**
+     * Retrieve only the payload of a receive invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`.  The invoice is marked as read (`is_read` = true) and counted as an operation, same as when retrieving the full invoice with `include_payload=true`. 
+     * @summary Get a receive invoice payload by id
+     * @param {number} id Item id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    receiveIdPayloadGet(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
 }
 
@@ -471,6 +543,17 @@ export class ReceiveApi extends BaseAPI implements ReceiveApiInterface {
      */
     public receiveIdGet(id: number, includePayload?: boolean, options?: RawAxiosRequestConfig) {
         return ReceiveApiFp(this.configuration).receiveIdGet(id, includePayload, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve only the payload of a receive invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`.  The invoice is marked as read (`is_read` = true) and counted as an operation, same as when retrieving the full invoice with `include_payload=true`. 
+     * @summary Get a receive invoice payload by id
+     * @param {number} id Item id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public receiveIdPayloadGet(id: number, options?: RawAxiosRequestConfig) {
+        return ReceiveApiFp(this.configuration).receiveIdPayloadGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

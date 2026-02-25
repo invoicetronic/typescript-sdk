@@ -17,6 +17,9 @@
 // @ts-ignore
 import type { SendReduced } from './send-reduced';
 
+/**
+ * An SDI status update for a sent invoice.
+ */
 export interface Update {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.

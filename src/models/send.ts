@@ -20,6 +20,9 @@ import type { Company } from './company';
 // @ts-ignore
 import type { DocumentData } from './document-data';
 
+/**
+ * A sent invoice.
+ */
 export interface Send {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.

@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 |[**receiveGet**](#receiveget) | **GET** /receive | List incoming invoices|
 |[**receiveIdDelete**](#receiveiddelete) | **DELETE** /receive/{id} | Delete an incoming invoice by id|
 |[**receiveIdGet**](#receiveidget) | **GET** /receive/{id} | Get an incoming invoice by id|
+|[**receiveIdPayloadGet**](#receiveidpayloadget) | **GET** /receive/{id}/payload | Get a receive invoice payload by id|
 
 # **receiveGet**
 > Array<Receive> receiveGet()
@@ -209,6 +210,58 @@ const { status, data } = await apiInstance.receiveIdGet(
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **receiveIdPayloadGet**
+> receiveIdPayloadGet()
+
+Retrieve only the payload of a receive invoice, without the full invoice metadata. This is useful when you already have the invoice metadata and only need the XML content.  The response is a `text/plain` string, identical to the `payload` field returned by the standard GET endpoint with `include_payload=true`.  The invoice is marked as read (`is_read` = true) and counted as an operation, same as when retrieving the full invoice with `include_payload=true`. 
+
+### Example
+
+```typescript
+import {
+    ReceiveApi,
+    Configuration
+} from '@invoicetronic/ts-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new ReceiveApi(configuration);
+
+let id: number; //Item id (default to undefined)
+
+const { status, data } = await apiInstance.receiveIdPayloadGet(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] | Item id | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/problem+json
 
 
 ### HTTP response details

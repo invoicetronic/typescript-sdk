@@ -14,6 +14,9 @@
 
 
 
+/**
+ * A webhook subscription.
+ */
 export interface WebHook {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.

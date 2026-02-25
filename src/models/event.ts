@@ -14,6 +14,9 @@
 
 
 
+/**
+ * An API request log entry.
+ */
 export interface Event {
     /**
      * Unique identifier. Leave it at 0 for new records as it will be set automatically.
