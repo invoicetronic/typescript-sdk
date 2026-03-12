@@ -36,15 +36,16 @@ import type { ProblemHttpResult } from '../../src/models';
 export const CompanyApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+         * Retrieve a paginated list of companies. Results can be filtered by free-text search (`q`) across name, VAT number, and fiscal code.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary List companies
          * @param {number} [page] Page number.
          * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {string} [q] Full-text search across committente, prestatore, identifier, and file name.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        companyGet: async (page?: number, pageSize?: number, sort?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        companyGet: async (page?: number, pageSize?: number, sort?: string, q?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/company`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -71,6 +72,10 @@ export const CompanyApiAxiosParamCreator = function (configuration?: Configurati
 
             if (sort !== undefined) {
                 localVarQueryParameter['sort'] = sort;
+            }
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -291,16 +296,17 @@ export const CompanyApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CompanyApiAxiosParamCreator(configuration)
     return {
         /**
-         * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+         * Retrieve a paginated list of companies. Results can be filtered by free-text search (`q`) across name, VAT number, and fiscal code.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary List companies
          * @param {number} [page] Page number.
          * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {string} [q] Full-text search across committente, prestatore, identifier, and file name.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Company>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.companyGet(page, pageSize, sort, options);
+        async companyGet(page?: number, pageSize?: number, sort?: string, q?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Company>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.companyGet(page, pageSize, sort, q, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CompanyApi.companyGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -381,16 +387,17 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = CompanyApiFp(configuration)
     return {
         /**
-         * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+         * Retrieve a paginated list of companies. Results can be filtered by free-text search (`q`) across name, VAT number, and fiscal code.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
          * @summary List companies
          * @param {number} [page] Page number.
          * @param {number} [pageSize] Items per page. Cannot be greater than 200.
          * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+         * @param {string} [q] Full-text search across committente, prestatore, identifier, and file name.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Company>> {
-            return localVarFp.companyGet(page, pageSize, sort, options).then((request) => request(axios, basePath));
+        companyGet(page?: number, pageSize?: number, sort?: string, q?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Company>> {
+            return localVarFp.companyGet(page, pageSize, sort, q, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
@@ -451,15 +458,16 @@ export const CompanyApiFactory = function (configuration?: Configuration, basePa
  */
 export interface CompanyApiInterface {
     /**
-     * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+     * Retrieve a paginated list of companies. Results can be filtered by free-text search (`q`) across name, VAT number, and fiscal code.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary List companies
      * @param {number} [page] Page number.
      * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+     * @param {string} [q] Full-text search across committente, prestatore, identifier, and file name.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Company>>;
+    companyGet(page?: number, pageSize?: number, sort?: string, q?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Company>>;
 
     /**
      * Delete a company by its internal id.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.  **Warning:** Deleting a company will permanently remove all associated data, including sent invoices, received invoices, invoice updates from SDI, logs, and webhooks.  If the company has any linked invoices, you must explicitly confirm deletion by adding `?force=true` to the request. Without this parameter, the API will return `409 Conflict` with details about the linked data.
@@ -514,16 +522,17 @@ export interface CompanyApiInterface {
  */
 export class CompanyApi extends BaseAPI implements CompanyApiInterface {
     /**
-     * Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+     * Retrieve a paginated list of companies. Results can be filtered by free-text search (`q`) across name, VAT number, and fiscal code.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
      * @summary List companies
      * @param {number} [page] Page number.
      * @param {number} [pageSize] Items per page. Cannot be greater than 200.
      * @param {string} [sort] Sort by field. Prefix with \&#39;-\&#39; for descending order.
+     * @param {string} [q] Full-text search across committente, prestatore, identifier, and file name.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public companyGet(page?: number, pageSize?: number, sort?: string, options?: RawAxiosRequestConfig) {
-        return CompanyApiFp(this.configuration).companyGet(page, pageSize, sort, options).then((request) => request(this.axios, this.basePath));
+    public companyGet(page?: number, pageSize?: number, sort?: string, q?: string, options?: RawAxiosRequestConfig) {
+        return CompanyApiFp(this.configuration).companyGet(page, pageSize, sort, q, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

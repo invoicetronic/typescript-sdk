@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 # **companyGet**
 > Array<Company> companyGet()
 
-Retrieve a paginated list of companies.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
+Retrieve a paginated list of companies. Results can be filtered by free-text search (`q`) across name, VAT number, and fiscal code.  **Companies** are the entities that send and receive invoices. They are automatically created from invoice data when invoices are sent or received.
 
 ### Example
 
@@ -30,11 +30,13 @@ const apiInstance = new CompanyApi(configuration);
 let page: number; //Page number. (optional) (default to 1)
 let pageSize: number; //Items per page. Cannot be greater than 200. (optional) (default to 100)
 let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to undefined)
+let q: string; //Full-text search across committente, prestatore, identifier, and file name. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.companyGet(
     page,
     pageSize,
-    sort
+    sort,
+    q
 );
 ```
 
@@ -45,6 +47,7 @@ const { status, data } = await apiInstance.companyGet(
 | **page** | [**number**] | Page number. | (optional) defaults to 1|
 | **pageSize** | [**number**] | Items per page. Cannot be greater than 200. | (optional) defaults to 100|
 | **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to undefined|
+| **q** | [**string**] | Full-text search across committente, prestatore, identifier, and file name. | (optional) defaults to undefined|
 
 
 ### Return type

@@ -22,7 +22,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new ExportApi(configuration);
 
-let type: 'Send' | 'Receive' | 'Both'; // (optional) (default to 'Both')
+let type: string; // (optional) (default to undefined)
 let companyId: number; //Company id (optional) (default to undefined)
 let year: number; // (optional) (default to undefined)
 let month: number; // (optional) (default to undefined)
@@ -45,7 +45,7 @@ const { status, data } = await apiInstance.exportGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **type** | [**&#39;Send&#39; | &#39;Receive&#39; | &#39;Both&#39;**]**Array<&#39;Send&#39; &#124; &#39;Receive&#39; &#124; &#39;Both&#39;>** |  | (optional) defaults to 'Both'|
+| **type** | [**string**] |  | (optional) defaults to undefined|
 | **companyId** | [**number**] | Company id | (optional) defaults to undefined|
 | **year** | [**number**] |  | (optional) defaults to undefined|
 | **month** | [**number**] |  | (optional) defaults to undefined|

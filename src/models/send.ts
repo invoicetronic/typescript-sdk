@@ -85,6 +85,10 @@ export interface Send {
      */
     'encoding'?: SendEncodingEnum;
     /**
+     * Business name of the committente (client/buyer) extracted from the invoice XML.
+     */
+    'nome_committente'?: string | null;
+    /**
      * Optional metadata, as json.
      */
     'meta_data'?: { [key: string]: string; } | null;

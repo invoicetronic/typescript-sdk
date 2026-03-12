@@ -82,6 +82,10 @@ export interface Receive {
      */
     'encoding'?: ReceiveEncodingEnum;
     /**
+     * Business name of the prestatore (supplier/seller) extracted from the invoice XML.
+     */
+    'nome_prestatore'?: string | null;
+    /**
      * Whether the invoice has been read at least once. Set to true only when the invoice is requested with include_payload=true.
      */
     'is_read'?: boolean;

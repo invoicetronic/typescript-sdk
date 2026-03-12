@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **date_sent** | **string** | When the invoice was sent to SDI. | [optional] [default to undefined]
 **documents** | [**Array&lt;DocumentData&gt;**](DocumentData.md) | The invoices included in the payload. This is set by the system, based on the xml content. | [optional] [default to undefined]
 **encoding** | **string** | Whether the payload is Base64 encoded or a plain XML (text). | [optional] [default to undefined]
+**nome_prestatore** | **string** | Business name of the prestatore (supplier/seller) extracted from the invoice XML. | [optional] [default to undefined]
 **is_read** | **boolean** | Whether the invoice has been read at least once. Set to true only when the invoice is requested with include_payload&#x3D;true. | [optional] [default to undefined]
 **message_id** | **string** | SDI message id. | [optional] [default to undefined]
 
@@ -45,6 +46,7 @@ const instance: Receive = {
     date_sent,
     documents,
     encoding,
+    nome_prestatore,
     is_read,
     message_id,
 };

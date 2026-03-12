@@ -34,7 +34,7 @@ export const ExportApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Export invoices as a ZIP archive of FatturaPA XML files, suitable for import into accounting software (TeamSystem, Zucchetti, etc.).  **Sent invoices** are only included when they have reached a definitive state (e.g., `Consegnato` for private recipients, `AccettatoDalDestinatario`, `DecorrenzaTermini`, etc.). Invoices still being processed by SDI are excluded.  **Received invoices** are always included. Unread invoices are automatically marked as read and counted as operations.  ### Period filters  You can filter by period using either: - `year` + `month` (e.g., `year=2026&month=3` for March 2026) - `year` + `quarter` (e.g., `year=2026&quarter=1` for Q1 Jan-Mar) - `document_date_from` / `document_date_to` for a custom date range  These options are mutually exclusive. The `year` parameter alone is not valid and requires either `month` or `quarter`.  ### Response  Returns `200` with a ZIP archive, or `204 No Content` if no invoices match the given filters. Files in the archive are organized by company VAT number (`{vat}/send/`, `{vat}/receive/`).  ### Rate limiting  This endpoint has a dedicated rate limit: only one export request per user can be processed at a time. Concurrent requests will receive a `429 Too Many Requests` response.
          * @summary Export invoices as a ZIP archive
-         * @param {ExportGetTypeEnum} [type] 
+         * @param {string} [type] 
          * @param {number} [companyId] Company id
          * @param {number} [year] 
          * @param {number} [month] 
@@ -44,7 +44,7 @@ export const ExportApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        exportGet: async (type?: ExportGetTypeEnum, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        exportGet: async (type?: string, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/export`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -116,7 +116,7 @@ export const ExportApiFp = function(configuration?: Configuration) {
         /**
          * Export invoices as a ZIP archive of FatturaPA XML files, suitable for import into accounting software (TeamSystem, Zucchetti, etc.).  **Sent invoices** are only included when they have reached a definitive state (e.g., `Consegnato` for private recipients, `AccettatoDalDestinatario`, `DecorrenzaTermini`, etc.). Invoices still being processed by SDI are excluded.  **Received invoices** are always included. Unread invoices are automatically marked as read and counted as operations.  ### Period filters  You can filter by period using either: - `year` + `month` (e.g., `year=2026&month=3` for March 2026) - `year` + `quarter` (e.g., `year=2026&quarter=1` for Q1 Jan-Mar) - `document_date_from` / `document_date_to` for a custom date range  These options are mutually exclusive. The `year` parameter alone is not valid and requires either `month` or `quarter`.  ### Response  Returns `200` with a ZIP archive, or `204 No Content` if no invoices match the given filters. Files in the archive are organized by company VAT number (`{vat}/send/`, `{vat}/receive/`).  ### Rate limiting  This endpoint has a dedicated rate limit: only one export request per user can be processed at a time. Concurrent requests will receive a `429 Too Many Requests` response.
          * @summary Export invoices as a ZIP archive
-         * @param {ExportGetTypeEnum} [type] 
+         * @param {string} [type] 
          * @param {number} [companyId] Company id
          * @param {number} [year] 
          * @param {number} [month] 
@@ -126,7 +126,7 @@ export const ExportApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async exportGet(type?: ExportGetTypeEnum, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async exportGet(type?: string, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportGet(type, companyId, year, month, quarter, documentDateFrom, documentDateTo, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ExportApi.exportGet']?.[localVarOperationServerIndex]?.url;
@@ -144,7 +144,7 @@ export const ExportApiFactory = function (configuration?: Configuration, basePat
         /**
          * Export invoices as a ZIP archive of FatturaPA XML files, suitable for import into accounting software (TeamSystem, Zucchetti, etc.).  **Sent invoices** are only included when they have reached a definitive state (e.g., `Consegnato` for private recipients, `AccettatoDalDestinatario`, `DecorrenzaTermini`, etc.). Invoices still being processed by SDI are excluded.  **Received invoices** are always included. Unread invoices are automatically marked as read and counted as operations.  ### Period filters  You can filter by period using either: - `year` + `month` (e.g., `year=2026&month=3` for March 2026) - `year` + `quarter` (e.g., `year=2026&quarter=1` for Q1 Jan-Mar) - `document_date_from` / `document_date_to` for a custom date range  These options are mutually exclusive. The `year` parameter alone is not valid and requires either `month` or `quarter`.  ### Response  Returns `200` with a ZIP archive, or `204 No Content` if no invoices match the given filters. Files in the archive are organized by company VAT number (`{vat}/send/`, `{vat}/receive/`).  ### Rate limiting  This endpoint has a dedicated rate limit: only one export request per user can be processed at a time. Concurrent requests will receive a `429 Too Many Requests` response.
          * @summary Export invoices as a ZIP archive
-         * @param {ExportGetTypeEnum} [type] 
+         * @param {string} [type] 
          * @param {number} [companyId] Company id
          * @param {number} [year] 
          * @param {number} [month] 
@@ -154,7 +154,7 @@ export const ExportApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        exportGet(type?: ExportGetTypeEnum, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        exportGet(type?: string, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.exportGet(type, companyId, year, month, quarter, documentDateFrom, documentDateTo, options).then((request) => request(axios, basePath));
         },
     };
@@ -167,7 +167,7 @@ export interface ExportApiInterface {
     /**
      * Export invoices as a ZIP archive of FatturaPA XML files, suitable for import into accounting software (TeamSystem, Zucchetti, etc.).  **Sent invoices** are only included when they have reached a definitive state (e.g., `Consegnato` for private recipients, `AccettatoDalDestinatario`, `DecorrenzaTermini`, etc.). Invoices still being processed by SDI are excluded.  **Received invoices** are always included. Unread invoices are automatically marked as read and counted as operations.  ### Period filters  You can filter by period using either: - `year` + `month` (e.g., `year=2026&month=3` for March 2026) - `year` + `quarter` (e.g., `year=2026&quarter=1` for Q1 Jan-Mar) - `document_date_from` / `document_date_to` for a custom date range  These options are mutually exclusive. The `year` parameter alone is not valid and requires either `month` or `quarter`.  ### Response  Returns `200` with a ZIP archive, or `204 No Content` if no invoices match the given filters. Files in the archive are organized by company VAT number (`{vat}/send/`, `{vat}/receive/`).  ### Rate limiting  This endpoint has a dedicated rate limit: only one export request per user can be processed at a time. Concurrent requests will receive a `429 Too Many Requests` response.
      * @summary Export invoices as a ZIP archive
-     * @param {ExportGetTypeEnum} [type] 
+     * @param {string} [type] 
      * @param {number} [companyId] Company id
      * @param {number} [year] 
      * @param {number} [month] 
@@ -177,7 +177,7 @@ export interface ExportApiInterface {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    exportGet(type?: ExportGetTypeEnum, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    exportGet(type?: string, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
 }
 
@@ -188,7 +188,7 @@ export class ExportApi extends BaseAPI implements ExportApiInterface {
     /**
      * Export invoices as a ZIP archive of FatturaPA XML files, suitable for import into accounting software (TeamSystem, Zucchetti, etc.).  **Sent invoices** are only included when they have reached a definitive state (e.g., `Consegnato` for private recipients, `AccettatoDalDestinatario`, `DecorrenzaTermini`, etc.). Invoices still being processed by SDI are excluded.  **Received invoices** are always included. Unread invoices are automatically marked as read and counted as operations.  ### Period filters  You can filter by period using either: - `year` + `month` (e.g., `year=2026&month=3` for March 2026) - `year` + `quarter` (e.g., `year=2026&quarter=1` for Q1 Jan-Mar) - `document_date_from` / `document_date_to` for a custom date range  These options are mutually exclusive. The `year` parameter alone is not valid and requires either `month` or `quarter`.  ### Response  Returns `200` with a ZIP archive, or `204 No Content` if no invoices match the given filters. Files in the archive are organized by company VAT number (`{vat}/send/`, `{vat}/receive/`).  ### Rate limiting  This endpoint has a dedicated rate limit: only one export request per user can be processed at a time. Concurrent requests will receive a `429 Too Many Requests` response.
      * @summary Export invoices as a ZIP archive
-     * @param {ExportGetTypeEnum} [type] 
+     * @param {string} [type] 
      * @param {number} [companyId] Company id
      * @param {number} [year] 
      * @param {number} [month] 
@@ -198,14 +198,8 @@ export class ExportApi extends BaseAPI implements ExportApiInterface {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public exportGet(type?: ExportGetTypeEnum, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig) {
+    public exportGet(type?: string, companyId?: number, year?: number, month?: number, quarter?: number, documentDateFrom?: string, documentDateTo?: string, options?: RawAxiosRequestConfig) {
         return ExportApiFp(this.configuration).exportGet(type, companyId, year, month, quarter, documentDateFrom, documentDateTo, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-export const ExportGetTypeEnum = {
-    Send: 'Send',
-    Receive: 'Receive',
-    Both: 'Both'
-} as const;
-export type ExportGetTypeEnum = typeof ExportGetTypeEnum[keyof typeof ExportGetTypeEnum];

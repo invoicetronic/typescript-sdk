@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 # **receiveGet**
 > Array<Receive> receiveGet()
 
-Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, and document number. Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
+Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, document number, and free-text search (`q`). Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
 
 ### Example
 
@@ -42,6 +42,7 @@ let includePayload: boolean; //Include payload in the response. Defaults to fals
 let page: number; //Page number. (optional) (default to 1)
 let pageSize: number; //Items per page. Cannot be greater than 200. (optional) (default to 100)
 let sort: string; //Sort by field. Prefix with \'-\' for descending order. (optional) (default to undefined)
+let q: string; //Full-text search across committente, prestatore, identifier, and file name. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.receiveGet(
     companyId,
@@ -60,7 +61,8 @@ const { status, data } = await apiInstance.receiveGet(
     includePayload,
     page,
     pageSize,
-    sort
+    sort,
+    q
 );
 ```
 
@@ -85,6 +87,7 @@ const { status, data } = await apiInstance.receiveGet(
 | **page** | [**number**] | Page number. | (optional) defaults to 1|
 | **pageSize** | [**number**] | Items per page. Cannot be greater than 200. | (optional) defaults to 100|
 | **sort** | [**string**] | Sort by field. Prefix with \&#39;-\&#39; for descending order. | (optional) defaults to undefined|
+| **q** | [**string**] | Full-text search across committente, prestatore, identifier, and file name. | (optional) defaults to undefined|
 
 
 ### Return type

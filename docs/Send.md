@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **date_sent** | **string** | When the invoice was sent to SDI. | [optional] [default to undefined]
 **documents** | [**Array&lt;DocumentData&gt;**](DocumentData.md) | The invoices included in the payload. This is set by the system, based on the xml content. | [optional] [default to undefined]
 **encoding** | **string** | Whether the payload is Base64 encoded or a plain XML (text). | [optional] [default to undefined]
+**nome_committente** | **string** | Business name of the committente (client/buyer) extracted from the invoice XML. | [optional] [default to undefined]
 **meta_data** | **{ [key: string]: string; }** | Optional metadata, as json. | [optional] [default to undefined]
 **company** | [**Company**](Company.md) |  | [optional] [default to undefined]
 
@@ -45,6 +46,7 @@ const instance: Send = {
     date_sent,
     documents,
     encoding,
+    nome_committente,
     meta_data,
     company,
 };
