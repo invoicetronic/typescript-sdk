@@ -3,7 +3,6 @@ export * from './document-data';
 export * from './event';
 export * from './model-error';
 export * from './problem-details';
-export * from './problem-http-result';
 export * from './receive';
 export * from './send';
 export * from './send-reduced';

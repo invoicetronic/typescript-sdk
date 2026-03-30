@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **date_time** | **string** | Date and time of the request. | [optional] [default to undefined]
 **error** | **string** | Response error. | [optional] [default to undefined]
 **resource_id** | **number** | ID of the resource created or modified by this request. | [optional] [default to undefined]
+**user_agent** | **string** | User-Agent header from the HTTP request. | [optional] [default to undefined]
 **success** | **boolean** | Whether the request was successful. | [optional] [readonly] [default to undefined]
 **query** | **string** | Request query. Only used for internal logging, not sent to webhooks. | [optional] [default to undefined]
 **response_body** | **string** | Response payload. It is guaranteed to be encrypted at rest. | [optional] [default to undefined]
@@ -42,6 +43,7 @@ const instance: Event = {
     date_time,
     error,
     resource_id,
+    user_agent,
     success,
     query,
     response_body,

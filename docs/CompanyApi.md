@@ -56,7 +56,7 @@ const { status, data } = await apiInstance.companyGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -69,7 +69,6 @@ const { status, data } = await apiInstance.companyGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -112,7 +111,7 @@ const { status, data } = await apiInstance.companyIdDelete(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -124,9 +123,6 @@ const { status, data } = await apiInstance.companyIdDelete(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
-|**422** | Unprocessable Content |  -  |
-|**400** | Bad Request |  -  |
-|**409** | Conflict |  -  |
 |**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -167,7 +163,7 @@ const { status, data } = await apiInstance.companyIdGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -220,7 +216,7 @@ const { status, data } = await apiInstance.companyPost(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -232,7 +228,6 @@ const { status, data } = await apiInstance.companyPost(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Created |  -  |
-|**400** | Bad Request |  -  |
 |**422** | Unprocessable Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -274,7 +269,7 @@ const { status, data } = await apiInstance.companyPut(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -287,7 +282,6 @@ const { status, data } = await apiInstance.companyPut(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**422** | Unprocessable Content |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -327,7 +321,7 @@ const { status, data } = await apiInstance.companyVatGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -340,7 +334,6 @@ const { status, data } = await apiInstance.companyVatGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -69,7 +69,7 @@ const { status, data } = await apiInstance.webhookGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -82,7 +82,6 @@ const { status, data } = await apiInstance.webhookGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -122,7 +121,7 @@ const { status, data } = await apiInstance.webhookIdDelete(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -134,9 +133,6 @@ const { status, data } = await apiInstance.webhookIdDelete(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
-|**422** | Unprocessable Content |  -  |
-|**400** | Bad Request |  -  |
-|**409** | Conflict |  -  |
 |**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -177,7 +173,7 @@ const { status, data } = await apiInstance.webhookIdGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,7 +226,7 @@ const { status, data } = await apiInstance.webhookPost(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -242,7 +238,6 @@ const { status, data } = await apiInstance.webhookPost(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Created |  -  |
-|**400** | Bad Request |  -  |
 |**422** | Unprocessable Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -284,7 +279,7 @@ const { status, data } = await apiInstance.webhookPut(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -297,7 +292,6 @@ const { status, data } = await apiInstance.webhookPut(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**422** | Unprocessable Content |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -346,7 +340,7 @@ const { status, data } = await apiInstance.webhookhistoryGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -359,7 +353,6 @@ const { status, data } = await apiInstance.webhookhistoryGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -399,7 +392,7 @@ const { status, data } = await apiInstance.webhookhistoryIdGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 

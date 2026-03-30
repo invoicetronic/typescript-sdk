@@ -1,1 +1,1 @@
-# Changelog\n\n## [1.5.0] - 2026-03-12\nSee main repository changelog for details.
+# Changelog\n\n## [1.6.0] - 2026-03-30\nSee main repository changelog for details.

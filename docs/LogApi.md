@@ -37,6 +37,7 @@ let query: string; // (optional) (default to undefined)
 let success: boolean; // (optional) (default to undefined)
 let dateTimeFrom: string; //Date and time of the event (optional) (default to undefined)
 let dateTimeTo: string; //Date and time of the event (optional) (default to undefined)
+let userAgent: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.logGet(
     companyId,
@@ -52,7 +53,8 @@ const { status, data } = await apiInstance.logGet(
     query,
     success,
     dateTimeFrom,
-    dateTimeTo
+    dateTimeTo,
+    userAgent
 );
 ```
 
@@ -74,6 +76,7 @@ const { status, data } = await apiInstance.logGet(
 | **success** | [**boolean**] |  | (optional) defaults to undefined|
 | **dateTimeFrom** | [**string**] | Date and time of the event | (optional) defaults to undefined|
 | **dateTimeTo** | [**string**] | Date and time of the event | (optional) defaults to undefined|
+| **userAgent** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -82,7 +85,7 @@ const { status, data } = await apiInstance.logGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
@@ -95,7 +98,6 @@ const { status, data } = await apiInstance.logGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
-|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -135,7 +137,7 @@ const { status, data } = await apiInstance.logIdGet(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 

@@ -35,7 +35,7 @@ This endpoint does not have any parameters.
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+No authorization required
 
 ### HTTP request headers
 
