@@ -79,7 +79,7 @@ const { status, data } = await apiInstance.updateGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -131,7 +131,7 @@ const { status, data } = await apiInstance.updateIdGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 

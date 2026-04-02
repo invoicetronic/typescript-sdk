@@ -69,7 +69,7 @@ const { status, data } = await apiInstance.webhookGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -121,7 +121,7 @@ const { status, data } = await apiInstance.webhookIdDelete(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -173,7 +173,7 @@ const { status, data } = await apiInstance.webhookIdGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -226,7 +226,7 @@ const { status, data } = await apiInstance.webhookPost(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -279,7 +279,7 @@ const { status, data } = await apiInstance.webhookPut(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -340,7 +340,7 @@ const { status, data } = await apiInstance.webhookhistoryGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -392,7 +392,7 @@ const { status, data } = await apiInstance.webhookhistoryIdGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 

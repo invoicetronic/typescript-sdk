@@ -56,7 +56,7 @@ const { status, data } = await apiInstance.companyGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -111,7 +111,7 @@ const { status, data } = await apiInstance.companyIdDelete(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -163,7 +163,7 @@ const { status, data } = await apiInstance.companyIdGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -216,7 +216,7 @@ const { status, data } = await apiInstance.companyPost(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -269,7 +269,7 @@ const { status, data } = await apiInstance.companyPut(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -321,7 +321,7 @@ const { status, data } = await apiInstance.companyVatGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 

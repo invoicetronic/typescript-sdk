@@ -85,7 +85,7 @@ const { status, data } = await apiInstance.logGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
@@ -137,7 +137,7 @@ const { status, data } = await apiInstance.logIdGet(
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic)
 
 ### HTTP request headers
 
