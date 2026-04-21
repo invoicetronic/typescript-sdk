@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **meta_data** | **{ [key: string]: string; }** | Optional metadata, as json. | [optional] [default to undefined]
 **documents** | [**Array&lt;DocumentData&gt;**](DocumentData.md) | The invoices included in the payload. | [optional] [default to undefined]
 **date_sent** | **string** | When the invoice was sent to SDI. | [optional] [default to undefined]
+**latest_state** | **string** | Current SDI state of the invoice. Reflects the most recent update received from SDI. | [optional] [default to undefined]
 
 ## Example
 
@@ -23,6 +24,7 @@ const instance: SendReduced = {
     meta_data,
     documents,
     date_sent,
+    latest_state,
 };
 ```
 

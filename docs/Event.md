@@ -6,9 +6,9 @@ An API request log entry.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** | Unique identifier. Leave it at 0 for new records as it will be set automatically. | [optional] [default to undefined]
-**created** | **string** | Creation date. It is set automatically. | [optional] [default to undefined]
-**version** | **number** | Row version, for optimistic concurrency. It is set automatically. | [optional] [default to undefined]
+**id** | **number** | Unique identifier. For POST requests, leave it at &#x60;0&#x60; — the server will assign one automatically. For PUT requests, set it to the id of the record you want to update. | [optional] [default to undefined]
+**created** | **string** | Creation date. It is set automatically. | [optional] [readonly] [default to undefined]
+**version** | **number** | Row version, for optimistic concurrency. It is set automatically. | [optional] [readonly] [default to undefined]
 **user_id** | **number** | User id. | [optional] [default to undefined]
 **api_key_id** | **number** | Api key id. | [optional] [default to undefined]
 **company_id** | **number** | Company id. | [optional] [default to undefined]
