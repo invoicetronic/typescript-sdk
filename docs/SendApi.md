@@ -20,7 +20,7 @@ All URIs are relative to *http://localhost*
 # **sendFilePost**
 > Send sendFilePost()
 
-Add a new invoice by uploading a file. Supported formats are XML (FatturaPA) and P7M (signed). The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
+Add a new invoice by uploading a file. Supported formats are XML (FatturaPA) and P7M (signed). The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).  ### Idempotency  To protect against duplicate submissions caused by network retries, you can send an optional `Idempotency-Key` header with any unique, client-generated value (up to 255 characters).  - The first request with a given key is processed normally, and its response (status, body and `Location`) is stored for 24 hours. - Any subsequent request that reuses the same key within that window replays the original response instead of sending a second invoice to SDI. - If a request with the same key is still being processed, the retry receives `409 Conflict`. - If the same key is reused with a **different** invoice payload, the request is rejected with `422 Unprocessable Entity`: a given key must always map to the same request.  Keys are scoped per account, so different accounts can use the same key value without interfering. If the idempotency store is temporarily unavailable, the request is processed normally without idempotency protection.
 
 ### Example
 
@@ -36,11 +36,13 @@ const apiInstance = new SendApi(configuration);
 let file: File; // (default to undefined)
 let validate: boolean; //Validate the document first, and reject it on failure. (optional) (default to false)
 let signature: 'None' | 'Apply' | 'Force' | 'Auto'; //Whether to digitally sign the document. (optional) (default to 'Auto')
+let idempotencyKey: string; //Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.sendFilePost(
     file,
     validate,
-    signature
+    signature,
+    idempotencyKey
 );
 ```
 
@@ -51,6 +53,7 @@ const { status, data } = await apiInstance.sendFilePost(
 | **file** | [**File**] |  | defaults to undefined|
 | **validate** | [**boolean**] | Validate the document first, and reject it on failure. | (optional) defaults to false|
 | **signature** | [**&#39;None&#39; | &#39;Apply&#39; | &#39;Force&#39; | &#39;Auto&#39;**]**Array<&#39;None&#39; &#124; &#39;Apply&#39; &#124; &#39;Force&#39; &#124; &#39;Auto&#39;>** | Whether to digitally sign the document. | (optional) defaults to 'Auto'|
+| **idempotencyKey** | [**string**] | Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -78,7 +81,7 @@ const { status, data } = await apiInstance.sendFilePost(
 # **sendGet**
 > Array<Send> sendGet()
 
-Retrieve a paginated list of send invoices. Results can be filtered by various criteria such as company, date ranges, document number, and free-text search (`q`). Use `ids` to fetch specific Send records in a single call (comma-separated, up to 100). Returns invoice metadata; set `include_payload` to true to include the full invoice content.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
+Retrieve a paginated list of send invoices. Results can be filtered by various criteria such as company, date ranges, document number, current SDI state (`latest_state`), and free-text search (`q`). Use `ids` to fetch specific Send records in a single call (comma-separated, up to 100). Returns invoice metadata; set `include_payload` to true to include the full invoice content.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
 
 ### Example
 
@@ -103,6 +106,7 @@ let dateSentTo: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (defaul
 let documentDateFrom: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let documentDateTo: string; //UTC ISO 8601 (2024-11-29T12:34:56Z) (optional) (default to undefined)
 let documentNumber: string; //Document number. (optional) (default to undefined)
+let latestState: 'Inviato' | 'Consegnato' | 'NonConsegnato' | 'Scartato' | 'AccettatoDalDestinatario' | 'RifiutatoDalDestinatario' | 'ImpossibilitaDiRecapito' | 'DecorrenzaTermini' | 'AttestazioneTrasmissioneFattura'; //Filter by the most recent SDI state for the invoice. Matches the `latest_state` field exposed inline on each Send. (optional) (default to undefined)
 let includePayload: boolean; //Include payload in the response. Defaults to false. (optional) (default to undefined)
 let ids: string; //Comma-separated list of Send ids (max 100). Filters the collection to the matching rows; unknown or unauthorized ids are silently skipped. (optional) (default to undefined)
 let page: number; //Page number. (optional) (default to 1)
@@ -123,6 +127,7 @@ const { status, data } = await apiInstance.sendGet(
     documentDateFrom,
     documentDateTo,
     documentNumber,
+    latestState,
     includePayload,
     ids,
     page,
@@ -148,6 +153,7 @@ const { status, data } = await apiInstance.sendGet(
 | **documentDateFrom** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **documentDateTo** | [**string**] | UTC ISO 8601 (2024-11-29T12:34:56Z) | (optional) defaults to undefined|
 | **documentNumber** | [**string**] | Document number. | (optional) defaults to undefined|
+| **latestState** | [**&#39;Inviato&#39; | &#39;Consegnato&#39; | &#39;NonConsegnato&#39; | &#39;Scartato&#39; | &#39;AccettatoDalDestinatario&#39; | &#39;RifiutatoDalDestinatario&#39; | &#39;ImpossibilitaDiRecapito&#39; | &#39;DecorrenzaTermini&#39; | &#39;AttestazioneTrasmissioneFattura&#39;**]**Array<&#39;Inviato&#39; &#124; &#39;Consegnato&#39; &#124; &#39;NonConsegnato&#39; &#124; &#39;Scartato&#39; &#124; &#39;AccettatoDalDestinatario&#39; &#124; &#39;RifiutatoDalDestinatario&#39; &#124; &#39;ImpossibilitaDiRecapito&#39; &#124; &#39;DecorrenzaTermini&#39; &#124; &#39;AttestazioneTrasmissioneFattura&#39;>** | Filter by the most recent SDI state for the invoice. Matches the &#x60;latest_state&#x60; field exposed inline on each Send. | (optional) defaults to undefined|
 | **includePayload** | [**boolean**] | Include payload in the response. Defaults to false. | (optional) defaults to undefined|
 | **ids** | [**string**] | Comma-separated list of Send ids (max 100). Filters the collection to the matching rows; unknown or unauthorized ids are silently skipped. | (optional) defaults to undefined|
 | **page** | [**number**] | Page number. | (optional) defaults to 1|
@@ -343,7 +349,7 @@ const { status, data } = await apiInstance.sendIdentifierGet(
 # **sendJsonPost**
 > Send sendJsonPost(body)
 
-Add a new invoice using a FatturaPA JSON representation. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
+Add a new invoice using a FatturaPA JSON representation. Property names mirror the FatturaPA XML schema (PascalCase, e.g. `FatturaElettronicaHeader`). The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).  ### Idempotency  To protect against duplicate submissions caused by network retries, you can send an optional `Idempotency-Key` header with any unique, client-generated value (up to 255 characters).  - The first request with a given key is processed normally, and its response (status, body and `Location`) is stored for 24 hours. - Any subsequent request that reuses the same key within that window replays the original response instead of sending a second invoice to SDI. - If a request with the same key is still being processed, the retry receives `409 Conflict`. - If the same key is reused with a **different** invoice payload, the request is rejected with `422 Unprocessable Entity`: a given key must always map to the same request.  Keys are scoped per account, so different accounts can use the same key value without interfering. If the idempotency store is temporarily unavailable, the request is processed normally without idempotency protection.
 
 ### Example
 
@@ -359,11 +365,13 @@ const apiInstance = new SendApi(configuration);
 let body: object; //
 let validate: boolean; //Validate the document first, and reject it on failure. (optional) (default to false)
 let signature: 'None' | 'Apply' | 'Force' | 'Auto'; //Whether to digitally sign the document. (optional) (default to 'Auto')
+let idempotencyKey: string; //Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.sendJsonPost(
     body,
     validate,
-    signature
+    signature,
+    idempotencyKey
 );
 ```
 
@@ -374,6 +382,7 @@ const { status, data } = await apiInstance.sendJsonPost(
 | **body** | **object**|  | |
 | **validate** | [**boolean**] | Validate the document first, and reject it on failure. | (optional) defaults to false|
 | **signature** | [**&#39;None&#39; | &#39;Apply&#39; | &#39;Force&#39; | &#39;Auto&#39;**]**Array<&#39;None&#39; &#124; &#39;Apply&#39; &#124; &#39;Force&#39; &#124; &#39;Auto&#39;>** | Whether to digitally sign the document. | (optional) defaults to 'Auto'|
+| **idempotencyKey** | [**string**] | Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -401,7 +410,7 @@ const { status, data } = await apiInstance.sendJsonPost(
 # **sendPost**
 > Send sendPost(send)
 
-Add a new invoice using a structured Send object. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
+Add a new invoice using a structured Send object. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).  ### Idempotency  To protect against duplicate submissions caused by network retries, you can send an optional `Idempotency-Key` header with any unique, client-generated value (up to 255 characters).  - The first request with a given key is processed normally, and its response (status, body and `Location`) is stored for 24 hours. - Any subsequent request that reuses the same key within that window replays the original response instead of sending a second invoice to SDI. - If a request with the same key is still being processed, the retry receives `409 Conflict`. - If the same key is reused with a **different** invoice payload, the request is rejected with `422 Unprocessable Entity`: a given key must always map to the same request.  Keys are scoped per account, so different accounts can use the same key value without interfering. If the idempotency store is temporarily unavailable, the request is processed normally without idempotency protection.
 
 ### Example
 
@@ -418,11 +427,13 @@ const apiInstance = new SendApi(configuration);
 let send: Send; //
 let validate: boolean; //Validate the document first, and reject it on failure. (optional) (default to false)
 let signature: 'None' | 'Apply' | 'Force' | 'Auto'; //Whether to digitally sign the document. (optional) (default to 'Auto')
+let idempotencyKey: string; //Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.sendPost(
     send,
     validate,
-    signature
+    signature,
+    idempotencyKey
 );
 ```
 
@@ -433,6 +444,7 @@ const { status, data } = await apiInstance.sendPost(
 | **send** | **Send**|  | |
 | **validate** | [**boolean**] | Validate the document first, and reject it on failure. | (optional) defaults to false|
 | **signature** | [**&#39;None&#39; | &#39;Apply&#39; | &#39;Force&#39; | &#39;Auto&#39;**]**Array<&#39;None&#39; &#124; &#39;Apply&#39; &#124; &#39;Force&#39; &#124; &#39;Auto&#39;>** | Whether to digitally sign the document. | (optional) defaults to 'Auto'|
+| **idempotencyKey** | [**string**] | Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -512,7 +524,7 @@ void (empty response body)
 # **sendValidateJsonPost**
 > sendValidateJsonPost(body)
 
-Validate a JSON invoice without sending it to SDI. Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
+Validate a FatturaPA JSON invoice without sending it to SDI. Property names mirror the FatturaPA XML schema (PascalCase, e.g. `FatturaElettronicaHeader`). Use this to check for errors before actual submission. Returns validation results with any errors found.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).
 
 ### Example
 
@@ -669,7 +681,7 @@ void (empty response body)
 # **sendXmlPost**
 > Send sendXmlPost(body)
 
-Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).
+Add a new invoice using a raw XML document in FatturaPA format. The invoice will be signed (if requested), validated (if requested), and queued for delivery to SDI. Status updates from SDI will be available in the `update` endpoint.  **Send** invoices are outbound sales invoices transmitted to customers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 15 days in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  You can also upload invoices via the [Dashboard](https://dashboard.invoicetronic.com).  ### Idempotency  To protect against duplicate submissions caused by network retries, you can send an optional `Idempotency-Key` header with any unique, client-generated value (up to 255 characters).  - The first request with a given key is processed normally, and its response (status, body and `Location`) is stored for 24 hours. - Any subsequent request that reuses the same key within that window replays the original response instead of sending a second invoice to SDI. - If a request with the same key is still being processed, the retry receives `409 Conflict`. - If the same key is reused with a **different** invoice payload, the request is rejected with `422 Unprocessable Entity`: a given key must always map to the same request.  Keys are scoped per account, so different accounts can use the same key value without interfering. If the idempotency store is temporarily unavailable, the request is processed normally without idempotency protection.
 
 ### Example
 
@@ -685,11 +697,13 @@ const apiInstance = new SendApi(configuration);
 let body: object; //
 let validate: boolean; //Validate the document first, and reject it on failure. (optional) (default to false)
 let signature: 'None' | 'Apply' | 'Force' | 'Auto'; //Whether to digitally sign the document. (optional) (default to 'Auto')
+let idempotencyKey: string; //Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.sendXmlPost(
     body,
     validate,
-    signature
+    signature,
+    idempotencyKey
 );
 ```
 
@@ -700,6 +714,7 @@ const { status, data } = await apiInstance.sendXmlPost(
 | **body** | **object**|  | |
 | **validate** | [**boolean**] | Validate the document first, and reject it on failure. | (optional) defaults to false|
 | **signature** | [**&#39;None&#39; | &#39;Apply&#39; | &#39;Force&#39; | &#39;Auto&#39;**]**Array<&#39;None&#39; &#124; &#39;Apply&#39; &#124; &#39;Force&#39; &#124; &#39;Auto&#39;>** | Whether to digitally sign the document. | (optional) defaults to 'Auto'|
+| **idempotencyKey** | [**string**] | Optional client-generated key that makes the submission idempotent. Retrying the same request with the same key within 24 hours returns the original response instead of creating a duplicate invoice. | (optional) defaults to undefined|
 
 
 ### Return type

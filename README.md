@@ -4,10 +4,24 @@ The [Invoicetronic API][2] is a RESTful service that allows you to send and rece
 
 For more information, see  [Invoicetronic website][2]
 
+## Before you start
+
+For the full integration guide, tutorials, SDKs and quickstarts, see the **[Documentation](https://invoicetronic.com/en/docs/)**. A few cross-cutting topics worth knowing before integrating:
+
+- **[Prerequisites](https://invoicetronic.com/en/docs/prerequisites/)** — what you need to start in Sandbox and what's required to move to production.
+- **[API Keys](https://invoicetronic.com/en/docs/apikeys/)** — how `ik_live_` and `ik_test_` keys select the environment.
+- **[Sandbox](https://invoicetronic.com/en/docs/sandbox/)** — free test environment that mirrors the live workflow, with no credits consumed.
+- **[Rate Limiting](https://invoicetronic.com/en/docs/ratelimiting/)** — per-second, per-minute and per-day limits; how to handle `429 Too Many Requests`.
+- **[Pagination](https://invoicetronic.com/en/docs/pagination/)** — `page` and `page_size` parameters and the `Invoicetronic-Total-Count` response header.
+- **[CORS](https://invoicetronic.com/en/docs/cors/)** — calling the API from the browser; allowed origins are configured per key.
+- **[Webhooks](https://invoicetronic.com/en/docs/webhooks/)** — real-time event notifications with HMAC-SHA256 signature validation.
+- **[Localization](https://invoicetronic.com/en/docs/accept-language/)** — use the `Accept-Language` header to receive error messages in Italian, English or German.
+
 [1]: https://www.fatturapa.gov.it/it/sistemainterscambio/cose-il-sdi/
 [2]: https://invoicetronic.com/
 
-## @invoicetronic/ts-sdk@1.8
+
+## @invoicetronic/ts-sdk@1.9
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -45,7 +59,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @invoicetronic/ts-sdk@1.8 --save
+npm install @invoicetronic/ts-sdk@1.9 --save
 ```
 
 _unPublished (not recommended):_
