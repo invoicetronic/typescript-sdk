@@ -36,8 +36,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+
+      # Required, not cosmetic: the publish below authenticates to npm via OIDC trusted
+      # publishing (no NODE_AUTH_TOKEN anywhere in this workflow), and OIDC needs npm >= 11.5.1,
+      # while Node ships npm 10.x. Without this step npm falls back to the placeholder token
+      # setup-node writes into .npmrc and the registry answers 404 on PUT. Keep Node new enough
+      # for the current npm@latest: npm 12 requires ^22.22.2 || ^24.15.0 || >=26.
+      - name: Upgrade npm to latest
+        run: npm install -g npm@latest
 
       - name: Install dependencies
         run: npm install
