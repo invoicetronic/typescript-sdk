@@ -13,14 +13,46 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Permissions } from './permissions';
 
-export interface ProblemDetails {
-    [key: string]: any;
-
-    'type'?: string | null;
-    'title'?: string | null;
-    'status'?: number | null;
-    'detail'?: string | null;
-    'instance'?: string | null;
+/**
+ * A restricted key. Its secrets are returned only when the key is created or rolled.
+ */
+export interface SubKey {
+    /**
+     * Unique identifier.
+     */
+    'id'?: number;
+    /**
+     * Creation date.
+     */
+    'created'?: string;
+    /**
+     * Row version, for optimistic concurrency.
+     */
+    'version'?: number;
+    /**
+     * Human-readable label.
+     */
+    'description'?: string | null;
+    /**
+     * Whether the key can authenticate.
+     */
+    'active'?: boolean;
+    'permissions'?: Permissions;
+    /**
+     * Companies the key can access. Empty means all the companies of the account.
+     */
+    'company_ids'?: Array<number> | null;
+    /**
+     * Browser origins allowed to call the API with this key (CORS).
+     */
+    'cors_origins'?: Array<string> | null;
+    /**
+     * When the secrets replaced by the last roll stop working; null when there are none still valid.
+     */
+    'previous_key_expires_at'?: string | null;
 }
 

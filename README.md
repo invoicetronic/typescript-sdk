@@ -21,7 +21,7 @@ For the full integration guide, tutorials, SDKs and quickstarts, see the **[Docu
 [2]: https://invoicetronic.com/
 
 
-## @invoicetronic/ts-sdk@1.10
+## @invoicetronic/ts-sdk@1.11
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -59,7 +59,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @invoicetronic/ts-sdk@1.10 --save
+npm install @invoicetronic/ts-sdk@1.11 --save
 ```
 
 _unPublished (not recommended):_

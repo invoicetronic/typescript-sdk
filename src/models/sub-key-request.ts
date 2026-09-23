@@ -13,14 +13,30 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Permissions } from './permissions';
 
-export interface ProblemDetails {
-    [key: string]: any;
-
-    'type'?: string | null;
-    'title'?: string | null;
-    'status'?: number | null;
-    'detail'?: string | null;
-    'instance'?: string | null;
+/**
+ * A restricted key to create.
+ */
+export interface SubKeyRequest {
+    /**
+     * Human-readable label, e.g. the name of the tenant the key is for.
+     */
+    'description': string;
+    /**
+     * Whether the key can authenticate. Defaults to true.
+     */
+    'active'?: boolean;
+    'permissions'?: Permissions;
+    /**
+     * Companies the key can access. When omitted or empty, the key can access all the companies of the account, including the ones created later.
+     */
+    'company_ids'?: Array<number> | null;
+    /**
+     * Browser origins allowed to call the API with this key (CORS), e.g. `https://app.example.com` or `*.example.com`. A key used from a browser is public: keep its permissions and companies minimal.
+     */
+    'cors_origins'?: Array<string> | null;
 }
 

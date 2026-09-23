@@ -283,6 +283,7 @@ const { status, data } = await apiInstance.companyPut(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**422** | Unprocessable Content |  -  |
+|**404** | Not Found |  -  |
 |**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
