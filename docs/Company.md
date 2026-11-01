@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **created** | **string** | Creation date. It is set automatically. | [optional] [readonly] [default to undefined]
 **version** | **number** | Row version, for optimistic concurrency. It is set automatically. | [optional] [readonly] [default to undefined]
 **user_id** | **number** | User id. It is set automatically based on the authenticated user. | [optional] [readonly] [default to undefined]
-**vat** | **string** | Vat number. Must include the country code. | [default to undefined]
-**fiscal_code** | **string** | Fiscal code. In most cases it\&#39;s the same as the vat number. | [default to undefined]
+**vat** | **string** | Vat number. Must include the country code. Required when fiscal_code is missing; omit it for entities that only have a fiscal code, such as non-profit organizations. | [optional] [default to undefined]
+**fiscal_code** | **string** | Fiscal code. In most cases it\&#39;s the same as the vat number. When missing, it is derived from the vat number. | [optional] [default to undefined]
 **name** | **string** | Name | [default to undefined]
 
 ## Example

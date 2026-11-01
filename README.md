@@ -10,6 +10,7 @@ For the full integration guide, tutorials, SDKs and quickstarts, see the **[Docu
 
 - **[Prerequisites](https://invoicetronic.com/en/docs/prerequisites/)** — what you need to start in Sandbox and what's required to move to production.
 - **[API Keys](https://invoicetronic.com/en/docs/apikeys/)** — how `ik_live_` and `ik_test_` keys select the environment.
+- **[Restricted Keys](https://invoicetronic.com/en/docs/sub-keys/)** — keys limited to some companies and permissions, managed from the Dashboard or through `/subkey`.
 - **[Sandbox](https://invoicetronic.com/en/docs/sandbox/)** — free test environment that mirrors the live workflow, with no credits consumed.
 - **[Rate Limiting](https://invoicetronic.com/en/docs/ratelimiting/)** — per-second, per-minute and per-day limits; how to handle `429 Too Many Requests`.
 - **[Pagination](https://invoicetronic.com/en/docs/pagination/)** — `page` and `page_size` parameters and the `Invoicetronic-Total-Count` response header.
@@ -21,7 +22,7 @@ For the full integration guide, tutorials, SDKs and quickstarts, see the **[Docu
 [2]: https://invoicetronic.com/
 
 
-## @invoicetronic/ts-sdk@1.11
+## @invoicetronic/ts-sdk@1.12
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -59,7 +60,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @invoicetronic/ts-sdk@1.11 --save
+npm install @invoicetronic/ts-sdk@1.12 --save
 ```
 
 _unPublished (not recommended):_

@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 # **receiveGet**
 > Array<Receive> receiveGet()
 
-Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, document number, and free-text search (`q`). Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  Inbound invoices are routed to your account via the recipient VAT number, so the recipient company must exist in Invoicetronic for the invoice to be matched. If an invoice arrives before its company has been registered, it is held by our SDI infrastructure and automatically re-processed once the company is created—no invoice is lost. See [Prerequisites](https://invoicetronic.com/en/docs/prerequisites/) for the recommended setup order.
+Retrieve a paginated list of receive invoices. Results can be filtered by various criteria such as company, date ranges, sender, document number, and free-text search (`q`). Returns invoice metadata; set `include_payload` to true to include the full invoice content. Invoices are marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  Inbound invoices are routed to your account via the recipient VAT number, or its fiscal code when the invoice has no VAT number, so the recipient company must exist in Invoicetronic for the invoice to be matched. If an invoice arrives before its company has been registered, it is held by our SDI infrastructure and automatically re-processed once the company is created—no invoice is lost. See [Prerequisites](https://invoicetronic.com/en/docs/prerequisites/) for the recommended setup order.
 
 ### Example
 
@@ -109,6 +109,7 @@ const { status, data } = await apiInstance.receiveGet(
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
 |**404** | Not Found |  -  |
+|**400** | Bad Request |  -  |
 |**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -116,7 +117,7 @@ const { status, data } = await apiInstance.receiveGet(
 # **receiveIdDelete**
 > Receive receiveIdDelete()
 
-Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  Inbound invoices are routed to your account via the recipient VAT number, so the recipient company must exist in Invoicetronic for the invoice to be matched. If an invoice arrives before its company has been registered, it is held by our SDI infrastructure and automatically re-processed once the company is created—no invoice is lost. See [Prerequisites](https://invoicetronic.com/en/docs/prerequisites/) for the recommended setup order.
+Permanently delete a receive invoice by its internal id. This action cannot be undone.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  Inbound invoices are routed to your account via the recipient VAT number, or its fiscal code when the invoice has no VAT number, so the recipient company must exist in Invoicetronic for the invoice to be matched. If an invoice arrives before its company has been registered, it is held by our SDI infrastructure and automatically re-processed once the company is created—no invoice is lost. See [Prerequisites](https://invoicetronic.com/en/docs/prerequisites/) for the recommended setup order.
 
 ### Example
 
@@ -154,13 +155,16 @@ const { status, data } = await apiInstance.receiveIdDelete(
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/problem+json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
+|**422** | Unprocessable Content |  -  |
+|**400** | Bad Request |  -  |
+|**409** | Conflict |  -  |
 |**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -168,7 +172,7 @@ const { status, data } = await apiInstance.receiveIdDelete(
 # **receiveIdGet**
 > Receive receiveIdGet()
 
-Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  Inbound invoices are routed to your account via the recipient VAT number, so the recipient company must exist in Invoicetronic for the invoice to be matched. If an invoice arrives before its company has been registered, it is held by our SDI infrastructure and automatically re-processed once the company is created—no invoice is lost. See [Prerequisites](https://invoicetronic.com/en/docs/prerequisites/) for the recommended setup order.
+Retrieve an incoming invoice by its internal id. The `id` is unique and assigned by the system when the invoice is received. Returns invoice metadata; set `include_payload` to true to include the full invoice content. The invoice is marked as read (`is_read` = true) only when `include_payload` is true.  **Receive** invoices are inbound purchase invoices received from suppliers through Italy\'s SDI (Sistema di Interscambio). Preserved for two years in the live environment and 24 hours in the [Sandbox](https://invoicetronic.com/en/docs/sandbox/).  Inbound invoices are routed to your account via the recipient VAT number, or its fiscal code when the invoice has no VAT number, so the recipient company must exist in Invoicetronic for the invoice to be matched. If an invoice arrives before its company has been registered, it is held by our SDI infrastructure and automatically re-processed once the company is created—no invoice is lost. See [Prerequisites](https://invoicetronic.com/en/docs/prerequisites/) for the recommended setup order.
 
 ### Example
 
